@@ -1,6 +1,6 @@
 # Sample Design System
 
-A playground for designers learning AI design system workflows. It is a small, real design system built on [Base UI](https://base-ui.com) primitives, documented in [Storybook](https://storybook.js.org) and mirrored into Figma, so you can try the whole loop yourself: tokens in code, components in Storybook, the same system as Figma variables and components, and AI tools connected to both through MCP.
+A playground for design enginneers learning AI design system workflows. It is a small, plain-label system built on [Base UI](https://base-ui.com) primitives, and mirrored into Figma, so you can try the whole loop yourself: tokens in code, components in Storybook, the same system as Figma variables and components, and AI tools connected to both through MCP.
 
 It is a teaching repo, not a production system. 42 components, 4 foundations pages, 4 full-screen patterns.
 
@@ -317,8 +317,11 @@ See [docs/branching.md](docs/branching.md). `main` is the design system; changes
 
 ## Credits
 
-The design system health check in `.claude/skills/ds-inspection/` is the
+This repo is based off of **[Christine Vallalaure's ds-base-ui playground](https://github.com/christinevall/ds-base-ui)**. The design system health check in `.claude/skills/ds-inspection/` is the
 `ds-inspection` skill by **[Brad Frost](https://bradfrost.com)**, from
 <https://github.com/bradfrost/skills>, bundled here under the MIT licence so
 that it runs with no setup. See
 [`.claude/skills/ds-inspection/ATTRIBUTION.md`](.claude/skills/ds-inspection/ATTRIBUTION.md).
+
+## License
+MIT License - see the [LICENSE](https://github.com/southleft/ds-audit/blob/master/LICENSE).
