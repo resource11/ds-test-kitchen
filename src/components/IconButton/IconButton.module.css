@@ -1,0 +1,87 @@
+.root {
+  /* validate-allow: type — layout, not type: an icon-only button holds no text; the line height only stops inline-flex growing to the font's default height. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  padding: var(--sds-space-0);
+  border: 1px solid transparent;
+  border-radius: var(--sds-radius-md);
+  font-family: var(--sds-font-sans);
+  line-height: var(--sds-line-height-tight);
+  cursor: pointer;
+  transition:
+    background-color var(--sds-duration-fast) var(--sds-easing-standard),
+    border-color var(--sds-duration-fast) var(--sds-easing-standard),
+    color var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.root:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: 2px;
+}
+
+.root[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.root svg {
+  display: block;
+}
+
+/* Sizes: square, matching the Button heights. */
+.sm {
+  width: 32px;
+  height: 32px;
+}
+
+.md {
+  width: 40px;
+  height: 40px;
+}
+
+.lg {
+  width: 48px;
+  height: 48px;
+}
+
+/* Variants, mirroring Button. */
+.primary {
+  background: var(--sds-color-background-accent);
+  color: var(--sds-color-content-on-accent);
+}
+.primary:hover:not([data-disabled]) {
+  background: var(--sds-color-background-accent-hover);
+}
+.primary:active:not([data-disabled]) {
+  background: var(--sds-color-background-accent-active);
+}
+
+.secondary {
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
+  border-color: var(--sds-color-border-default);
+  box-shadow: var(--sds-elevation-raised);
+}
+.secondary:hover:not([data-disabled]) {
+  background: var(--sds-color-background-sunken);
+  border-color: var(--sds-color-border-strong);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--sds-color-content-muted);
+}
+.ghost:hover:not([data-disabled]) {
+  background: var(--sds-color-background-accent-subtle);
+  color: var(--sds-color-content-accent);
+}
+
+.danger {
+  background: var(--sds-color-background-danger);
+  color: var(--sds-color-content-on-danger);
+}
+.danger:hover:not([data-disabled]) {
+  background: var(--sds-color-background-danger-hover);
+}

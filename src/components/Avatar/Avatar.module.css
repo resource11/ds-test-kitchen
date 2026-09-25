@@ -1,0 +1,62 @@
+.root {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  overflow: hidden;
+  border-radius: var(--sds-radius-full);
+  background: var(--sds-color-background-sunken);
+  color: var(--sds-color-content-muted);
+  font-family: var(--sds-font-sans);
+  user-select: none;
+  vertical-align: middle;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+/* Sizes come off the space scale so avatars line up with other controls. */
+.sm {
+  width: var(--sds-space-6);
+  height: var(--sds-space-6);
+  font-family: var(--sds-typography-label-sm-font-family);
+  font-size: var(--sds-typography-label-sm-font-size);
+  font-weight: var(--sds-typography-label-sm-font-weight);
+  line-height: var(--sds-typography-label-sm-line-height);
+  letter-spacing: var(--sds-typography-label-sm-letter-spacing);
+  text-transform: var(--sds-typography-label-sm-text-transform);
+}
+.md {
+  width: var(--sds-space-8);
+  height: var(--sds-space-8);
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
+}
+.lg {
+  width: var(--sds-space-12);
+  height: var(--sds-space-12);
+  font-family: var(--sds-typography-label-lg-font-family);
+  font-size: var(--sds-typography-label-lg-font-size);
+  font-weight: var(--sds-typography-label-lg-font-weight);
+  line-height: var(--sds-typography-label-lg-line-height);
+  letter-spacing: var(--sds-typography-label-lg-letter-spacing);
+  text-transform: var(--sds-typography-label-lg-text-transform);
+}

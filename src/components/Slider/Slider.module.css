@@ -1,0 +1,145 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-1);
+  width: 100%;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-2);
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sds-space-3);
+}
+
+.label {
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
+  color: var(--sds-color-content-default);
+}
+
+.value {
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
+  color: var(--sds-color-content-muted);
+}
+
+.control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--sds-space-5);
+  touch-action: none;
+  cursor: pointer;
+}
+
+.control[data-disabled] {
+  cursor: not-allowed;
+}
+
+.track {
+  position: relative;
+  width: 100%;
+  height: var(--sds-space-1);
+  background: var(--sds-color-background-sunken);
+  border: 1px solid var(--sds-color-border-default);
+  border-radius: var(--sds-radius-full);
+}
+
+.indicator {
+  background: var(--sds-color-background-accent);
+  border-radius: inherit;
+}
+
+.thumb {
+  width: var(--sds-space-5);
+  height: var(--sds-space-5);
+  background: var(--sds-color-background-surface);
+  border: 2px solid var(--sds-color-border-accent);
+  border-radius: var(--sds-radius-full);
+  box-shadow: var(--sds-elevation-raised);
+  transition: box-shadow var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+/*
+ * `Slider.Thumb` renders a div wrapping a visually hidden `<input type="range">`;
+ * the input takes focus, never the div, so `:focus-visible` on the thumb itself
+ * would never match.
+ */
+.thumb:has(:focus-visible) {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: 2px;
+}
+
+.thumb[data-dragging] {
+  box-shadow: var(--sds-elevation-floating);
+}
+
+/*
+ * `Slider.Root` accepts `orientation="vertical"`; the primitive swaps the axis
+ * it reads, but the track still has to be turned on its side here.
+ */
+.slider[data-orientation='vertical'] {
+  width: max-content;
+}
+
+.control[data-orientation='vertical'] {
+  flex-direction: column;
+  justify-content: center;
+  width: var(--sds-space-5);
+  height: 100%;
+  min-height: 8rem;
+}
+
+.track[data-orientation='vertical'] {
+  width: var(--sds-space-1);
+  height: 100%;
+}
+
+.slider[data-disabled] .indicator {
+  background: var(--sds-color-border-strong);
+}
+
+.slider[data-disabled] .thumb {
+  border-color: var(--sds-color-border-strong);
+}
+
+.slider[data-disabled] {
+  opacity: 0.5;
+}
+
+.description {
+  font-family: var(--sds-typography-caption-font-family);
+  font-size: var(--sds-typography-caption-font-size);
+  font-weight: var(--sds-typography-caption-font-weight);
+  line-height: var(--sds-typography-caption-line-height);
+  letter-spacing: var(--sds-typography-caption-letter-spacing);
+  text-transform: var(--sds-typography-caption-text-transform);
+  color: var(--sds-color-content-muted);
+}
+
+.error {
+  font-family: var(--sds-typography-caption-font-family);
+  font-size: var(--sds-typography-caption-font-size);
+  font-weight: var(--sds-typography-caption-font-weight);
+  line-height: var(--sds-typography-caption-line-height);
+  letter-spacing: var(--sds-typography-caption-letter-spacing);
+  text-transform: var(--sds-typography-caption-text-transform);
+  color: var(--sds-color-content-danger);
+}

@@ -1,0 +1,57 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sds-space-2);
+}
+
+.root[data-orientation='vertical'] {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.root[data-disabled] {
+  cursor: not-allowed;
+}
+
+/* Segmented control: one joined track instead of separate buttons.
+   Children are targeted by element rather than class, because the Toggle's
+   own class names are scoped to its own module. */
+.segmented {
+  gap: 0;
+  padding: var(--sds-space-1);
+  background: var(--sds-color-background-sunken);
+  border: 1px solid var(--sds-color-border-default);
+  border-radius: var(--sds-radius-md);
+}
+
+.segmented > button {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--sds-color-content-muted);
+  border-radius: var(--sds-radius-sm);
+  flex: 1;
+}
+
+.segmented > button:hover:not([data-disabled]) {
+  background: transparent;
+  border-color: transparent;
+  color: var(--sds-color-content-default);
+}
+
+.segmented > button[data-pressed] {
+  background: var(--sds-color-background-surface);
+  border-color: var(--sds-color-border-default);
+  color: var(--sds-color-content-default);
+  box-shadow: var(--sds-elevation-raised);
+}
+
+.segmented > button[data-pressed]:hover:not([data-disabled]) {
+  background: var(--sds-color-background-surface);
+  border-color: var(--sds-color-border-strong);
+  color: var(--sds-color-content-default);
+}
+
+.segmented[data-orientation='vertical'] > button {
+  width: 100%;
+}

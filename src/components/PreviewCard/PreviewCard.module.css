@@ -1,0 +1,81 @@
+.positioner {
+  /* Base UI writes position and transform inline; nothing else belongs here. */
+  outline: none;
+}
+
+.popup {
+  box-sizing: border-box;
+  /* Containing block for the arrow, which Base UI positions absolutely. */
+  position: relative;
+  width: max-content;
+  /* `--available-width` accounts for collision padding; `100vw` does not. */
+  max-width: min(20rem, var(--available-width));
+  padding: var(--sds-space-4);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
+  border: 1px solid var(--sds-color-border-default);
+  border-radius: var(--sds-radius-md);
+  box-shadow: var(--sds-elevation-overlay);
+  transform-origin: var(--transform-origin);
+  transition:
+    opacity var(--sds-duration-normal) var(--sds-easing-standard),
+    transform var(--sds-duration-normal) var(--sds-easing-standard);
+}
+
+.popup[data-starting-style],
+.popup[data-ending-style] {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.popup:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: 2px;
+}
+
+/*
+ * Arrow placement. The offsets are the geometry of the 20x10 SVG, not spacing
+ * decisions, so there is no token that fits: the arrow is pulled out by its own
+ * height less the 2px it overlaps the popup border by, and by half its width on
+ * the cross axis once rotated.
+ */
+.arrow {
+  display: flex;
+}
+
+.arrow[data-side='top'] {
+  bottom: -8px;
+  rotate: 180deg;
+}
+
+.arrow[data-side='bottom'] {
+  top: -8px;
+}
+
+.arrow[data-side='left'] {
+  right: -13px;
+  rotate: 90deg;
+}
+
+.arrow[data-side='right'] {
+  left: -13px;
+  rotate: -90deg;
+}
+
+.arrowFill {
+  fill: var(--sds-color-background-surface);
+}
+
+.arrowOuterStroke {
+  fill: var(--sds-color-border-default);
+}
+
+.arrowInnerStroke {
+  fill: var(--sds-color-background-surface);
+}

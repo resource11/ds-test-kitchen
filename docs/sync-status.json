@@ -1,0 +1,1149 @@
+{
+  "snapshotDate": "committed 2026-09-23 16:03",
+  "howToRefresh": "To check the live library: open it in Figma, run the Desktop Bridge plugin, ask Claude \"take a snapshot of the library\", then run npm run sync-status again.",
+  "findings": 0,
+  "checks": [
+    {
+      "id": "keys",
+      "label": "Figma key *",
+      "means": "The Figma manifest has the key needed to find it and place it in another file (see * below the table)"
+    },
+    {
+      "id": "both",
+      "label": "Same name",
+      "means": "The Figma component is called what the code calls it (Accordion, Accordion.Item) and points to this code file"
+    },
+    {
+      "id": "names",
+      "label": "Same property names",
+      "means": "Every Figma property is a real prop, part or text of the code component"
+    },
+    {
+      "id": "options",
+      "label": "Same options",
+      "means": "Every variant option in Figma is an allowed value in code"
+    },
+    {
+      "id": "defaults",
+      "label": "Same defaults",
+      "means": "The default Figma variant uses the code defaults"
+    },
+    {
+      "id": "rules",
+      "label": "Code follows the rules",
+      "means": "Its CSS uses existing semantic tokens and whole text styles, no raw colours"
+    }
+  ],
+  "rows": [
+    {
+      "name": "Accordion",
+      "figma": [
+        "Accordion",
+        "Accordion.Item"
+      ],
+      "figmaProps": [
+        "open",
+        "disabled"
+      ],
+      "codeProps": [
+        "className"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Alert",
+      "figma": [
+        "Alert"
+      ],
+      "figmaProps": [
+        "variant"
+      ],
+      "codeProps": [
+        "variant",
+        "title",
+        "onDismiss",
+        "dismissLabel"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "AlertDialog",
+      "figma": [
+        "AlertDialog.Content"
+      ],
+      "figmaProps": [],
+      "codeProps": [
+        "title",
+        "description"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Autocomplete",
+      "figma": [
+        "Autocomplete",
+        "Autocomplete.Content",
+        "Autocomplete.Control",
+        "Autocomplete.Item"
+      ],
+      "figmaProps": [
+        "filled",
+        "open",
+        "disabled",
+        "highlighted"
+      ],
+      "codeProps": [
+        "items",
+        "label",
+        "description",
+        "placeholder",
+        "className",
+        "children",
+        "empty",
+        "controlProps",
+        "contentProps"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Avatar",
+      "figma": [
+        "Avatar"
+      ],
+      "figmaProps": [
+        "size"
+      ],
+      "codeProps": [
+        "src",
+        "alt",
+        "fallback",
+        "size",
+        "fallbackDelay",
+        "className"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Badge",
+      "figma": [
+        "Badge"
+      ],
+      "figmaProps": [
+        "variant",
+        "size"
+      ],
+      "codeProps": [
+        "variant",
+        "size"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Breadcrumb",
+      "figma": [
+        "Breadcrumb",
+        "Breadcrumb.Current",
+        "Breadcrumb.Link",
+        "Breadcrumb.Separator"
+      ],
+      "figmaProps": [],
+      "codeProps": [
+        "aria-label",
+        "listProps"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Button",
+      "figma": [
+        "Button"
+      ],
+      "figmaProps": [
+        "variant",
+        "size",
+        "disabled"
+      ],
+      "codeProps": [
+        "variant",
+        "size",
+        "fullWidth",
+        "render"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Card",
+      "figma": [
+        "Card"
+      ],
+      "figmaProps": [
+        "variant"
+      ],
+      "codeProps": [
+        "variant"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Checkbox",
+      "figma": [
+        "Checkbox"
+      ],
+      "figmaProps": [
+        "checked",
+        "indeterminate",
+        "disabled"
+      ],
+      "codeProps": [
+        "label",
+        "description",
+        "className"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "CheckboxGroup",
+      "figma": [
+        "CheckboxGroup"
+      ],
+      "figmaProps": [
+        "orientation"
+      ],
+      "codeProps": [
+        "label",
+        "description",
+        "orientation",
+        "name",
+        "className"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Collapsible",
+      "figma": [
+        "Collapsible",
+        "Collapsible.Trigger"
+      ],
+      "figmaProps": [
+        "open",
+        "disabled"
+      ],
+      "codeProps": [
+        "className"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Combobox",
+      "figma": [
+        "Combobox",
+        "Combobox.Content",
+        "Combobox.Control",
+        "Combobox.Item"
+      ],
+      "figmaProps": [
+        "filled",
+        "open",
+        "disabled",
+        "highlighted",
+        "selected"
+      ],
+      "codeProps": [
+        "label",
+        "description",
+        "placeholder",
+        "className",
+        "children",
+        "empty",
+        "controlProps",
+        "contentProps"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "ContextMenu",
+      "figma": [],
+      "figmaProps": [],
+      "codeProps": [
+        "side",
+        "align",
+        "sideOffset",
+        "positionerClassName"
+      ],
+      "checks": {
+        "keys": null,
+        "both": null,
+        "names": null,
+        "options": null,
+        "defaults": null,
+        "rules": true
+      },
+      "issues": [],
+      "status": "not mirrored",
+      "why": "the same popup as Menu"
+    },
+    {
+      "name": "Dialog",
+      "figma": [
+        "Dialog.Content"
+      ],
+      "figmaProps": [],
+      "codeProps": [
+        "title",
+        "description"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Fieldset",
+      "figma": [
+        "Fieldset"
+      ],
+      "figmaProps": [
+        "disabled"
+      ],
+      "codeProps": [],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Form",
+      "figma": [],
+      "figmaProps": [],
+      "codeProps": [
+        "errors",
+        "validationMode",
+        "onFormSubmit"
+      ],
+      "checks": {
+        "keys": null,
+        "both": null,
+        "names": null,
+        "options": null,
+        "defaults": null,
+        "rules": true
+      },
+      "issues": [],
+      "status": "not mirrored",
+      "why": "no visuals of its own"
+    },
+    {
+      "name": "IconButton",
+      "figma": [
+        "IconButton"
+      ],
+      "figmaProps": [
+        "variant",
+        "size",
+        "disabled"
+      ],
+      "codeProps": [
+        "label",
+        "variant",
+        "size",
+        "render"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Menu",
+      "figma": [
+        "Menu.Content",
+        "Menu.GroupLabel",
+        "Menu.Item",
+        "Menu.Separator",
+        "Menu.SubmenuTrigger"
+      ],
+      "figmaProps": [
+        "highlighted",
+        "disabled",
+        "open"
+      ],
+      "codeProps": [
+        "side",
+        "align",
+        "sideOffset",
+        "positionerClassName"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Menubar",
+      "figma": [
+        "Menubar",
+        "Menubar.Trigger"
+      ],
+      "figmaProps": [
+        "orientation",
+        "open",
+        "disabled"
+      ],
+      "codeProps": [],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Meter",
+      "figma": [
+        "Meter"
+      ],
+      "figmaProps": [
+        "variant",
+        "size"
+      ],
+      "codeProps": [
+        "label",
+        "showValue",
+        "size",
+        "variant",
+        "className"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "NavigationMenu",
+      "figma": [
+        "NavigationMenu",
+        "NavigationMenu.Link",
+        "NavigationMenu.Trigger"
+      ],
+      "figmaProps": [
+        "active"
+      ],
+      "codeProps": [],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "NumberField",
+      "figma": [
+        "NumberField"
+      ],
+      "figmaProps": [
+        "disabled"
+      ],
+      "codeProps": [
+        "label",
+        "description",
+        "className"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Popover",
+      "figma": [
+        "Popover.Content"
+      ],
+      "figmaProps": [
+        "side"
+      ],
+      "codeProps": [
+        "title",
+        "description",
+        "side",
+        "align",
+        "sideOffset"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "PreviewCard",
+      "figma": [
+        "PreviewCard.Content"
+      ],
+      "figmaProps": [
+        "side"
+      ],
+      "codeProps": [
+        "side",
+        "align",
+        "sideOffset"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Progress",
+      "figma": [
+        "Progress"
+      ],
+      "figmaProps": [
+        "size",
+        "status"
+      ],
+      "codeProps": [
+        "label",
+        "showValue",
+        "size",
+        "className"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "RadioGroup",
+      "figma": [
+        "RadioGroup",
+        "RadioGroupItem"
+      ],
+      "figmaProps": [
+        "orientation",
+        "checked",
+        "disabled"
+      ],
+      "codeProps": [
+        "label",
+        "description",
+        "orientation",
+        "className"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "ScrollArea",
+      "figma": [],
+      "figmaProps": [],
+      "codeProps": [
+        "className",
+        "orientation",
+        "viewportClassName"
+      ],
+      "checks": {
+        "keys": null,
+        "both": null,
+        "names": null,
+        "options": null,
+        "defaults": null,
+        "rules": true
+      },
+      "issues": [],
+      "status": "not mirrored",
+      "why": "behaviour, not something you draw"
+    },
+    {
+      "name": "Select",
+      "figma": [
+        "Select",
+        "Select.Content",
+        "Select.GroupLabel",
+        "Select.Item",
+        "Select.Trigger"
+      ],
+      "figmaProps": [
+        "highlighted",
+        "selected",
+        "disabled",
+        "placeholder",
+        "open"
+      ],
+      "codeProps": [
+        "label",
+        "description",
+        "placeholder",
+        "className",
+        "children",
+        "contentProps"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Separator",
+      "figma": [
+        "Separator"
+      ],
+      "figmaProps": [
+        "orientation"
+      ],
+      "codeProps": [
+        "className",
+        "orientation"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Slider",
+      "figma": [
+        "Slider"
+      ],
+      "figmaProps": [
+        "orientation",
+        "disabled"
+      ],
+      "codeProps": [
+        "label",
+        "description",
+        "showValue",
+        "className"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Spinner",
+      "figma": [
+        "Spinner"
+      ],
+      "figmaProps": [
+        "size"
+      ],
+      "codeProps": [
+        "size",
+        "aria-label"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Switch",
+      "figma": [
+        "Switch"
+      ],
+      "figmaProps": [
+        "checked",
+        "disabled"
+      ],
+      "codeProps": [
+        "label",
+        "description"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Table",
+      "figma": [
+        "Table",
+        "Table.Cell",
+        "Table.HeaderCell"
+      ],
+      "figmaProps": [
+        "striped",
+        "hideCaption",
+        "numeric",
+        "scope"
+      ],
+      "codeProps": [
+        "caption",
+        "hideCaption",
+        "striped",
+        "containerProps"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Tabs",
+      "figma": [
+        "Tabs",
+        "Tabs.Tab"
+      ],
+      "figmaProps": [
+        "orientation",
+        "active",
+        "disabled"
+      ],
+      "codeProps": [],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "TextField",
+      "figma": [
+        "TextField"
+      ],
+      "figmaProps": [
+        "filled",
+        "disabled"
+      ],
+      "codeProps": [
+        "label",
+        "description",
+        "name"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Textarea",
+      "figma": [
+        "Textarea"
+      ],
+      "figmaProps": [
+        "filled",
+        "disabled"
+      ],
+      "codeProps": [
+        "label",
+        "description",
+        "name",
+        "rows",
+        "resize",
+        "className"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Toast",
+      "figma": [
+        "Toast.Root"
+      ],
+      "figmaProps": [
+        "type"
+      ],
+      "codeProps": [],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Toggle",
+      "figma": [
+        "Toggle"
+      ],
+      "figmaProps": [
+        "variant",
+        "size",
+        "pressed",
+        "disabled",
+        "iconOnly"
+      ],
+      "codeProps": [
+        "variant",
+        "size",
+        "iconOnly",
+        "className"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "ToggleGroup",
+      "figma": [
+        "ToggleGroup"
+      ],
+      "figmaProps": [
+        "segmented",
+        "orientation",
+        "disabled"
+      ],
+      "codeProps": [
+        "segmented",
+        "className"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Toolbar",
+      "figma": [
+        "Toolbar",
+        "Toolbar.Button",
+        "Toolbar.Input",
+        "Toolbar.Link",
+        "Toolbar.Separator"
+      ],
+      "figmaProps": [
+        "orientation",
+        "disabled"
+      ],
+      "codeProps": [],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    },
+    {
+      "name": "Tooltip",
+      "figma": [
+        "Tooltip.Content"
+      ],
+      "figmaProps": [
+        "side"
+      ],
+      "codeProps": [
+        "side",
+        "align",
+        "sideOffset"
+      ],
+      "checks": {
+        "keys": true,
+        "both": true,
+        "names": true,
+        "options": true,
+        "defaults": true,
+        "rules": true
+      },
+      "issues": [],
+      "status": "match",
+      "why": null
+    }
+  ],
+  "systemWide": [],
+  "tokens": {
+    "variables": 176,
+    "textStyles": 14,
+    "effectStyles": 3
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "storybook-base-ui": {
+      "url": "http://localhost:6001/mcp"
+    }
+  }
+}

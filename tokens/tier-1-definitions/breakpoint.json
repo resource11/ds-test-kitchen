@@ -1,0 +1,10 @@
+{
+  "breakpoint": {
+    "$type": "dimension",
+    "$description": "Minimum widths, smallest first. Named by size, not by device: a 768px window is md whether it is a tablet, a split-screen laptop or a phone in landscape.",
+    "sm": { "$value": "30rem", "$description": "480px and up" },
+    "md": { "$value": "48rem", "$description": "768px and up" },
+    "lg": { "$value": "64rem", "$description": "1024px and up" },
+    "xl": { "$value": "80rem", "$description": "1280px and up" }
+  }
+}

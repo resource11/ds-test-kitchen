@@ -1,0 +1,61 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { SyncIssues, SyncSummary, SyncTable } from './sync-status/SyncStatusTable';
+
+<Meta title="Sync status" />
+
+# Sync status: code and Figma, side by side
+
+Every component exists twice: here in code, and in the Figma library. This page shows whether the two still agree. **Code is the source**: when they disagree, Figma is updated (with the `figma-library-from-code` skill), never the code.
+
+<SyncSummary />
+
+## How to read it
+
+Every column is one thing code and Figma must agree on.
+
+**How it compares.** Two manifests, one per side, read by `npm run sync-status`:
+
+- **Code:** the [Storybook manifest](https://christinevall.github.io/ds-base-ui/manifests/components.json), generated from the source on every Storybook build. Every component with its props, options and defaults.
+- **Figma:** the [Figma manifest](https://github.com/christinevall/ds-base-ui/blob/main/figma/manifest.json), a snapshot of the library. Every component with its properties, options, defaults and key.
+
+The check lines them up component by component and asks the questions below. Where the answers differ, the cell turns ✗.
+
+- **Figma key \*:** the handle an AI needs to find this component and place it in another Figma file is recorded.
+- **Same name:** the Figma component is called what the code calls it. `Accordion` in Figma is `Accordion` in code, so people recognise it and a screen can come back into code. (The key alone would survive a rename; the name would not.)
+- **Same property names:** every property in Figma is a real prop, part or text in code. `variant` in Figma is `variant` in code.
+- **Same options:** every variant option in Figma is allowed in code. `size=md` exists in both.
+- **Same defaults:** the Figma component starts on the same options as the code.
+- **Code follows the rules:** the component's CSS uses real semantic tokens and whole text styles, and no raw colours.
+
+<SyncTable />
+
+\* **Why the Figma key matters.** A name says *which* component to use; Figma only places a library component by its key. With every key saved in `figma/manifest.json`, Claude builds a Figma screen by looking keys up instead of searching the whole library. On the booking flow (2026-09-23) the search alone was about 59,000 characters, more than building all four screens (about 25,000). With the key map, the whole job is roughly a third. And because the screen is made of library instances, not drawn copies, it stays linked to the system and cannot drift.
+
+## Needs attention
+
+<SyncIssues />
+
+## What it checks, and what it does not
+
+**It checks the names: the API.** Is the component there, are its properties called the same, do the options and defaults match, can it be found. That is what a designer and an AI rely on when they pick a component and set it up, and it is what makes a Figma screen come back into code without guessing.
+
+**It does not check the look.** If you change the auto layout, a padding, a colour or a corner radius inside a Figma component, nothing here turns red. The names still match, so the page still says "agree". The same goes the other way: a CSS change in code is only checked for using tokens, not for matching Figma.
+
+Two other things catch that:
+
+- **The audit** (`scripts/figma/audit.figma.js`, run through Claude with Figma open) checks that every colour, padding, gap and radius in a Figma component is bound to a variable. It does not check that it is bound to the *right* one.
+- **Comparing screenshots** of Figma and Storybook. That is how the Accordion panel padding was found on 2026-09-23: in Figma the left and right padding were swapped with the top and bottom.
+
+### Not yet (parked)
+
+**A "Same look" column.** Compare what each Figma layer is bound to (padding, gap, radius, colour, text style, shadow) with what the CSS says: `.header` ↔ `Card.Header`, `size=md` ↔ `.md`. Tested on Card, Button and Accordion, and all three match. Known differences, like the Card body padding, would carry a mark on the Figma layer, with `figma/GAPS.md` explaining why. Parked until the prototype skill is done, because the first full run needs decisions on what is drift and what is a known gap.
+
+**Also not checked:** the live Figma file. This page reads the last snapshot of the library (the date is at the top). If someone changed the library since, run the snapshot again. Where Figma cannot match the code on purpose, `figma/GAPS.md` explains why.
+
+## Update it
+
+```bash
+npm run sync-status
+```
+
+It rewrites this page's data and `docs/sync-status.md`. Claude runs the same check at the start of every session and says the result in its first line.

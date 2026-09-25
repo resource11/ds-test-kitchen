@@ -1,0 +1,3747 @@
+{
+  "file": "sample-design-system",
+  "components": [
+    {
+      "name": "Accordion",
+      "page": "Accordion",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Accordion/Accordion.tsx",
+      "description": "Contract — src/components/Accordion/Accordion.tsx: Accordion.Root with three exposed Accordion.Item instances, as in the Default story at 480px (none open). Open an item on its instance; coming back, the open items' values are the Root's defaultValue (multiple allows more than one).",
+      "props": []
+    },
+    {
+      "name": "Accordion.Item",
+      "page": "Accordion",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "open=false, disabled=false",
+      "source": "src/components/Accordion/Accordion.tsx",
+      "description": "Contract — src/components/Accordion/Accordion.tsx: Accordion.Item > Accordion.Header > Accordion.Trigger, then Accordion.Panel. open: false | true — Base UI state: the item whose value is in the Root's value/defaultValue; turns the chevron 180°. disabled: false | true (an Item prop; the Root's disabled cascades). trigger → Accordion.Trigger (text). panel → Accordion.Panel (text). The chevron (icon/chevron-down-accordion) is drawn by the component.",
+      "props": [
+        {
+          "name": "trigger",
+          "type": "TEXT",
+          "default": "How does billing work?"
+        },
+        {
+          "name": "panel",
+          "type": "TEXT",
+          "default": "Plans are billed monthly on the day you subscribed. Changing plan mid-cycle prorates the difference on your next invoice."
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Alert",
+      "page": "Alert",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "variant=info",
+      "source": "src/components/Alert/Alert.tsx",
+      "description": "An inline message block. No Base UI primitive to wrap; the job is semantics.\nContract — src/components/Alert/Alert.tsx: variant (info | success | warning | danger, default info), title (the headline, required), children (the body copy), onDismiss (in code, passing it renders the dismiss button). Width is Fill container on the instance.",
+      "props": [
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Scheduled maintenance"
+        },
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Exports are paused on Sunday from 02:00 to 04:00 UTC."
+        },
+        {
+          "name": "onDismiss",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "info",
+            "success",
+            "warning",
+            "danger"
+          ],
+          "default": "info"
+        }
+      ]
+    },
+    {
+      "name": "AlertDialog.Content",
+      "page": "AlertDialog",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/AlertDialog/AlertDialog.tsx",
+      "description": "Contract — src/components/AlertDialog/AlertDialog.tsx: AlertDialog.Content — portal, backdrop and popup, centred on the viewport — as in the Default story. title: text, required (heading-xl). description → AlertDialog.Description (text). AlertDialog.Actions: the button row, end-aligned; its Buttons are exposed (AlertDialog.Close renders them). Width: min(26rem, 100vw − space/8).",
+      "props": [
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Discard draft?"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Your changes since the last save will be lost."
+        },
+        {
+          "name": "AlertDialog.Description",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "AlertDialog.Actions",
+          "type": "BOOLEAN",
+          "default": true
+        }
+      ]
+    },
+    {
+      "name": "Autocomplete",
+      "page": "Autocomplete",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Autocomplete/Autocomplete.tsx",
+      "description": "Contract — src/components/Autocomplete/Autocomplete.tsx: Autocomplete, a text input with suggestions, wired to a label, description and validation message, as in the stories at 320px. Unlike Combobox, any text is kept as the value. label: text, required. description → Field.Description (text, off by default). filled, open, disabled, clearable, showTrigger: on the exposed Autocomplete.Control. Not mirrored: Field.Error and the invalid border.",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Language"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Suggestions are hints. Any text you type is kept as the value."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "Autocomplete.Content",
+      "page": "Autocomplete",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Autocomplete/Autocomplete.tsx",
+      "description": "Contract — src/components/Autocomplete/Autocomplete.tsx: Autocomplete.Content — portal, positioner, popup and list — with the first languages of the stories' list. Input-wide (--anchor-width, runtime; 320px here), below, aligned to the start, 4px away. The suggestions are exposed Autocomplete.Item instances. Autocomplete.Empty shows when nothing matches (NoSuggestions story).",
+      "props": []
+    },
+    {
+      "name": "Autocomplete.Control",
+      "page": "Autocomplete",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "filled=false, open=false, disabled=false",
+      "source": "src/components/Autocomplete/Autocomplete.tsx",
+      "description": "Contract — src/components/Autocomplete/Autocomplete.tsx: Autocomplete.Control — the input with its clear and trigger buttons. filled: false | true — Base UI Field state: the placeholder, or a value. open: false | true — flips the chevron. disabled: false | true. clearable (default true): the clear button, shown on the filled variants. showTrigger (default false, unlike Combobox): the chevron button (WithTriggerButton story). placeholder and value: their texts.",
+      "props": [
+        {
+          "name": "placeholder",
+          "type": "TEXT",
+          "default": "Start typing"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "Rust"
+        },
+        {
+          "name": "clearable",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "showTrigger",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "filled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Autocomplete.Item",
+      "page": "Autocomplete",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "highlighted=false, disabled=false",
+      "source": "src/components/Autocomplete/Autocomplete.tsx",
+      "description": "Contract — src/components/Autocomplete/Autocomplete.tsx: Autocomplete.Item, one suggestion. highlighted: false | true — Base UI state, the suggestion under the pointer or keyboard. disabled: false | true. children: its text. No indicator and no selected state: a suggestion fills the input, it does not become a value.",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "C"
+        },
+        {
+          "name": "highlighted",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Avatar",
+      "page": "Avatar",
+      "kind": "set",
+      "variants": 3,
+      "defaultVariant": "size=md",
+      "source": "src/components/Avatar/Avatar.tsx",
+      "description": "A person’s picture, or their initials. Wraps Base UI’s Avatar.\nContract — src/components/Avatar/Avatar.tsx: size (sm | md | lg, default md), fallback (the initials). src is not mirrored, so Figma always shows the fallback.",
+      "props": [
+        {
+          "name": "fallback",
+          "type": "TEXT",
+          "default": "DW"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm",
+            "lg"
+          ],
+          "default": "md"
+        }
+      ]
+    },
+    {
+      "name": "Badge",
+      "page": "Badge",
+      "kind": "set",
+      "variants": 10,
+      "defaultVariant": "variant=neutral, size=md",
+      "source": "src/components/Badge/Badge.tsx",
+      "description": "A small status or counter label. Non-interactive, so it renders a plain <span>; no Base UI primitive to wrap.\nContract — src/components/Badge/Badge.tsx: variant (neutral | accent | success | warning | danger, default neutral), size (sm | md, default md), children (the text). Property and value names are the code’s own.",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Badge"
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "neutral",
+            "accent",
+            "success",
+            "warning",
+            "danger"
+          ],
+          "default": "neutral"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "sm",
+            "md"
+          ],
+          "default": "md"
+        }
+      ]
+    },
+    {
+      "name": "Breadcrumb",
+      "page": "Breadcrumb",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Breadcrumb/Breadcrumb.tsx",
+      "description": "Where the current page sits in the hierarchy.\nContract — src/components/Breadcrumb/Breadcrumb.tsx: Breadcrumb.Root (aria-label, default \"Breadcrumb\") holding Breadcrumb.Item parts: Link, Separator, Current. The Link and Current instances are exposed, so their labels are editable here; hide a Link and its Separator for a shorter trail.",
+      "props": []
+    },
+    {
+      "name": "Breadcrumb.Current",
+      "page": "Breadcrumb",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Breadcrumb/Breadcrumb.tsx",
+      "description": "The page you are on. Rendered as <span aria-current=\"page\">.\nContract — src/components/Breadcrumb/Breadcrumb.tsx: Breadcrumb.Current, children (the label).",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Northwind rebrand"
+        }
+      ]
+    },
+    {
+      "name": "Breadcrumb.Link",
+      "page": "Breadcrumb",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Breadcrumb/Breadcrumb.tsx",
+      "description": "An ancestor page in the trail. Rendered as <a>.\nContract — src/components/Breadcrumb/Breadcrumb.tsx: Breadcrumb.Link, children (the label), href. Hover colour and underline are CSS states.",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Projects"
+        }
+      ]
+    },
+    {
+      "name": "Breadcrumb.Separator",
+      "page": "Breadcrumb",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Breadcrumb/Breadcrumb.tsx",
+      "description": "The chevron between items. Hidden from assistive tech.\nContract — src/components/Breadcrumb/Breadcrumb.tsx: Breadcrumb.Separator.",
+      "props": []
+    },
+    {
+      "name": "Button",
+      "page": "Button",
+      "kind": "set",
+      "variants": 24,
+      "defaultVariant": "variant=primary, size=md, disabled=false",
+      "source": "src/components/Button/Button.tsx",
+      "description": "The primary action trigger. Built on Base UI’s unstyled Button, styled entirely with semantic design tokens.\nContract — src/components/Button/Button.tsx: variant (primary | secondary | ghost | danger, default primary), size (sm | md | lg, default md), disabled (false | true, Base UI), children (the label). fullWidth maps to Fill container on the instance; hover and active are CSS states, not props.",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Button"
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "primary",
+            "secondary",
+            "ghost",
+            "danger"
+          ],
+          "default": "primary"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Card",
+      "page": "Card",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "variant=outlined",
+      "source": "src/components/Card/Card.tsx",
+      "description": "A surface container. Purely presentational, so no Base UI primitive to wrap.\nContract — src/components/Card/Card.tsx: variant (outlined | elevated, default outlined). The code parts map to boolean properties named after them: Card.Header, Card.Description, Card.Footer; title, description and body are the text. The footer holds real Button instances, exposed so their props are editable from the Card.",
+      "props": [
+        {
+          "name": "Card.Header",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Card.Description",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Card.Footer",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Invite your team"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Team members can view dashboards and comment, but cannot change billing."
+        },
+        {
+          "name": "body",
+          "type": "TEXT",
+          "default": "Seats are billed per active member. You currently have 3 of 10 seats in use."
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "outlined",
+            "elevated"
+          ],
+          "default": "outlined"
+        }
+      ]
+    },
+    {
+      "name": "Checkbox",
+      "page": "Checkbox",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "checked=false, indeterminate=false, disabled=false",
+      "source": "src/components/Checkbox/Checkbox.tsx",
+      "description": "Contract — src/components/Checkbox/Checkbox.tsx: A single tick box (Base UI Checkbox inside Field.Item).\nchecked: false | true (default false; stories set defaultChecked). indeterminate: false | true (default false) — draws the dash and wins over checked. disabled: false | true (default false).\nlabel → Field.Label (text; Field.Label off = no label, name the control with aria-label). description → Field.Description (text, off by default).\nGlyphs icon/check-checkbox and icon/dash are drawn by the component and are not swappable. Not mirrored: invalid (comes from an enclosing Field.Root), hover border, focus ring — see figma/GAPS.md.",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Email me about product updates"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "One email every Monday summarising what changed."
+        },
+        {
+          "name": "Field.Label",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "checked",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "indeterminate",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "CheckboxGroup",
+      "page": "CheckboxGroup",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=vertical",
+      "source": "src/components/CheckboxGroup/CheckboxGroup.tsx",
+      "description": "Contract — src/components/CheckboxGroup/CheckboxGroup.tsx: a labelled group of checkboxes sharing one value array (Base UI CheckboxGroup in Field.Root), as in the Default story.\norientation: vertical | horizontal (default vertical). label: text, required. description → Field.Description (text, off by default).\nThe options are exposed Checkbox instances; the checked ones' names are the group's defaultValue. Not mirrored: Field.Error and the invalid state (validation, not a prop).",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Notify me about"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "You can change this at any time in settings."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "vertical",
+            "horizontal"
+          ],
+          "default": "vertical"
+        }
+      ]
+    },
+    {
+      "name": "Collapsible",
+      "page": "Collapsible",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "open=false, disabled=false",
+      "source": "src/components/Collapsible/Collapsible.tsx",
+      "description": "Contract — src/components/Collapsible/Collapsible.tsx: Collapsible.Root > Collapsible.Trigger + Collapsible.Panel, as in the stories at 420px. open: false | true (defaultOpen in the stories) — the panel shows when open. disabled: false | true. panel → Collapsible.Panel (the stories' three-point list). The trigger is an exposed instance.",
+      "props": [
+        {
+          "name": "panel",
+          "type": "TEXT",
+          "default": "Runs on every push to a protected branch\nRetries transient failures twice before reporting\nArtifacts are kept for 30 days"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Collapsible.Trigger",
+      "page": "Collapsible",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "open=false, disabled=false",
+      "source": "src/components/Collapsible/Collapsible.tsx",
+      "description": "Contract — src/components/Collapsible/Collapsible.tsx: Collapsible.Trigger. open: false | true — a Collapsible.Root prop (the stories use defaultOpen); turns the chevron 90°. disabled: false | true. showChevron: true by default. children: its text. The chevron (icon/chevron-right-collapsible) is drawn by the component.",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Pipeline details"
+        },
+        {
+          "name": "showChevron",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Combobox",
+      "page": "Combobox",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Combobox/Combobox.tsx",
+      "description": "Contract — src/components/Combobox/Combobox.tsx: Combobox, a filterable select wired to a label, description and validation message, as in the stories at 320px. label: text, required. description → Field.Description (text, off by default). filled, open, disabled, clearable, showTrigger: on the exposed Combobox.Control. Its options are a Combobox.Content of Combobox.Item. Not mirrored: Field.Error and the invalid border.",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Country"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Type to filter the list, then pick a match."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "Combobox.Content",
+      "page": "Combobox",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Combobox/Combobox.tsx",
+      "description": "Contract — src/components/Combobox/Combobox.tsx: Combobox.Content — portal, positioner, popup and list — as in the stories: the first countries of the list. Its width is the input's (--anchor-width, runtime; 320px here); it opens below, aligned to the start, 4px away. The options are exposed Combobox.Item instances. Combobox.Empty shows when nothing matches (the NoMatches story).",
+      "props": []
+    },
+    {
+      "name": "Combobox.Control",
+      "page": "Combobox",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "filled=false, open=false, disabled=false",
+      "source": "src/components/Combobox/Combobox.tsx",
+      "description": "Contract — src/components/Combobox/Combobox.tsx: Combobox.Control — the input with its clear and trigger buttons (Base UI InputGroup). filled: false | true — Base UI Field state: the placeholder, or a value. open: false | true — flips the chevron. disabled: false | true. clearable (default true): the clear button, shown on the filled variants. showTrigger (default true): the chevron button. placeholder and value: their texts.",
+      "props": [
+        {
+          "name": "placeholder",
+          "type": "TEXT",
+          "default": "Search countries"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "Portugal"
+        },
+        {
+          "name": "clearable",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "showTrigger",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "filled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Combobox.Item",
+      "page": "Combobox",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "highlighted=false, selected=false, disabled=false",
+      "source": "src/components/Combobox/Combobox.tsx",
+      "description": "Contract — src/components/Combobox/Combobox.tsx: Combobox.Item, one option. highlighted: false | true — Base UI state, the option under the pointer or keyboard. selected: false | true — Base UI state, the option equal to the value; draws icon/check and medium weight. disabled: false | true. children: its text.",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Argentina"
+        },
+        {
+          "name": "highlighted",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "selected",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Dialog.Content",
+      "page": "Dialog",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Dialog/Dialog.tsx",
+      "description": "Contract — src/components/Dialog/Dialog.tsx: Dialog.Content — portal, backdrop and popup, centred on the viewport — as in the Default story. title: text, required (heading-xl). description → Dialog.Description (text). Dialog.Actions: the button row, end-aligned; its Buttons are exposed (Dialog.Close renders them). Width: min(28rem, 100vw − space/8).",
+      "props": [
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Publish this release?"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Everyone on the team will be notified."
+        },
+        {
+          "name": "Dialog.Description",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Dialog.Actions",
+          "type": "BOOLEAN",
+          "default": true
+        }
+      ]
+    },
+    {
+      "name": "Fieldset",
+      "page": "Fieldset",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "disabled=false",
+      "source": "src/components/Fieldset/Fieldset.tsx",
+      "description": "Contract — src/components/Fieldset/Fieldset.tsx: Fieldset.Root with a Fieldset.Legend, grouping related controls (Base UI Fieldset), as in the Default story at 360px.\ndisabled: false | true — cascades to every control inside, so the TextFields switch to their own disabled variant too. legend → Fieldset.Legend (text).\nThe controls are exposed TextField instances; any control can go in a fieldset.",
+      "props": [
+        {
+          "name": "legend",
+          "type": "TEXT",
+          "default": "Billing address"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "IconButton",
+      "page": "IconButton",
+      "kind": "set",
+      "variants": 24,
+      "defaultVariant": "variant=ghost, size=md, disabled=false",
+      "source": "src/components/IconButton/IconButton.tsx",
+      "description": "Contract — src/components/IconButton/IconButton.tsx: a square, icon-only action on Base UI Button.\nvariant: ghost | primary | secondary | danger (default ghost). size: md | sm | lg (default md) — 40 / 32 / 48px. disabled: false | true (default false).\nchildren: the icon, an instance swap (icon/edit by default; the stories' icons are the preferred values). label: required — it becomes aria-label; a hidden layer carries it so the frame names the action.",
+      "props": [
+        {
+          "name": "children",
+          "type": "INSTANCE_SWAP",
+          "default": "38:159"
+        },
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Edit"
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "ghost",
+            "primary",
+            "secondary",
+            "danger"
+          ],
+          "default": "ghost"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Menu.Content",
+      "page": "Menu",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Menu/Menu.tsx",
+      "description": "Contract — src/components/Menu/Menu.tsx: Menu.Content — portal, positioner and popup in one piece — as in the Default story. At least 12rem wide; its items are exposed instances. It opens below its trigger, aligned to the start, 6px away (side, align, sideOffset defaults).",
+      "props": []
+    },
+    {
+      "name": "Menu.GroupLabel",
+      "page": "Menu",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Menu/Menu.tsx",
+      "description": "Contract — src/components/Menu/Menu.tsx: Menu.GroupLabel, the heading of a Menu.Group (WithGroups story). children: its text (typography/overline, upper case).",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Edit"
+        }
+      ]
+    },
+    {
+      "name": "Menu.Item",
+      "page": "Menu",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "highlighted=false, disabled=false",
+      "source": "src/components/Menu/Menu.tsx",
+      "description": "Contract — src/components/Menu/Menu.tsx: Menu.Item, one action. highlighted: false | true — Base UI state, the item under the pointer or keyboard. disabled: false | true. children: its text. Menu.ItemShortcut: off by default (on in the WithGroups story); itemShortcut is its text.",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Rename project"
+        },
+        {
+          "name": "itemShortcut",
+          "type": "TEXT",
+          "default": "Cmd Z"
+        },
+        {
+          "name": "Menu.ItemShortcut",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "highlighted",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Menu.Separator",
+      "page": "Menu",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Menu/Menu.tsx",
+      "description": "Contract — src/components/Menu/Menu.tsx: Menu.Separator, a 1px rule between groups of items.",
+      "props": []
+    },
+    {
+      "name": "Menu.SubmenuTrigger",
+      "page": "Menu",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "open=false",
+      "source": "src/components/Menu/Menu.tsx",
+      "description": "Contract — src/components/Menu/Menu.tsx: Menu.SubmenuTrigger, an item that opens a nested Menu.Content beside it (WithSubmenu story). open: false | true — the SubmenuRoot's open. children: its text. The chevron (icon/chevron-right) is drawn by the component.",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Send to"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Menubar",
+      "page": "Menubar",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=horizontal",
+      "source": "src/components/Menubar/Menubar.tsx",
+      "description": "Contract — src/components/Menubar/Menubar.tsx: Menubar.Root with Menubar.Menu > Menubar.Trigger + Menubar.Content, as in the Default (File, Edit, View) and Vertical (Project, Deploy, 10rem) stories. orientation: horizontal | vertical (default horizontal). The triggers are exposed instances; their menus are Menu.Content.",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        }
+      ]
+    },
+    {
+      "name": "Menubar.Trigger",
+      "page": "Menubar",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "open=false, disabled=false",
+      "source": "src/components/Menubar/Menubar.tsx",
+      "description": "Contract — src/components/Menubar/Menubar.tsx: Menubar.Trigger, a Menu trigger inside the bar. open: false | true — its Menubar.Menu's open (a Menu.Root prop). disabled: false | true. children: its text. Its menu is a Menu.Content (Menubar.Content).",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "File"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Meter",
+      "page": "Meter",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "variant=accent, size=md",
+      "source": "src/components/Meter/Meter.tsx",
+      "description": "Contract — src/components/Meter/Meter.tsx: a static measurement in a known range (Base UI Meter, role=\"meter\"). A reading, not a task — use Progress for tasks.\nvariant: accent | danger (default accent) — switch to danger past the threshold that matters. size: md | sm (default md).\nlabel → Meter.Label (text). showValue: shows Meter.Value; value is its text (\"42%\" for value={42}). The indicator is drawn at the stories' 42%.",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Storage used"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "42%"
+        },
+        {
+          "name": "Meter.Label",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "showValue",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "accent",
+            "danger"
+          ],
+          "default": "accent"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm"
+          ],
+          "default": "md"
+        }
+      ]
+    },
+    {
+      "name": "NavigationMenu",
+      "page": "NavigationMenu",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/NavigationMenu/NavigationMenu.tsx",
+      "description": "The bar. Root and List hold one Item per Trigger; the Panel is not mirrored.\nContract — src/components/NavigationMenu/NavigationMenu.tsx: NavigationMenu.Root > List > Item > Trigger + Content, then one Panel. The Trigger instances are exposed so their labels are editable here.",
+      "props": []
+    },
+    {
+      "name": "NavigationMenu.Link",
+      "page": "NavigationMenu",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "active=false",
+      "source": "src/components/NavigationMenu/NavigationMenu.tsx",
+      "description": "A destination. Rendered as <a>.\nContract — src/components/NavigationMenu/NavigationMenu.tsx: NavigationMenu.Link, children (the label), href, active (false | true, default false; Base UI renders data-active). Hover is a CSS state.",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Components"
+        },
+        {
+          "name": "active",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "NavigationMenu.Trigger",
+      "page": "NavigationMenu",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/NavigationMenu/NavigationMenu.tsx",
+      "description": "Opens the shared panel on hover or click; the chevron is supplied for you.\nContract — src/components/NavigationMenu/NavigationMenu.tsx: NavigationMenu.Trigger, children (the label), disabled. Open and hover are CSS states, not mirrored.",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Product"
+        }
+      ]
+    },
+    {
+      "name": "NumberField",
+      "page": "NumberField",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "disabled=false",
+      "source": "src/components/NumberField/NumberField.tsx",
+      "description": "Contract — src/components/NumberField/NumberField.tsx: Base UI NumberField in Field.Root — label (also the scrub area), decrement, input, increment, optional description.\ndisabled: false | true. label: text, required. value: the text in NumberField.Input (\"3\" for defaultValue={3}). description → Field.Description (text, off by default).\nThe glyphs icon/minus and icon/plus are drawn by the component and not swappable. Not mirrored: the scrub cursor (only while dragging), Field.Error, hover, focus.",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Seats"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "3"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Drag the label sideways to change the value quickly."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Popover.Content",
+      "page": "Popover",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "side=bottom",
+      "source": "src/components/Popover/Popover.tsx",
+      "description": "Contract — src/components/Popover/Popover.tsx: Popover.Content — portal, positioner, popup and arrow. side: top | bottom | left | right (default bottom). title → Popover.Title (text, typography/title-md). description → Popover.Description (text). Both are optional; any other children follow them (the WithActions story adds Buttons).",
+      "props": [
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Notifications"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Choose how this project reaches you."
+        },
+        {
+          "name": "Popover.Title",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Popover.Description",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "side",
+          "type": "VARIANT",
+          "values": [
+            "bottom",
+            "top",
+            "left",
+            "right"
+          ],
+          "default": "bottom"
+        }
+      ]
+    },
+    {
+      "name": "PreviewCard.Content",
+      "page": "PreviewCard",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "side=bottom",
+      "source": "src/components/PreviewCard/PreviewCard.tsx",
+      "description": "Contract — src/components/PreviewCard/PreviewCard.tsx: PreviewCard.Content — portal, positioner, popup and arrow. side: top | bottom | left | right (default bottom). Its children are free content; this is the Default story's profile, drawn from its inline styles. Width is max-content, capped at runtime.",
+      "props": [
+        {
+          "name": "side",
+          "type": "VARIANT",
+          "values": [
+            "bottom",
+            "top",
+            "left",
+            "right"
+          ],
+          "default": "bottom"
+        }
+      ]
+    },
+    {
+      "name": "Progress",
+      "page": "Progress",
+      "kind": "set",
+      "variants": 6,
+      "defaultVariant": "size=md, status=progressing",
+      "source": "src/components/Progress/Progress.tsx",
+      "description": "Contract — src/components/Progress/Progress.tsx: how far along a task is (Base UI Progress). For a reading that is not a task, use Meter.\nsize: md | sm (default md). status: progressing | complete | indeterminate — Base UI state (ProgressRootState.status), set by value: below max, at max, or null.\nlabel → Progress.Label (text). showValue: shows Progress.Value; value is its text (\"40%\" for value={40}). The indicator is value as a share of the track, drawn at the stories' 40%.",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Uploading assets"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "40%"
+        },
+        {
+          "name": "Progress.Label",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "showValue",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "status",
+          "type": "VARIANT",
+          "values": [
+            "progressing",
+            "complete",
+            "indeterminate"
+          ],
+          "default": "progressing"
+        }
+      ]
+    },
+    {
+      "name": "RadioGroup",
+      "page": "RadioGroup",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=vertical",
+      "source": "src/components/RadioGroup/RadioGroup.tsx",
+      "description": "Contract — src/components/RadioGroup/RadioGroup.tsx: RadioGroup, a set of mutually exclusive options (Base UI RadioGroup in Field.Root), as in the Default story.\norientation: vertical | horizontal (default vertical). label: text, required. description → Field.Description (text, off by default).\nThe options are exposed RadioGroupItem instances; the checked one's value is the group's defaultValue. Not mirrored: Field.Error and the invalid state (validation, not a prop).",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Deployment target"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Where the next build is published."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "vertical",
+            "horizontal"
+          ],
+          "default": "vertical"
+        }
+      ]
+    },
+    {
+      "name": "RadioGroupItem",
+      "page": "RadioGroup",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "checked=false, disabled=false",
+      "source": "src/components/RadioGroup/RadioGroup.tsx",
+      "description": "Contract — src/components/RadioGroup/RadioGroup.tsx: RadioGroupItem, one option (Base UI Radio in Field.Item).\nchecked: false | true — Base UI state (RadioRootState.checked): the item whose value equals the group's value/defaultValue. Set it on one item; coming back, its value is the group's defaultValue. disabled: false | true.\nlabel: text, required. description → Field.Description (text, off by default).",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Staging"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Up to ten editors and review."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "checked",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Select",
+      "page": "Select",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Select/Select.tsx",
+      "description": "Contract — src/components/Select/Select.tsx: Select (also Select.Field) — a select wired to a label, description and validation message.\nlabel: text, required. description → Field.Description (text, off by default). placeholder, value, open, disabled: on the exposed Select.Trigger. Its options are a Select.Content of Select.Item — see the open example.\nNot mirrored: Field.Error and the invalid state (validation, not a prop).",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Font family"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Applies to every document in this workspace."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "Select.Content",
+      "page": "Select",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Select/Select.tsx",
+      "description": "Contract — src/components/Select/Select.tsx: Select.Content — portal, positioner, popup and list in one piece.\nIts width is the trigger's (--anchor-width, computed at runtime; 320px here). Opens below the trigger, aligned to its start, 4px away (side, align, sideOffset defaults).\nThe options are exposed Select.Item instances. Scroll arrows render only while the list overflows, so they are not drawn.",
+      "props": []
+    },
+    {
+      "name": "Select.GroupLabel",
+      "page": "Select",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Select/Select.tsx",
+      "description": "Contract — src/components/Select/Select.tsx: Select.GroupLabel, the heading of a Select.Group. children: the label text (typography/overline, so it renders upper case).",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Production"
+        }
+      ]
+    },
+    {
+      "name": "Select.Item",
+      "page": "Select",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "highlighted=false, selected=false, disabled=false",
+      "source": "src/components/Select/Select.tsx",
+      "description": "Contract — src/components/Select/Select.tsx: Select.Item, one option. children: its label.\nhighlighted: false | true — Base UI state, the option under the pointer or keyboard. selected: false | true — Base UI state, the option equal to the Root value; draws icon/check and medium weight. disabled: false | true (default false), a Select.Item prop.",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Sans-serif"
+        },
+        {
+          "name": "highlighted",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "selected",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Select.Trigger",
+      "page": "Select",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "placeholder=true, open=false, disabled=false",
+      "source": "src/components/Select/Select.tsx",
+      "description": "Contract — src/components/Select/Select.tsx: Select.Trigger, the button that opens the popup.\nplaceholder: true | false — Base UI state (SelectTriggerState.placeholder), true while nothing is selected. value: the text in Select.Value — the placeholder prop while placeholder=true, the selected item's label otherwise.\nopen: false | true (default false), a Select.Root prop; flips the chevron. disabled: false | true (default false).\nThe chevron (icon/chevron-down) is drawn by the component and not swappable. Not mirrored: invalid (validation state, not a prop), hover and focus.",
+      "props": [
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "Choose a font"
+        },
+        {
+          "name": "placeholder",
+          "type": "VARIANT",
+          "values": [
+            "true",
+            "false"
+          ],
+          "default": "true"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Separator",
+      "page": "Separator",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=horizontal",
+      "source": "src/components/Separator/Separator.tsx",
+      "description": "A thin rule between groups. Wraps Base UI’s Separator.\nContract — src/components/Separator/Separator.tsx: orientation (horizontal | vertical, default horizontal). Horizontal is Fill container on the instance; the 1px thickness is raw in the CSS too.",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        }
+      ]
+    },
+    {
+      "name": "Slider",
+      "page": "Slider",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "orientation=horizontal, disabled=false",
+      "source": "src/components/Slider/Slider.tsx",
+      "description": "Contract — src/components/Slider/Slider.tsx: Base UI Slider in Field.Root — label, optional value output, track, optional description.\norientation: horizontal | vertical (default horizontal). disabled: false | true.\nlabel: text, required. showValue: shows Slider.Value; value is its text (\"40\" for defaultValue={40}). description → Field.Description (text, off by default).\nThe indicator and thumb sit at value as a share of the track (runtime), drawn at the stories' 40. Not mirrored: two thumbs for a range, Field.Error, dragging, hover, focus.",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Volume"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "40"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Applies to notification sounds only."
+        },
+        {
+          "name": "showValue",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Spinner",
+      "page": "Spinner",
+      "kind": "set",
+      "variants": 3,
+      "defaultVariant": "size=md",
+      "source": "src/components/Spinner/Spinner.tsx",
+      "description": "Contract — src/components/Spinner/Spinner.tsx: an indeterminate loading indicator (no Base UI primitive; role=\"status\").\nsize: md | sm | lg (default md) — 24 / 16 / 40px. aria-label: the accessible name, default \"Loading\"; not drawn.\nColour is currentcolor in code, color/content/accent by default: inside a Button it takes the button's text colour — override both strokes on the instance. Drawn at rest; the spin is not mirrored.",
+      "props": [
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm",
+            "lg"
+          ],
+          "default": "md"
+        }
+      ]
+    },
+    {
+      "name": "Switch",
+      "page": "Switch",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "checked=false, disabled=false",
+      "source": "src/components/Switch/Switch.tsx",
+      "description": "Contract — src/components/Switch/Switch.tsx: a binary on/off control that takes effect immediately (Base UI Switch in Field.Root).\nchecked: false | true (the stories use defaultChecked). disabled: false | true.\nlabel → Field.Label (text; off = the bare control). description → Field.Description (text, off by default).\nNot mirrored: a description without a label, top alignment when a description is present, hover and focus — see figma/GAPS.md.",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Email notifications"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Sent to your account address. Digests are never sent more than once a day."
+        },
+        {
+          "name": "Field.Label",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "checked",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Table",
+      "page": "Table",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "striped=false, hideCaption=false",
+      "source": "src/components/Table/Table.tsx",
+      "description": "Contract — src/components/Table/Table.tsx: Table.Root — a bordered scroll container, the table and an optional caption — as in the Default story (six invoices, five columns).\nstriped: false | true (default false). hideCaption: false | true (default false) — the caption stays for screen readers but is not drawn. caption: its text.\nRows are frames of Table.HeaderCell and Table.Cell instances. The last row's missing border and the striped rows are cell overrides (:last-child, :nth-of-type(even)). Column widths come from the default content.",
+      "props": [
+        {
+          "name": "caption",
+          "type": "TEXT",
+          "default": "Invoices issued in the last quarter"
+        },
+        {
+          "name": "striped",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "hideCaption",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Table.Cell",
+      "page": "Table",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "numeric=false",
+      "source": "src/components/Table/Table.tsx",
+      "description": "Contract — src/components/Table/Table.tsx: Table.Cell, a <td>. numeric: false | true (default false) — right-aligned, tabular figures. children: its text.",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Northwind Trading"
+        },
+        {
+          "name": "numeric",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Table.HeaderCell",
+      "page": "Table",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "scope=col, numeric=false",
+      "source": "src/components/Table/Table.tsx",
+      "description": "Contract — src/components/Table/Table.tsx: Table.HeaderCell, a <th>. scope: col | row (default col) — col heads a column (bold, strong border, in Table.Head); row heads a body row (medium, as .body .headerCell styles it). numeric: false | true (default false) — right-aligned, tabular figures. children: its text.",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Reference"
+        },
+        {
+          "name": "scope",
+          "type": "VARIANT",
+          "values": [
+            "col",
+            "row"
+          ],
+          "default": "col"
+        },
+        {
+          "name": "numeric",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Tabs",
+      "page": "Tabs",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=horizontal",
+      "source": "src/components/Tabs/Tabs.tsx",
+      "description": "Contract — src/components/Tabs/Tabs.tsx: Tabs.Root > Tabs.List (Tabs.Tab ×3, Tabs.Indicator) + Tabs.Panel, as in the Default and Vertical stories at 32rem.\norientation: horizontal | vertical (default horizontal), a Tabs.Root prop. panel → Tabs.Panel (text).\nThe tabs are exposed Tabs.Tab instances: edit their children, set active on exactly one — its value is the Root's defaultValue.",
+      "props": [
+        {
+          "name": "panel",
+          "type": "TEXT",
+          "default": "A summary of the project, its owners and the current release."
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        }
+      ]
+    },
+    {
+      "name": "Tabs.Tab",
+      "page": "Tabs",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "orientation=horizontal, active=false, disabled=false",
+      "source": "src/components/Tabs/Tabs.tsx",
+      "description": "Contract — src/components/Tabs/Tabs.tsx: Tabs.Tab, one tab button (Base UI Tabs.Tab).\ndisabled: false | true (default false). children: the tab label. orientation: horizontal | vertical, set on Tabs.Root and inherited.\nactive: true for the tab whose value equals Tabs.Root value/defaultValue (Base UI data-active). Set it on exactly one tab; coming back, that tab's value becomes the Root's defaultValue.\nTabs.Indicator: the Base UI part that marks the active tab. Base UI sizes and moves it at runtime (--active-tab-*); it is drawn where that lands, inside the active tab.",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Overview"
+        },
+        {
+          "name": "Tabs.Indicator",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        },
+        {
+          "name": "active",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "TextField",
+      "page": "TextField",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "filled=false, disabled=false",
+      "source": "src/components/TextField/TextField.tsx",
+      "description": "Contract — src/components/TextField/TextField.tsx: A single-line input with a label, optional description and validation message, wired by Base UI Field so the input gets its accessible name and description from the primitive.\nfilled: false | true — Base UI Field state, true once there is a value. disabled: false | true.\nlabel: text, required. placeholder: text shown while empty. value: text shown when filled (the defaultValue). description → Field.Description (text, off by default).\nNot mirrored: Field.Error and the invalid border (validation, not a prop), hover, focus.",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Email address"
+        },
+        {
+          "name": "placeholder",
+          "type": "TEXT",
+          "default": "you@example.com"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "christine@example.com"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "We only use this to send receipts."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "filled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Textarea",
+      "page": "Textarea",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "filled=false, disabled=false",
+      "source": "src/components/Textarea/Textarea.tsx",
+      "description": "Contract — src/components/Textarea/Textarea.tsx: A multi-line input with a label, optional description and validation message, wired by Base UI Field.\nfilled: false | true — Base UI Field state, true once there is a value. disabled: false | true.\nlabel: text, required. placeholder: text shown while empty. value: text shown when filled (the defaultValue). description → Field.Description (text, off by default).\nNot mirrored: Field.Error and the invalid border (validation, not a prop), hover, focus. rows (default 4) sets the height: four body-md lines here; resize the control on an instance for more. The resize grip is the browser's, so resize=vertical|none is not drawn.",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Release notes"
+        },
+        {
+          "name": "placeholder",
+          "type": "TEXT",
+          "default": "What changed in this version?"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "Fixed a crash when opening a project with no members.\nSpeeded up the first paint by roughly 200ms."
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Markdown is supported. Keep it under 500 characters."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "filled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Toast.Root",
+      "page": "Toast",
+      "kind": "set",
+      "variants": 3,
+      "defaultVariant": "type=none",
+      "source": "src/components/Toast/Toast.tsx",
+      "description": "Contract — src/components/Toast/Toast.tsx: Toast.Root, one notification, as Toast.useToastManager().add() renders it. type: none | success | error — the toast's type option (none = not given); success and error colour the border. title → Toast.Title. description → Toast.Description. action → Toast.Action's text, from actionProps (off unless given). The close button (icon/close, aria-label \"Close notification\") is drawn by the component.",
+      "props": [
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Deployment queued"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Build #482 starts as soon as a runner frees up."
+        },
+        {
+          "name": "action",
+          "type": "TEXT",
+          "default": "Undo"
+        },
+        {
+          "name": "Toast.Description",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Toast.Action",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "type",
+          "type": "VARIANT",
+          "values": [
+            "none",
+            "success",
+            "error"
+          ],
+          "default": "none"
+        }
+      ]
+    },
+    {
+      "name": "Toggle",
+      "page": "Toggle",
+      "kind": "set",
+      "variants": 48,
+      "defaultVariant": "variant=secondary, size=md, pressed=false, disabled=false, iconOnly=false",
+      "source": "src/components/Toggle/Toggle.tsx",
+      "description": "Contract — src/components/Toggle/Toggle.tsx: a button that stays pressed (Base UI Toggle). Wrap several in ToggleGroup for a set.\nvariant: secondary | ghost (default secondary). size: md | sm | lg (default md). pressed: false | true (a Base UI prop; the stories use defaultPressed). disabled: false | true. iconOnly: false | true (default false) squares it off.\nchildren: the label text. With iconOnly, the icon — swap the nested icon layer (icon/bold by default). aria-label: the name an icon-only toggle needs; a hidden layer carries it.\nNot mirrored: an icon beside a label (WithIcon story), hover.",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Show archived"
+        },
+        {
+          "name": "aria-label",
+          "type": "TEXT",
+          "default": "Bold"
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "secondary",
+            "ghost"
+          ],
+          "default": "secondary"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "pressed",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "iconOnly",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "ToggleGroup",
+      "page": "ToggleGroup",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "segmented=false, orientation=horizontal, disabled=false",
+      "source": "src/components/ToggleGroup/ToggleGroup.tsx",
+      "description": "Contract — src/components/ToggleGroup/ToggleGroup.tsx: a set of Toggles sharing one value (Base UI ToggleGroup), as in the Default story (List pressed).\nsegmented: false | true (default false) — one joined track, the pressed segment lifted onto the surface. orientation: horizontal | vertical. disabled: false | true, cascading to each Toggle.\nThe options are exposed Toggle instances; the pressed ones' values are the group's defaultValue. In segmented groups the group restyles its Toggles (.segmented > button): here that look is an override on each instance — see figma/GAPS.md before moving the selection.",
+      "props": [
+        {
+          "name": "segmented",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Toolbar",
+      "page": "Toolbar",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=horizontal",
+      "source": "src/components/Toolbar/Toolbar.tsx",
+      "description": "Contract — src/components/Toolbar/Toolbar.tsx: Toolbar.Root with Toolbar.Group, Toolbar.Button, Toolbar.Separator and Toolbar.Link, as in the Grouped story. orientation: horizontal | vertical (default horizontal). The buttons and the link are exposed instances.",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        }
+      ]
+    },
+    {
+      "name": "Toolbar.Button",
+      "page": "Toolbar",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "disabled=false",
+      "source": "src/components/Toolbar/Toolbar.tsx",
+      "description": "Contract — src/components/Toolbar/Toolbar.tsx: Toolbar.Button. disabled: false | true. children: an icon (icon/bold here — swap the icon layer) or text (show the children layer, hide the icon). aria-label: the name an icon button needs; a hidden layer carries it. The pressed / open tint applies only when it renders a Toggle or a Menu trigger — see figma/GAPS.md.",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Link"
+        },
+        {
+          "name": "aria-label",
+          "type": "TEXT",
+          "default": "Bold"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Toolbar.Input",
+      "page": "Toolbar",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "disabled=false",
+      "source": "src/components/Toolbar/Toolbar.tsx",
+      "description": "Contract — src/components/Toolbar/Toolbar.tsx: Toolbar.Input, an input in the toolbar's roving tab stop (WithInput story). disabled: false | true. placeholder: its text.",
+      "props": [
+        {
+          "name": "placeholder",
+          "type": "TEXT",
+          "default": "Search issues"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Toolbar.Link",
+      "page": "Toolbar",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Toolbar/Toolbar.tsx",
+      "description": "Contract — src/components/Toolbar/Toolbar.tsx: Toolbar.Link, a link inside the toolbar's roving tab stop. children: its text. Underlined on hover (a CSS state).",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Formatting help"
+        }
+      ]
+    },
+    {
+      "name": "Toolbar.Separator",
+      "page": "Toolbar",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=vertical",
+      "source": "src/components/Toolbar/Toolbar.tsx",
+      "description": "Contract — src/components/Toolbar/Toolbar.tsx: Toolbar.Separator, a 1px rule. orientation: vertical | horizontal — vertical in a horizontal toolbar. Its length is the toolbar's (align-self: stretch); 32px here.",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "vertical",
+            "horizontal"
+          ],
+          "default": "vertical"
+        }
+      ]
+    },
+    {
+      "name": "Tooltip.Content",
+      "page": "Tooltip",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "side=top",
+      "source": "src/components/Tooltip/Tooltip.tsx",
+      "description": "Contract — src/components/Tooltip/Tooltip.tsx: Tooltip.Content — portal, positioner, popup and arrow. side: top | bottom | left | right (default top) — which side of the trigger it opens on; the arrow points back at the trigger. children: its text. align (default center) and sideOffset place it at runtime.",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Saves without publishing"
+        },
+        {
+          "name": "side",
+          "type": "VARIANT",
+          "values": [
+            "top",
+            "bottom",
+            "left",
+            "right"
+          ],
+          "default": "top"
+        }
+      ]
+    },
+    {
+      "name": "icon/alert-octagon",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Alert/Alert.tsx",
+      "description": "Glyph drawn by Alert — src/components/Alert/Alert.tsx. Nested inside its component and not swappable: the code has no prop to change it.",
+      "props": []
+    },
+    {
+      "name": "icon/alert-triangle",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Alert/Alert.tsx",
+      "description": "Glyph drawn by Alert — src/components/Alert/Alert.tsx. Nested inside its component and not swappable: the code has no prop to change it.",
+      "props": []
+    },
+    {
+      "name": "icon/align-center",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/ToggleGroup/ToggleGroup.stories.tsx",
+      "description": "Example icon from src/components/ToggleGroup/ToggleGroup.stories.tsx: content passed as children. The default of an INSTANCE_SWAP property named children.",
+      "props": []
+    },
+    {
+      "name": "icon/align-left",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/ToggleGroup/ToggleGroup.stories.tsx",
+      "description": "Example icon from src/components/ToggleGroup/ToggleGroup.stories.tsx: content passed as children. The default of an INSTANCE_SWAP property named children.",
+      "props": []
+    },
+    {
+      "name": "icon/align-right",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/ToggleGroup/ToggleGroup.stories.tsx",
+      "description": "Example icon from src/components/ToggleGroup/ToggleGroup.stories.tsx: content passed as children. The default of an INSTANCE_SWAP property named children.",
+      "props": []
+    },
+    {
+      "name": "icon/bold",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Toggle/Toggle.stories.tsx",
+      "description": "Example icon from src/components/Toggle/Toggle.stories.tsx: content passed as children. The default of an INSTANCE_SWAP property named children.",
+      "props": []
+    },
+    {
+      "name": "icon/caret-down",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Select/Select.tsx",
+      "description": "Glyph drawn by Select — src/components/Select/Select.tsx. Nested inside its component and not swappable: the code has no prop to change it.",
+      "props": []
+    },
+    {
+      "name": "icon/caret-up",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Select/Select.tsx",
+      "description": "Glyph drawn by Select — src/components/Select/Select.tsx. Nested inside its component and not swappable: the code has no prop to change it.",
+      "props": []
+    },
+    {
+      "name": "icon/check",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Combobox/Combobox.tsx",
+      "description": "Glyph drawn by Combobox, Select — src/components/Combobox/Combobox.tsx. Nested inside its component and not swappable: the code has no prop to change it.",
+      "props": []
+    },
+    {
+      "name": "icon/check-checkbox",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Checkbox/Checkbox.tsx",
+      "description": "Glyph drawn by Checkbox — src/components/Checkbox/Checkbox.tsx. Nested inside its component and not swappable: the code has no prop to change it. A second drawing of icon/check (see figma/GAPS.md).",
+      "props": []
+    },
+    {
+      "name": "icon/check-circle",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Alert/Alert.tsx",
+      "description": "Glyph drawn by Alert — src/components/Alert/Alert.tsx. Nested inside its component and not swappable: the code has no prop to change it.",
+      "props": []
+    },
+    {
+      "name": "icon/chevron-down",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Autocomplete/Autocomplete.tsx",
+      "description": "Glyph drawn by Autocomplete, Combobox, NavigationMenu, Select, Toolbar — src/components/Autocomplete/Autocomplete.tsx. Nested inside its component and not swappable: the code has no prop to change it.",
+      "props": []
+    },
+    {
+      "name": "icon/chevron-down-accordion",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Accordion/Accordion.tsx",
+      "description": "Glyph drawn by Accordion — src/components/Accordion/Accordion.tsx. Nested inside its component and not swappable: the code has no prop to change it. A second drawing of icon/chevron-down (see figma/GAPS.md).",
+      "props": []
+    },
+    {
+      "name": "icon/chevron-right",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Breadcrumb/Breadcrumb.tsx",
+      "description": "Glyph drawn by Breadcrumb, Menu — src/components/Breadcrumb/Breadcrumb.tsx. Nested inside its component and not swappable: the code has no prop to change it.",
+      "props": []
+    },
+    {
+      "name": "icon/chevron-right-collapsible",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Collapsible/Collapsible.tsx",
+      "description": "Glyph drawn by Collapsible — src/components/Collapsible/Collapsible.tsx. Nested inside its component and not swappable: the code has no prop to change it. A second drawing of icon/chevron-right (see figma/GAPS.md).",
+      "props": []
+    },
+    {
+      "name": "icon/close",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Alert/Alert.tsx",
+      "description": "Glyph drawn by Alert, Autocomplete, Combobox, Toast — src/components/Alert/Alert.tsx. Nested inside its component and not swappable: the code has no prop to change it.",
+      "props": []
+    },
+    {
+      "name": "icon/dash",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Checkbox/Checkbox.tsx",
+      "description": "Glyph drawn by Checkbox — src/components/Checkbox/Checkbox.tsx. Nested inside its component and not swappable: the code has no prop to change it.",
+      "props": []
+    },
+    {
+      "name": "icon/edit",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/IconButton/IconButton.stories.tsx",
+      "description": "Example icon from src/components/IconButton/IconButton.stories.tsx: content passed as children. The default of an INSTANCE_SWAP property named children.",
+      "props": []
+    },
+    {
+      "name": "icon/info-circle",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Alert/Alert.tsx",
+      "description": "Glyph drawn by Alert — src/components/Alert/Alert.tsx. Nested inside its component and not swappable: the code has no prop to change it.",
+      "props": []
+    },
+    {
+      "name": "icon/italic",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/ToggleGroup/ToggleGroup.stories.tsx",
+      "description": "Example icon from src/components/ToggleGroup/ToggleGroup.stories.tsx: content passed as children. The default of an INSTANCE_SWAP property named children.",
+      "props": []
+    },
+    {
+      "name": "icon/minus",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/NumberField/NumberField.tsx",
+      "description": "Glyph drawn by NumberField — src/components/NumberField/NumberField.tsx. Nested inside its component and not swappable: the code has no prop to change it.",
+      "props": []
+    },
+    {
+      "name": "icon/more-vertical",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/AlertDialog/AlertDialog.stories.tsx",
+      "description": "Example icon from src/components/AlertDialog/AlertDialog.stories.tsx: content passed as children. The default of an INSTANCE_SWAP property named children.",
+      "props": []
+    },
+    {
+      "name": "icon/person",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Avatar/Avatar.tsx",
+      "description": "Glyph drawn by Avatar — src/components/Avatar/Avatar.tsx. Nested inside its component and not swappable: the code has no prop to change it.",
+      "props": []
+    },
+    {
+      "name": "icon/plus",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/NumberField/NumberField.tsx",
+      "description": "Glyph drawn by NumberField — src/components/NumberField/NumberField.tsx. Nested inside its component and not swappable: the code has no prop to change it.",
+      "props": []
+    },
+    {
+      "name": "icon/scrub-cursor",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/NumberField/NumberField.tsx",
+      "description": "Glyph drawn by NumberField — src/components/NumberField/NumberField.tsx. Nested inside its component and not swappable: the code has no prop to change it. Fill from the CSS (currentcolor) with a background/surface halo stroke.",
+      "props": []
+    },
+    {
+      "name": "icon/star",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Toggle/Toggle.stories.tsx",
+      "description": "Example icon from src/components/Toggle/Toggle.stories.tsx: content passed as children. The default of an INSTANCE_SWAP property named children.",
+      "props": []
+    },
+    {
+      "name": "icon/trash",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/IconButton/IconButton.stories.tsx",
+      "description": "Example icon from src/components/IconButton/IconButton.stories.tsx: content passed as children. The default of an INSTANCE_SWAP property named children.",
+      "props": []
+    },
+    {
+      "name": "icon/underline",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/ToggleGroup/ToggleGroup.stories.tsx",
+      "description": "Example icon from src/components/ToggleGroup/ToggleGroup.stories.tsx: content passed as children. The default of an INSTANCE_SWAP property named children.",
+      "props": []
+    }
+  ],
+  "variables": {
+    "Color Primitives": {
+      "modes": [
+        "Value"
+      ],
+      "names": [
+        "color/neutral/white",
+        "color/neutral/50",
+        "color/neutral/100",
+        "color/neutral/200",
+        "color/neutral/300",
+        "color/neutral/400",
+        "color/neutral/500",
+        "color/neutral/600",
+        "color/neutral/700",
+        "color/neutral/800",
+        "color/neutral/900",
+        "color/neutral/950",
+        "color/brand/indigo/50",
+        "color/brand/indigo/100",
+        "color/brand/indigo/200",
+        "color/brand/indigo/300",
+        "color/brand/indigo/400",
+        "color/brand/indigo/500",
+        "color/brand/indigo/600",
+        "color/brand/indigo/700",
+        "color/brand/indigo/800",
+        "color/brand/indigo/900",
+        "color/utility/green/100",
+        "color/utility/green/300",
+        "color/utility/green/500",
+        "color/utility/green/600",
+        "color/utility/green/700",
+        "color/utility/yellow/100",
+        "color/utility/yellow/300",
+        "color/utility/yellow/500",
+        "color/utility/yellow/600",
+        "color/utility/yellow/700",
+        "color/utility/red/100",
+        "color/utility/red/300",
+        "color/utility/red/500",
+        "color/utility/red/600",
+        "color/utility/red/700"
+      ]
+    },
+    "Color": {
+      "modes": [
+        "Light",
+        "Dark"
+      ],
+      "names": [
+        "color/background/default",
+        "color/background/surface",
+        "color/background/sunken",
+        "color/background/overlay",
+        "color/background/on-accent",
+        "color/background/accent",
+        "color/background/accent-hover",
+        "color/background/accent-active",
+        "color/background/accent-subtle",
+        "color/background/danger",
+        "color/background/danger-hover",
+        "color/background/danger-subtle",
+        "color/background/success",
+        "color/background/success-subtle",
+        "color/background/warning",
+        "color/background/warning-subtle",
+        "color/content/default",
+        "color/content/muted",
+        "color/content/inverse",
+        "color/content/accent",
+        "color/content/danger",
+        "color/content/success",
+        "color/content/warning",
+        "color/content/on-accent",
+        "color/content/on-danger",
+        "color/content/on-success",
+        "color/content/on-warning",
+        "color/border/default",
+        "color/border/strong",
+        "color/border/focus",
+        "color/border/accent",
+        "color/border/accent-hover",
+        "color/border/danger",
+        "color/border/success",
+        "color/border/warning",
+        "elevation/raised/color",
+        "elevation/floating/color",
+        "elevation/overlay/color"
+      ]
+    },
+    "Size": {
+      "modes": [
+        "Value"
+      ],
+      "names": [
+        "space/0",
+        "space/1",
+        "space/2",
+        "space/3",
+        "space/4",
+        "space/5",
+        "space/6",
+        "space/8",
+        "space/10",
+        "space/12",
+        "radius/sm",
+        "radius/md",
+        "radius/lg",
+        "radius/full",
+        "breakpoint/sm",
+        "breakpoint/md",
+        "breakpoint/lg",
+        "breakpoint/xl"
+      ]
+    },
+    "Typography": {
+      "modes": [
+        "Value"
+      ],
+      "names": [
+        "font/size/xs",
+        "font/size/sm",
+        "font/size/md",
+        "font/size/lg",
+        "font/size/xl",
+        "font/weight/regular",
+        "font/weight/medium",
+        "font/weight/bold",
+        "font/sans",
+        "font/mono",
+        "typography/heading-xl/font-family",
+        "typography/heading-xl/font-size",
+        "typography/heading-xl/font-weight",
+        "typography/heading-xl/line-height",
+        "typography/heading-xl/letter-spacing",
+        "typography/heading-lg/font-family",
+        "typography/heading-lg/font-size",
+        "typography/heading-lg/font-weight",
+        "typography/heading-lg/line-height",
+        "typography/heading-lg/letter-spacing",
+        "typography/heading-md/font-family",
+        "typography/heading-md/font-size",
+        "typography/heading-md/font-weight",
+        "typography/heading-md/line-height",
+        "typography/heading-md/letter-spacing",
+        "typography/body-md/font-family",
+        "typography/body-md/font-size",
+        "typography/body-md/font-weight",
+        "typography/body-md/line-height",
+        "typography/body-md/letter-spacing",
+        "typography/body-sm/font-family",
+        "typography/body-sm/font-size",
+        "typography/body-sm/font-weight",
+        "typography/body-sm/line-height",
+        "typography/body-sm/letter-spacing",
+        "typography/label-md/font-family",
+        "typography/label-md/font-size",
+        "typography/label-md/font-weight",
+        "typography/label-md/line-height",
+        "typography/label-md/letter-spacing",
+        "typography/label-sm/font-family",
+        "typography/label-sm/font-size",
+        "typography/label-sm/font-weight",
+        "typography/label-sm/line-height",
+        "typography/label-sm/letter-spacing",
+        "typography/code-sm/font-family",
+        "typography/code-sm/font-size",
+        "typography/code-sm/font-weight",
+        "typography/code-sm/line-height",
+        "typography/code-sm/letter-spacing",
+        "typography/title-md/font-family",
+        "typography/title-md/font-size",
+        "typography/title-md/font-weight",
+        "typography/title-md/line-height",
+        "typography/title-md/letter-spacing",
+        "typography/title-sm/font-family",
+        "typography/title-sm/font-size",
+        "typography/title-sm/font-weight",
+        "typography/title-sm/line-height",
+        "typography/title-sm/letter-spacing",
+        "typography/label-xl/font-family",
+        "typography/label-xl/font-size",
+        "typography/label-xl/font-weight",
+        "typography/label-xl/line-height",
+        "typography/label-xl/letter-spacing",
+        "typography/label-lg/font-family",
+        "typography/label-lg/font-size",
+        "typography/label-lg/font-weight",
+        "typography/label-lg/line-height",
+        "typography/label-lg/letter-spacing",
+        "typography/overline/font-family",
+        "typography/overline/font-size",
+        "typography/overline/font-weight",
+        "typography/overline/line-height",
+        "typography/overline/letter-spacing",
+        "typography/caption/font-family",
+        "typography/caption/font-size",
+        "typography/caption/font-weight",
+        "typography/caption/line-height",
+        "typography/caption/letter-spacing"
+      ]
+    },
+    "Motion": {
+      "modes": [
+        "Value"
+      ],
+      "names": [
+        "duration/fast",
+        "duration/normal",
+        "easing/standard"
+      ]
+    }
+  },
+  "codeSyntaxExceptions": {
+    "elevation/raised/color": null,
+    "elevation/floating/color": null,
+    "elevation/overlay/color": null
+  },
+  "textStyles": [
+    {
+      "name": "typography/heading-xl",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/heading-lg",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/heading-md",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/title-md",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/title-sm",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/body-md",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/body-sm",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/label-xl",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/label-lg",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/label-md",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/label-sm",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/overline",
+      "textCase": "UPPER",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/caption",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/code-sm",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    }
+  ],
+  "effectStyles": [
+    "elevation/raised",
+    "elevation/floating",
+    "elevation/overlay"
+  ],
+  "keys": {
+    "components": {
+      "Accordion": {
+        "key": "eb6704f9274bd8013ac58a25e2699ad764c576e2"
+      },
+      "Accordion.Item": {
+        "key": "5569d4bce0281e94402873967e912bc69739ab01",
+        "variants": {
+          "open=false, disabled=false": "496a54403482f98e8c30fc8e3d9ee200adc4480f",
+          "open=false, disabled=true": "e9a574f697c60e2280c0e9cbafcc261be450c8dd",
+          "open=true, disabled=false": "345541782a1e75fcac0fb1d4753fa54b4cfa732b",
+          "open=true, disabled=true": "fc3c5fde3aebc711757b92dc5047f93f2b7be61f"
+        }
+      },
+      "Alert": {
+        "key": "c84b3f9d6d9aa60405ccebb3d8c924b6e41d5cee",
+        "variants": {
+          "variant=danger": "ea3aaf0a4eb56a017264b4d9727384138fd7d667",
+          "variant=info": "9044072ad7838ed2043362e477070bd2067fef8b",
+          "variant=success": "b5b1c568e3d4c23a4e4fc31fae130b451efca7f5",
+          "variant=warning": "8541b884388f68a015b19e854f9b9dfe8588656d"
+        }
+      },
+      "AlertDialog.Content": {
+        "key": "a04a1f0fc5a77c10c0ac2fae32e9c5f436246a6c"
+      },
+      "Autocomplete": {
+        "key": "00d0e266e317f407fcc1196804555c6adea8e3ff"
+      },
+      "Autocomplete.Content": {
+        "key": "3b4bb10798b2cfa9a7adb87e333ce28b3265aafe"
+      },
+      "Autocomplete.Control": {
+        "key": "288d085c61e98a7a7e0031a1d7a8eddd5ca3b694",
+        "variants": {
+          "filled=false, open=false, disabled=false": "b0adcf4cdc30fbab4f4618fd9b6e238e2813056c",
+          "filled=false, open=false, disabled=true": "62ff61b87e7cad89966f0fcca44475b94947e49c",
+          "filled=false, open=true, disabled=false": "f56c34793ad2d6507493acbc925c1bdcf4e10213",
+          "filled=false, open=true, disabled=true": "9070710752bb961e6a5f6a1dd08246cfbefa3329",
+          "filled=true, open=false, disabled=false": "3cab94a755356a56d1ff12cdbf181fafb85979c1",
+          "filled=true, open=false, disabled=true": "f8e58b76aafee40d4e9e3a0db361f92743cf3853",
+          "filled=true, open=true, disabled=false": "e8abd8875a644487d78559af8a84c720252e51f6",
+          "filled=true, open=true, disabled=true": "14a371584c96dded426ea45e4a3d3fd30afcb4b9"
+        }
+      },
+      "Autocomplete.Item": {
+        "key": "aba7ee21bd2a9f1b9f1246653c4e4e2a13d31297",
+        "variants": {
+          "highlighted=false, disabled=false": "f35b1bfeb1df46a4aa551ed5466a3a2548845334",
+          "highlighted=false, disabled=true": "028b45ccfda8ffd509a126881b48acb9524fcc25",
+          "highlighted=true, disabled=false": "3cef2989288aec28b92035b997e11dc2f08c8359",
+          "highlighted=true, disabled=true": "d1617303363c45863b16190298ea25f7263bd752"
+        }
+      },
+      "Avatar": {
+        "key": "e5609e9d838b1102cfa53bbb50446ea3dd37f678",
+        "variants": {
+          "size=lg": "6fa8ab716c465ae351c371101cae7e39b3d27c69",
+          "size=md": "c572b118b10cef62cc6281f85484340dcb99ded2",
+          "size=sm": "41236f21630a3d7314e25615d0a95e4e9ff3b418"
+        }
+      },
+      "Badge": {
+        "key": "6e07d6863df00aca7a24790351054021b06aef4a",
+        "variants": {
+          "variant=accent, size=md": "5e19e362a40fd44d1ad0a076cc68946c321958fb",
+          "variant=accent, size=sm": "bfe24a0a20a6f1e61ca16234351b6cec321a449b",
+          "variant=danger, size=md": "e23834cb51e1a8f49193ee905bf3059bffb2d9f1",
+          "variant=danger, size=sm": "7e56be033c20e65077348b6edd7d2c8424d2fe0f",
+          "variant=neutral, size=md": "c927ce8dc03e65b60917b1eb38009509f5c4dcdf",
+          "variant=neutral, size=sm": "145923c8a6519d9a39a6f23021e29f441e57f668",
+          "variant=success, size=md": "799ee17197ad3fb782f8a529542155e4e96a9598",
+          "variant=success, size=sm": "c48b81761b630dcce4f97d750a01f4a1c1d17dad",
+          "variant=warning, size=md": "fc739eaed64211d13e94dea77f3035b9db0b8f77",
+          "variant=warning, size=sm": "f0ff6475affab6f5fa59ca8bb66c9c2e851069f6"
+        }
+      },
+      "Breadcrumb": {
+        "key": "13a685ca02c1489df2255de9ff6449924382c2f3"
+      },
+      "Breadcrumb.Current": {
+        "key": "88ec24e49f37c758981e764d7a7cd8389a9d1a3d"
+      },
+      "Breadcrumb.Link": {
+        "key": "a7e1fa88b77c5483363d2cc0eef3857e38a9269c"
+      },
+      "Breadcrumb.Separator": {
+        "key": "9e3b5da819cbe64e26c97368c95c26a5a2716aac"
+      },
+      "Button": {
+        "key": "772402218a307837d398e78e3b1223d09d038b71",
+        "variants": {
+          "variant=danger, size=lg, disabled=false": "8ffc51c573ff00b71bb996a2e10766c9cee7b51a",
+          "variant=danger, size=lg, disabled=true": "2e4f8dc53e584875faf93087171de038c5f3f4d7",
+          "variant=danger, size=md, disabled=false": "3a418cdd50f0932d12e458649bf9aae068a5ff17",
+          "variant=danger, size=md, disabled=true": "074909c31af16e0b7600d7cabeff134705a76a93",
+          "variant=danger, size=sm, disabled=false": "3ab62d1ada6ae822807f2c29d07c020063b6d981",
+          "variant=danger, size=sm, disabled=true": "7f8d4526ec4eb04fb566eac95f6ad4824ac2d472",
+          "variant=ghost, size=lg, disabled=false": "b9e443495db752013a26e590fa37f16f1c619d25",
+          "variant=ghost, size=lg, disabled=true": "bce4132069714ad19f99f2ff326380d4b307bc43",
+          "variant=ghost, size=md, disabled=false": "e143255ea80e1de8ac6d8611f3d201143eaa3b34",
+          "variant=ghost, size=md, disabled=true": "1b8be317f780de1c8a1ebca68210e95a5452794d",
+          "variant=ghost, size=sm, disabled=false": "29ad132c30d3c40c004448f1db7491ea14c764f5",
+          "variant=ghost, size=sm, disabled=true": "b6c9e708873d0ca2bb6df97817c612bba4b17168",
+          "variant=primary, size=lg, disabled=false": "6ec76e7374263cc42ee4e9b9f0b588c520c0b4ab",
+          "variant=primary, size=lg, disabled=true": "1dc6ec9eb8360471426bac125a465f898e5cc6e7",
+          "variant=primary, size=md, disabled=false": "f2cabaf092c81691a876614d40a7b6e489df55f7",
+          "variant=primary, size=md, disabled=true": "5c89e930bb7e8964cbd103e50d8f00f2019b2582",
+          "variant=primary, size=sm, disabled=false": "d211a298066378319e3ceaefcd781d0a298d4ebd",
+          "variant=primary, size=sm, disabled=true": "bc39c55fc9086b9baa627a6c22e18a8394edd59f",
+          "variant=secondary, size=lg, disabled=false": "e7daac371c9ebf353ca3394f2af0d6f4fe7420c8",
+          "variant=secondary, size=lg, disabled=true": "0864fc2e437c8728a261d3b7c768f4a587a2a2b6",
+          "variant=secondary, size=md, disabled=false": "d4d44caf3fb34ea27bb8f1389f6ad2f0b459c202",
+          "variant=secondary, size=md, disabled=true": "b946c01fc3c9566cbdc2738180d302d33b35d83a",
+          "variant=secondary, size=sm, disabled=false": "c52b709d32131ea50986db4ab62fe682b050bb7f",
+          "variant=secondary, size=sm, disabled=true": "8edd6f14d73fd8f9c865bfa2621203255a3c4833"
+        }
+      },
+      "Card": {
+        "key": "44d1b68a5ce9b40462c950d09d47bb432bc9b9e7",
+        "variants": {
+          "variant=elevated": "2340b7790e6f5995d71689074eacfe07da97cb89",
+          "variant=outlined": "b90e2cca86a648deade41163f2e6f22d898572e9"
+        }
+      },
+      "Checkbox": {
+        "key": "9d2f3d30616e0b7358cf7292695f7fcec035a450",
+        "variants": {
+          "checked=false, indeterminate=false, disabled=false": "2ed8c18c80e5f0f8c6f5eb26241f101d71efc897",
+          "checked=false, indeterminate=false, disabled=true": "6de05f0cc816857c66a9a186de446669ae5fd983",
+          "checked=false, indeterminate=true, disabled=false": "e006d8c613ea10f332029303cc0d6dfe707cd6a0",
+          "checked=false, indeterminate=true, disabled=true": "23a34bf84e96e78bb0177ffb7fb9e5e41fbff569",
+          "checked=true, indeterminate=false, disabled=false": "23adc81918a05586f030c5f618c9e6bd7d81e8d7",
+          "checked=true, indeterminate=false, disabled=true": "e22c35daaaded41dcd07b17474fd21fc799761c4",
+          "checked=true, indeterminate=true, disabled=false": "a78e715d1a7953857295806aed2f9979dd966004",
+          "checked=true, indeterminate=true, disabled=true": "b76f8b6146cfe32ba792fcda5f9fd78032a14659"
+        }
+      },
+      "CheckboxGroup": {
+        "key": "7cf810d8a48c8ce5e563e5b4b32af12fe651552e",
+        "variants": {
+          "orientation=horizontal": "5c1f39f902745c5be19c765a25e921520640aed3",
+          "orientation=vertical": "f0ad85c310dcb010a9e81ab09872d1deac0f037e"
+        }
+      },
+      "Collapsible": {
+        "key": "5f3d29e7994f73246c69469f4975f2fbd47e8068",
+        "variants": {
+          "open=false, disabled=false": "e3affec69826c8be63dd94d75f32d37e907faf5e",
+          "open=false, disabled=true": "3d674aafe244ab8277de39641713c77217db484f",
+          "open=true, disabled=false": "69d9c370875a7a7c91fd7c60ca9f1a2d49bb4af8",
+          "open=true, disabled=true": "7312bd7fa0bcf5aff59086e3fcd9667a50c52639"
+        }
+      },
+      "Collapsible.Trigger": {
+        "key": "5353c5f4094ce180a91d9b517321ea2997955564",
+        "variants": {
+          "open=false, disabled=false": "0fa0df9d5cdef054e93e2d688aed3a44c6999a9d",
+          "open=false, disabled=true": "6fbe83ae2466f5bce16db4ca893f1dd1ce4226d3",
+          "open=true, disabled=false": "44a9dbf707c11e2af8774204563dfabcf83b3d1b",
+          "open=true, disabled=true": "ab098d7e3777adeccc273615efa46781956630bd"
+        }
+      },
+      "Combobox": {
+        "key": "bfd15909cba827fd8e2ceaeeb727213eb135be8d"
+      },
+      "Combobox.Content": {
+        "key": "84727400701d38facc77812d52b99d0b5ab60e90"
+      },
+      "Combobox.Control": {
+        "key": "87775496770173a45d66793c56d1292536e2e317",
+        "variants": {
+          "filled=false, open=false, disabled=false": "0c3b9b4fe40121a039ef3e129bde0ae405f5a190",
+          "filled=false, open=false, disabled=true": "340b0d31d6082c0bc06fed71b07d78a61b925a73",
+          "filled=false, open=true, disabled=false": "341fcfaecfcdeb205d7f4c827d2799e41cf3304a",
+          "filled=false, open=true, disabled=true": "db91ac72d6278b94aa0d5a0e7778ad13613ef161",
+          "filled=true, open=false, disabled=false": "2bbb194d02dcbb88d583602c451c97da257bf9a8",
+          "filled=true, open=false, disabled=true": "1abbfa942159cd4a165b01713f9434a5b9b35a72",
+          "filled=true, open=true, disabled=false": "5ee76b17d6d4bfb286771b02556d2e2bb85b50c1",
+          "filled=true, open=true, disabled=true": "c96bcc5f3e293fa53459be8d10611687009df95c"
+        }
+      },
+      "Combobox.Item": {
+        "key": "2b6b56735c939d68dac765270ca9678eb8787e06",
+        "variants": {
+          "highlighted=false, selected=false, disabled=false": "9343a62fdf1ebeefface94e4d66aa8fd7cab7239",
+          "highlighted=false, selected=false, disabled=true": "eca17c15d69ebc058e9afddde30033dfc663b4a4",
+          "highlighted=false, selected=true, disabled=false": "7b8d67e17c876dcdc64b5eabdcf552c3cfc3e747",
+          "highlighted=false, selected=true, disabled=true": "d8750bbf8a2940ed4ff7e7532a6d4b5e392ff8cc",
+          "highlighted=true, selected=false, disabled=false": "193ab3cfd618747b804517a57fc34d09a206fb41",
+          "highlighted=true, selected=false, disabled=true": "3a67d8175b034410103aed89be60a83da13e9f63",
+          "highlighted=true, selected=true, disabled=false": "4c7db0c49483b3e5be97018317dd6e2f64ed653d",
+          "highlighted=true, selected=true, disabled=true": "b460db63b95286194eaafaec759f9ba4accf310a"
+        }
+      },
+      "Dialog.Content": {
+        "key": "2e035800a16409f7a390bd734aa4d671da14f8cc"
+      },
+      "Fieldset": {
+        "key": "7644286346868ea7480d56d143074772763990bf",
+        "variants": {
+          "disabled=false": "89c3e23939332fa68f4656373f148d3cadae4af7",
+          "disabled=true": "1bf649c948780db302323eb9ec615f274386ad82"
+        }
+      },
+      "IconButton": {
+        "key": "39c210e61d303d97c8952770eb68d323d8834d6b",
+        "variants": {
+          "variant=danger, size=lg, disabled=false": "3a3ded3c2817906f0f8bc3f429b2d18c07ea0d3e",
+          "variant=danger, size=lg, disabled=true": "a5626b0d51580d227bbfc30ef11f0b85838fdd36",
+          "variant=danger, size=md, disabled=false": "4f18caed3291b8432f6aa16fe4a3c4ac432e1c6b",
+          "variant=danger, size=md, disabled=true": "2b9ebe89b742de0fed084da7240ff9a2e2bf8cfa",
+          "variant=danger, size=sm, disabled=false": "0056fe04a87e13f053be7022b7a7727f9d96d22c",
+          "variant=danger, size=sm, disabled=true": "ae9cad063576916f49e6d9b8ef44736ab5dee6f5",
+          "variant=ghost, size=lg, disabled=false": "af96d516f00e63a6a789bf59d6bbf69f6cd13605",
+          "variant=ghost, size=lg, disabled=true": "e96950a19ebc81f8d76f73dfc6c338470455dfe5",
+          "variant=ghost, size=md, disabled=false": "3d2c2917c22690399cc81ba115008a2cd7e95c12",
+          "variant=ghost, size=md, disabled=true": "38fbeefc63fa9431360f98f1e2f0e7822c28c681",
+          "variant=ghost, size=sm, disabled=false": "0ef327978ed596df0621234f6d498b0edf98aff7",
+          "variant=ghost, size=sm, disabled=true": "d7a9d12762ce601551f45be8d34def0de0669494",
+          "variant=primary, size=lg, disabled=false": "7a4a465b3bfa06fbfc365cb4e1d3e21b5993d989",
+          "variant=primary, size=lg, disabled=true": "bed3338abc5ef8cccafd43baf5be96f2aed18907",
+          "variant=primary, size=md, disabled=false": "a456c98d58470770e02e5d8dbf5c3086d91fd47d",
+          "variant=primary, size=md, disabled=true": "a8a531edc692af4522ffe53d089be17a431f0f34",
+          "variant=primary, size=sm, disabled=false": "f4fb60113ecda8b2615ef2aa627b12ef2f25bd6d",
+          "variant=primary, size=sm, disabled=true": "b23f788131ff5fa79e3f1a57c3cccf18037d98b7",
+          "variant=secondary, size=lg, disabled=false": "876ffed885793b2b57eebd2edd4a43c5b44a6ec5",
+          "variant=secondary, size=lg, disabled=true": "6501881d452a359c2c26ccf92a46e81361300c19",
+          "variant=secondary, size=md, disabled=false": "9e6b19048e7b39ecd5eb423a9d77b96eb5f8514b",
+          "variant=secondary, size=md, disabled=true": "852b14ca2561a154f469c0e55be55166e1111e1e",
+          "variant=secondary, size=sm, disabled=false": "4782201259afd8e2672eecb642eb9b7604571af4",
+          "variant=secondary, size=sm, disabled=true": "af3c0ee0fb9405c8e89a01a68a7bd5c9cce268f7"
+        }
+      },
+      "Menu.Content": {
+        "key": "d84dca3a09eaa68cc7fcf0ccb86bac2dbaa3e055"
+      },
+      "Menu.GroupLabel": {
+        "key": "4c9da44c48188fbc8475db0ec62cf3bfcb694532"
+      },
+      "Menu.Item": {
+        "key": "1a2e5a46d32fabd1c0158c3c12c445053809c462",
+        "variants": {
+          "highlighted=false, disabled=false": "a8d834a7849332bcac874da5e63da64cf2283ff8",
+          "highlighted=false, disabled=true": "fb78d53605c6d8aba9f8293eb09aeb2faab40a9c",
+          "highlighted=true, disabled=false": "af7370a106b5998ffafda3526f927a78d0111961",
+          "highlighted=true, disabled=true": "cf3ab25a3fda346875b172dd0d30c0a9341995b7"
+        }
+      },
+      "Menu.Separator": {
+        "key": "c7e46f80f82724de0a0a200e056a3faf0510e49b"
+      },
+      "Menu.SubmenuTrigger": {
+        "key": "b0c9a731d320cd1f3c4896dc77a232e5d4a41f81",
+        "variants": {
+          "open=false": "31663e3d8f6f2de65b8e2ea6d6b2e336fab3be5b",
+          "open=true": "a558061aca74de65f64fec9dad3e68f2a0d2a7bd"
+        }
+      },
+      "Menubar": {
+        "key": "9a1ab5e389bc00576437c7d0bd41925db2019254",
+        "variants": {
+          "orientation=horizontal": "27a5de6e0cc33a330d3097b494fd920914d77447",
+          "orientation=vertical": "0445fcd2e4d0b9bb8d8a24db8c0ac2f7f5a93ca9"
+        }
+      },
+      "Menubar.Trigger": {
+        "key": "9adddb09b58f937aefc5b3f43e88b146cb16245d",
+        "variants": {
+          "open=false, disabled=false": "979d575367dfeb2e3de804db92709bb716e23501",
+          "open=false, disabled=true": "747575dc86f0a06c4bc2b5ce2230a246a19f86d0",
+          "open=true, disabled=false": "f279b5bfb693f8ba81c714f0d6138f6ef98dc19f",
+          "open=true, disabled=true": "f47acb021656d78b43d2115af3df891bd9a74eea"
+        }
+      },
+      "Meter": {
+        "key": "b0e5d5a25e91568666f2860a90c1f1f267d663c8",
+        "variants": {
+          "variant=accent, size=md": "464bfcc5e0e7501c60d8f699f036ba4f03d1834c",
+          "variant=accent, size=sm": "8ab74645228e270307e092ec72b888191a401501",
+          "variant=danger, size=md": "b206f0fe5ce310169593350370bcb83a816dd391",
+          "variant=danger, size=sm": "7ce3d16a5d6791338b8dec60630bc708847a38ae"
+        }
+      },
+      "NavigationMenu": {
+        "key": "2090411a76c4371d53f692490eb3ac4bab60df27"
+      },
+      "NavigationMenu.Link": {
+        "key": "c92dd312e73d897306683822e2ba0e675e689f1e",
+        "variants": {
+          "active=false": "46ec534567edbb7fd819539a00919099573eb2d1",
+          "active=true": "4a8bb261b356d940638de2170f09448fc6fe179b"
+        }
+      },
+      "NavigationMenu.Trigger": {
+        "key": "1275485b6d949e2e0727b69aa64ff26f95830ee0"
+      },
+      "NumberField": {
+        "key": "0e342bdd46b57a1e0a624d866aebd0a742bbcba6",
+        "variants": {
+          "disabled=false": "2fe8cb91dce87b2ac2fd3dba87c2cf344e7cb576",
+          "disabled=true": "86b01220bdccc923b5eb71e6336d77bd0556a884"
+        }
+      },
+      "Popover.Content": {
+        "key": "f309c4e7be69201636cb838ebbb52812da6f98fb",
+        "variants": {
+          "side=bottom": "bd972fdc3c41e65665e0b419210a73ac8a8fb6b9",
+          "side=left": "2b4d14dc39c17fd7fdfaf08921a7b7bfbc1856b5",
+          "side=right": "ae4872f46f74bf9216988a47d704134b09c31911",
+          "side=top": "d6c90e6f08366e5a82df98ef83ff775afaa5914f"
+        }
+      },
+      "PreviewCard.Content": {
+        "key": "d06bac84d207e20fd299ef5b045887931fa9fd29",
+        "variants": {
+          "side=bottom": "b6b2577f0cbd243890e514a0b098fea468677dec",
+          "side=left": "d321c6415b79ca6a9b749019469a59f1835db44e",
+          "side=right": "975fc95f805727370e01697c0b7c4933a856ce30",
+          "side=top": "94b336756ffee7657402adf369c9771e0234b675"
+        }
+      },
+      "Progress": {
+        "key": "661217333aebf26b4a60747db7838be4d77ea564",
+        "variants": {
+          "size=md, status=complete": "e37879f14005fd50ecd2176463dd94d2f3425529",
+          "size=md, status=indeterminate": "e32ca93f8f486b9e8f9732a4d645d1c0e53d97de",
+          "size=md, status=progressing": "6607fcf415f0447f72b2d8367a2eea1f8506e1f9",
+          "size=sm, status=complete": "c7418b4cd16b0657996c25a1b6d9d15fa44749eb",
+          "size=sm, status=indeterminate": "d2f2c1a730ed0ebeb53f27babf41de560dd8e5cf",
+          "size=sm, status=progressing": "fead77efaa1216104817f751fdd707e0a78bfb54"
+        }
+      },
+      "RadioGroup": {
+        "key": "9571b565c130167cc49c14c258f7a5d783503b57",
+        "variants": {
+          "orientation=horizontal": "6eea15bfa57fede6180affc0ca38c68ee16c67c4",
+          "orientation=vertical": "b4f97c225a155f674d02b2cb3849c4bc3f22795d"
+        }
+      },
+      "RadioGroupItem": {
+        "key": "f75e85a810b0668a5eb5e01f527886e6a5aa2c7e",
+        "variants": {
+          "checked=false, disabled=false": "758273e41019d1900801931b2a766511972c6fc5",
+          "checked=false, disabled=true": "fc598c087fed05ef5fd93cd1b9a8da854fc6986b",
+          "checked=true, disabled=false": "55d3755de15b02ada13d13c2d1804b369d2ab809",
+          "checked=true, disabled=true": "9ab718966fa70a4da46b321e3f77a973e6c4b85d"
+        }
+      },
+      "Select": {
+        "key": "166d9461be173abb62cf26084f9caf6b55485ebe"
+      },
+      "Select.Content": {
+        "key": "abeb8693a0113f76acee0d6b30f991a44de669ec"
+      },
+      "Select.GroupLabel": {
+        "key": "c50c60b4cc920fd296df936353a05cd82573d60c"
+      },
+      "Select.Item": {
+        "key": "5b26fec5ad25e9d41f82085f1e2c9be3eb0116ea",
+        "variants": {
+          "highlighted=false, selected=false, disabled=false": "c817c7c4ecc04919cefbd48fc49fca767a8ff0e6",
+          "highlighted=false, selected=false, disabled=true": "f20a7cd5a8010685a9c9cf3da747d314b6331159",
+          "highlighted=false, selected=true, disabled=false": "14c1b4f5a9995ef836eba824c5698e4a153f9e0d",
+          "highlighted=false, selected=true, disabled=true": "f37c4f10a1b28380ac687a776ca5c901886399e0",
+          "highlighted=true, selected=false, disabled=false": "9064d72fe3a91c1111f06a90fcf110addb0d1ae7",
+          "highlighted=true, selected=false, disabled=true": "6053a71d3fe02cb842ebf46fa86b6273a0a6ba59",
+          "highlighted=true, selected=true, disabled=false": "22a28952d171bc21a217611fb6dcab84184c08c1",
+          "highlighted=true, selected=true, disabled=true": "2a0fcd055fca89003b1de96312481c4cf1305df0"
+        }
+      },
+      "Select.Trigger": {
+        "key": "b10a3cf40d331ffc128adeb8a3a8e220ce4818ba",
+        "variants": {
+          "placeholder=false, open=false, disabled=false": "ad6d7fa6c0e9671eafed97d915b0690527a951f2",
+          "placeholder=false, open=false, disabled=true": "995d060da147868658ce25b2b9ef7d80e396238f",
+          "placeholder=false, open=true, disabled=false": "64eb0a0b7790c2108c2723d3feaa586b4c8e2343",
+          "placeholder=false, open=true, disabled=true": "ab89081d5c0bbfc1f3da40b885ac35568e74371b",
+          "placeholder=true, open=false, disabled=false": "27b15dd544003192d49d281b9b1388db55055d03",
+          "placeholder=true, open=false, disabled=true": "fd0559e22be652545b452099b24fa29c72ea4158",
+          "placeholder=true, open=true, disabled=false": "aad9f23ef8d984e580775f527eef8d0dedd236df",
+          "placeholder=true, open=true, disabled=true": "3da7d6f26de8e38032e83e2903620589d3160063"
+        }
+      },
+      "Separator": {
+        "key": "0b617879370ccf8106d780b4da3cfb6e03272864",
+        "variants": {
+          "orientation=horizontal": "2ddeb1523a4d08a38628d0cca4d241c94a661099",
+          "orientation=vertical": "59e77313226c83f923855e5bedf813d57913857f"
+        }
+      },
+      "Slider": {
+        "key": "8cadc22f4dfedfbf6c2f90c563dc922c61c1ae25",
+        "variants": {
+          "orientation=horizontal, disabled=false": "56b3ec16e51fea5a393d82d82731151c182956bd",
+          "orientation=horizontal, disabled=true": "c7932516ea6bc107d906d48a8cffa1b47b923f91",
+          "orientation=vertical, disabled=false": "b5eb922582f0131abe87d76f8854bf070e2c57be",
+          "orientation=vertical, disabled=true": "c6fa49f4f18073b6b46ea1ef7558acbf4c0d485e"
+        }
+      },
+      "Spinner": {
+        "key": "64eb56e61508df4ee0e2652234efeb00e713c264",
+        "variants": {
+          "size=lg": "ac61de0f49c979ab2ed260cf7650a7fa7dd5faa7",
+          "size=md": "fe19c9a32b63a320530c1ef0f41e2e95f7ddbe67",
+          "size=sm": "31ac07c4410fd3a9b72acac0333f0edf3b982923"
+        }
+      },
+      "Switch": {
+        "key": "8863ffd15de674cd3200a8461bdbaa0ea2d4bee2",
+        "variants": {
+          "checked=false, disabled=false": "466f285496df0a301e64f617109f8c4c2176a80a",
+          "checked=false, disabled=true": "2c14d22297c2ea76c6b8c34f4960d79da567cf26",
+          "checked=true, disabled=false": "3a0dd5e61d64a567c800cb430280fc80ea6cec1b",
+          "checked=true, disabled=true": "180ce983a4388bd2676a39b310029719b0dbda35"
+        }
+      },
+      "Table": {
+        "key": "f2452eb98421fb24e8289e553e94b7921bd71dd5",
+        "variants": {
+          "striped=false, hideCaption=false": "a5a990ba58ce941a8f712bae1687316bfc413613",
+          "striped=false, hideCaption=true": "64640fce429cc01dc34e912fe30d89d2d9b51b09",
+          "striped=true, hideCaption=false": "d662d78a53c7a327f6cb248fe93e087c9079654c",
+          "striped=true, hideCaption=true": "d22e3fdf6d3f69e3d1aefff173b236dfb89fc798"
+        }
+      },
+      "Table.Cell": {
+        "key": "605ae04f049436527d181081c3fee7df5e3f25ca",
+        "variants": {
+          "numeric=false": "21d0eb5498d71d9d3616c320b84ec3a9241810a2",
+          "numeric=true": "4d996b02cb0461fa6e7e2422e798909e8e4f8f61"
+        }
+      },
+      "Table.HeaderCell": {
+        "key": "7081604a4e94d30047c139f9ddc09881c1b313eb",
+        "variants": {
+          "scope=col, numeric=false": "08c65b76126a8f49a0d8752d34c436a3aa419178",
+          "scope=col, numeric=true": "88e1cab82f82d52d43cbce0ca8e71f341b37021b",
+          "scope=row, numeric=false": "6bd3b8f749978c6df6ea9a1a0dd90320e9fd08c6",
+          "scope=row, numeric=true": "86f6a45ba012a3fb347a4a390321a9c0cd0337e4"
+        }
+      },
+      "Tabs": {
+        "key": "437dc564969e128988daae82cc7f089fc801120c",
+        "variants": {
+          "orientation=horizontal": "6e851321c108a7c4b01349ce62dd4d12397b9d39",
+          "orientation=vertical": "d45537169cb7a65f0e5086f15c17e768676e3fc8"
+        }
+      },
+      "Tabs.Tab": {
+        "key": "00e40cc479ae8daa5236342a81b1a5e072e9fcb8",
+        "variants": {
+          "orientation=horizontal, active=false, disabled=false": "4e9492f9e4506eea6aa4ed01964af39d0d731a13",
+          "orientation=horizontal, active=false, disabled=true": "b01ff72ae6cc801821aedc361c96d8252f620fd0",
+          "orientation=horizontal, active=true, disabled=false": "d2c245c7669c6f8faa938fa5717d587fb401a886",
+          "orientation=horizontal, active=true, disabled=true": "2463f9f2cc76cd90317fb055fe7013f2488b6f7d",
+          "orientation=vertical, active=false, disabled=false": "0811a122dbb87db92c8929f6990dc693faaecfca",
+          "orientation=vertical, active=false, disabled=true": "594e16351976ba487328ad4e1ea88db16c41710d",
+          "orientation=vertical, active=true, disabled=false": "160e88c269a739f02628c66548059468d1613766",
+          "orientation=vertical, active=true, disabled=true": "757f54088620c4ccc3f30bbe4f474716192c48dc"
+        }
+      },
+      "TextField": {
+        "key": "ba9655f1afb54d0ce752e63a27652f95bd2ec334",
+        "variants": {
+          "filled=false, disabled=false": "fd7dd0a5de1f27d5379d113c0f88ccaac029e48f",
+          "filled=false, disabled=true": "fdf043f9c3e241d5fc0cf133a2078828643d17a3",
+          "filled=true, disabled=false": "4d7965adb17b97841f7f16178b89e90df784fdad",
+          "filled=true, disabled=true": "3b466d3541fda1d77fc4d295f6a26f5ef2371c0c"
+        }
+      },
+      "Textarea": {
+        "key": "4939da685a9b99b8153e028fe71f31fbf6d50cb0",
+        "variants": {
+          "filled=false, disabled=false": "d4ec4bb5bc43a60fdf0a5eb8ec557485f4e4446c",
+          "filled=false, disabled=true": "7f7419723d89e5c4f7e6d0faa8126965a6eb2ea5",
+          "filled=true, disabled=false": "dc16759beee05f465d2309efab88302d522e0f9a",
+          "filled=true, disabled=true": "8717955f7e7dd42bf465296c86af10eda7c87f89"
+        }
+      },
+      "Toast.Root": {
+        "key": "4938517fccaf3355bc2bb73c6bb9d03b2d45fc5a",
+        "variants": {
+          "type=error": "b05f01e52ad01aed567357cd80995e98eb79b0fe",
+          "type=none": "e4b3684ba9bfe2bbcce44c4acdc74dd9f07e8b4a",
+          "type=success": "490fdce7ded37f3c33e239cc56780884113d52d7"
+        }
+      },
+      "Toggle": {
+        "key": "90e2f1bb3dbfa7a585904a1cd119e774275e2d6a",
+        "variants": {
+          "variant=ghost, size=lg, pressed=false, disabled=false, iconOnly=false": "18712c3f84f3dfa5b0aef2ad9d0966b45a9d2797",
+          "variant=ghost, size=lg, pressed=false, disabled=false, iconOnly=true": "be073c6975109b7ddbb0f1bc2d146681532d98e0",
+          "variant=ghost, size=lg, pressed=false, disabled=true, iconOnly=false": "83b1b9d90c0421b6643d5d8daaef68b49c73c7d9",
+          "variant=ghost, size=lg, pressed=false, disabled=true, iconOnly=true": "4dff3d08c1afbb1c6e66fdd1b2c8b8c0eed9fc82",
+          "variant=ghost, size=lg, pressed=true, disabled=false, iconOnly=false": "99b4372d88d3b5312ecd346ea6b0d73c56b49ac1",
+          "variant=ghost, size=lg, pressed=true, disabled=false, iconOnly=true": "f615d675522f3dfa8001076a571aed6ee4838a0e",
+          "variant=ghost, size=lg, pressed=true, disabled=true, iconOnly=false": "8b5541902c1b62df38518d7487a7221143dc8c96",
+          "variant=ghost, size=lg, pressed=true, disabled=true, iconOnly=true": "a8748c7f502bec505aa4204e1cdd62b95e4e8abd",
+          "variant=ghost, size=md, pressed=false, disabled=false, iconOnly=false": "85cca7402e1095499b2a1bfca40f386e52e449cc",
+          "variant=ghost, size=md, pressed=false, disabled=false, iconOnly=true": "3d570224644cd397ee3c472e1c88359aab4bbae5",
+          "variant=ghost, size=md, pressed=false, disabled=true, iconOnly=false": "b50196ed7ed3e626bf495262bce5b8bc62c638f6",
+          "variant=ghost, size=md, pressed=false, disabled=true, iconOnly=true": "e3efae81796580b3756faf28c289010d9ebe79db",
+          "variant=ghost, size=md, pressed=true, disabled=false, iconOnly=false": "f04c33a88f8c87cd9dfcb92687bc397b19abfa3f",
+          "variant=ghost, size=md, pressed=true, disabled=false, iconOnly=true": "89ab2829feefe77bdfd50b0617117efca0a4e88c",
+          "variant=ghost, size=md, pressed=true, disabled=true, iconOnly=false": "11684966929c048b397885d8a2ddcfb54c5171e1",
+          "variant=ghost, size=md, pressed=true, disabled=true, iconOnly=true": "5ee3176367ef4f0e988b04f1ae1dff91847cd237",
+          "variant=ghost, size=sm, pressed=false, disabled=false, iconOnly=false": "fbc39c16b0ab28fa09d5d0edc0e6f8f1c942c6f6",
+          "variant=ghost, size=sm, pressed=false, disabled=false, iconOnly=true": "6e3d1e54c09cdecec5c1d58d0c1468f272917763",
+          "variant=ghost, size=sm, pressed=false, disabled=true, iconOnly=false": "e1374ec20ae68d431e711f94472dac064344362a",
+          "variant=ghost, size=sm, pressed=false, disabled=true, iconOnly=true": "0df8f096ae163e6951e871be74da545e5fe072c4",
+          "variant=ghost, size=sm, pressed=true, disabled=false, iconOnly=false": "92f8027a305de95bc1fa4fe0134201addbfc2e9a",
+          "variant=ghost, size=sm, pressed=true, disabled=false, iconOnly=true": "b923abaea6c5246594ccc1c04742a0de36000c43",
+          "variant=ghost, size=sm, pressed=true, disabled=true, iconOnly=false": "ec047de2484419396a0e40aec9e6b3662c1d0475",
+          "variant=ghost, size=sm, pressed=true, disabled=true, iconOnly=true": "4510e2314bc824873d43aaa1bb995b5c4dfda384",
+          "variant=secondary, size=lg, pressed=false, disabled=false, iconOnly=false": "84ea3ceb21c285098e2e40579995f05c60d44efc",
+          "variant=secondary, size=lg, pressed=false, disabled=false, iconOnly=true": "c0c86f115ba6b7dd5cb166cdf3edb8f604a30920",
+          "variant=secondary, size=lg, pressed=false, disabled=true, iconOnly=false": "4809b508c4a9f595a228b0f1174df5e4b794ffc7",
+          "variant=secondary, size=lg, pressed=false, disabled=true, iconOnly=true": "773a09615ca32936d206096046ffea25ba62176c",
+          "variant=secondary, size=lg, pressed=true, disabled=false, iconOnly=false": "996e82381fd2f62862c3764f3dbfb65b63b61c4a",
+          "variant=secondary, size=lg, pressed=true, disabled=false, iconOnly=true": "a376b9364de844ffee797a015650010211368d90",
+          "variant=secondary, size=lg, pressed=true, disabled=true, iconOnly=false": "e8c0c22b8226d5f0f2e47657a725fe1a17598176",
+          "variant=secondary, size=lg, pressed=true, disabled=true, iconOnly=true": "ff7a7d89dc9e5ec1f5d9cabda5449dea096d74cd",
+          "variant=secondary, size=md, pressed=false, disabled=false, iconOnly=false": "fd97d12019b199ac4f8fe65917dd6eb60e177098",
+          "variant=secondary, size=md, pressed=false, disabled=false, iconOnly=true": "7283f0be39e2f035d03a0dc0ca824d4ac5e19606",
+          "variant=secondary, size=md, pressed=false, disabled=true, iconOnly=false": "b0383cbae5b58299cc9dca7881d6e3f6e0168dea",
+          "variant=secondary, size=md, pressed=false, disabled=true, iconOnly=true": "c43b594fd358cab15c0474e3b6d2abe82d96eabd",
+          "variant=secondary, size=md, pressed=true, disabled=false, iconOnly=false": "ea1e79a673a633f81247ec412937655d02e960bc",
+          "variant=secondary, size=md, pressed=true, disabled=false, iconOnly=true": "ec8dc679d7af1701ae8c0aaf576a38a2a29f498e",
+          "variant=secondary, size=md, pressed=true, disabled=true, iconOnly=false": "52e11ff62fe2d46dc735e75ff35cccc5b3d2fd2f",
+          "variant=secondary, size=md, pressed=true, disabled=true, iconOnly=true": "ed6ed5f04120432ed4c03a9b60f6f4bbf14df5a9",
+          "variant=secondary, size=sm, pressed=false, disabled=false, iconOnly=false": "5140fb5904791cf01afbfedf303742d458ef915b",
+          "variant=secondary, size=sm, pressed=false, disabled=false, iconOnly=true": "3f9cdfb4d1ea2b464dd7054ebd8aed9afe354400",
+          "variant=secondary, size=sm, pressed=false, disabled=true, iconOnly=false": "71cfc8a3aa65f7f996788ca7e7554b7b95764eb0",
+          "variant=secondary, size=sm, pressed=false, disabled=true, iconOnly=true": "2a718370502af450a8b69f2da794ace1b1e38d0d",
+          "variant=secondary, size=sm, pressed=true, disabled=false, iconOnly=false": "6c7a3fad2069c9d950aa5b00c7a6125b504aa9e4",
+          "variant=secondary, size=sm, pressed=true, disabled=false, iconOnly=true": "72bf0a99f0a92493cad5a9e6ad70c85f09727bf3",
+          "variant=secondary, size=sm, pressed=true, disabled=true, iconOnly=false": "53b66dd8d2764b727285018d0bc3bcdf294607ef",
+          "variant=secondary, size=sm, pressed=true, disabled=true, iconOnly=true": "8950836407814e0fff251918da55383449e47cc2"
+        }
+      },
+      "ToggleGroup": {
+        "key": "62e835898d577d08e9ee2af568c4bd17babfb5fb",
+        "variants": {
+          "segmented=false, orientation=horizontal, disabled=false": "74a489751b6b9fb4fa2f5d31083b1d8ad3121d4a",
+          "segmented=false, orientation=horizontal, disabled=true": "6f5f532476508a5c102b588c6c8b4c7066cc8d04",
+          "segmented=false, orientation=vertical, disabled=false": "b6a8470611ab531fb264eecf38cbca6e3dffb72c",
+          "segmented=false, orientation=vertical, disabled=true": "bf99b485907dea1a9e0c06eb8040af7350f03194",
+          "segmented=true, orientation=horizontal, disabled=false": "43375a1b7820541952c5c311eb84c25bfd871c28",
+          "segmented=true, orientation=horizontal, disabled=true": "88b2a06af140f6afc3a0d8ebf5cce13d9e338cd1",
+          "segmented=true, orientation=vertical, disabled=false": "7d88faaafea1d7f5cd9afd28a587ad5d67223227",
+          "segmented=true, orientation=vertical, disabled=true": "1123963d9e98c897c924abdae2504804db270755"
+        }
+      },
+      "Toolbar": {
+        "key": "90a55ad20439bc4dcaaed217bf58c7700444a451",
+        "variants": {
+          "orientation=horizontal": "04a058a1fafce41f3040fb487f06812ec9035b97",
+          "orientation=vertical": "16534354f695d739dbd68b3c284b58dfe3746ae7"
+        }
+      },
+      "Toolbar.Button": {
+        "key": "905c483e0b3e79d63fa4c8c9db848f3ad88daa3c",
+        "variants": {
+          "disabled=false": "c375e365ab3eb63c02dc275f34e9634387326372",
+          "disabled=true": "5edab9235efd91c7d588a2e6018ecfac15183607"
+        }
+      },
+      "Toolbar.Input": {
+        "key": "e6f002d232a35febd37c3bf2a191e66174de821f",
+        "variants": {
+          "disabled=false": "a69bfcfeae6ce09a8b0015d18d044bf066042f79",
+          "disabled=true": "5593fe24ef9a64dac92f66f3bc3cb9878e8bbcc0"
+        }
+      },
+      "Toolbar.Link": {
+        "key": "c567f4e92b9e75ce960c7cd3fa4d7438cc063257"
+      },
+      "Toolbar.Separator": {
+        "key": "69d4dcad8153f0df74808cc11abdda9e56d0bbe6",
+        "variants": {
+          "orientation=horizontal": "29902a95b8260eac7e224b8ad9e060b3e06b47e8",
+          "orientation=vertical": "5ed89996aa9b2c9eea685d3413fe1d95ac4c5fdb"
+        }
+      },
+      "Tooltip.Content": {
+        "key": "202618fe01c3c857e4328ef74b712dcea1501e2c",
+        "variants": {
+          "side=bottom": "34b2fa9fddc9a8ee0cb2d59ef0699df313c6cf8a",
+          "side=left": "4c450e646e01d22196d3bf89df5bebe442d9b064",
+          "side=right": "68938ba7e92f26924303fb4fbdd22a5f79dba1cd",
+          "side=top": "2d8f7c6c8fe1893595e08d196b3b7e98fc9b34f8"
+        }
+      },
+      "icon/alert-octagon": {
+        "key": "19b546a4bb261351f1134a742ced1e29d935fa3c"
+      },
+      "icon/alert-triangle": {
+        "key": "d59b5e2ddc326a425d752f904ad2f1b1db588e39"
+      },
+      "icon/align-center": {
+        "key": "67774e6591bce06e69df2fd4cb888da65933d62c"
+      },
+      "icon/align-left": {
+        "key": "54877b8e81a9e709e13ff0c5ffc1fbbb3285376a"
+      },
+      "icon/align-right": {
+        "key": "afedf363006a420e2cfd4cf5e433c45f04a25a56"
+      },
+      "icon/bold": {
+        "key": "6c9dc7aa9cb722ef6d5a8eeb5041978d9227f3bb"
+      },
+      "icon/caret-down": {
+        "key": "d02b3772381fea299862ead25273e7484dd79e2e"
+      },
+      "icon/caret-up": {
+        "key": "4712529963a9093ba0df5a47a8043dba7f622744"
+      },
+      "icon/check": {
+        "key": "3c4a296048c1884e11f0405ec475eeb9671be38c"
+      },
+      "icon/check-checkbox": {
+        "key": "681b101f34c5c62c2445a3346be1181a2a9b3df5"
+      },
+      "icon/check-circle": {
+        "key": "043b2d49783c62cee4275d2f6a75b068f1a668c5"
+      },
+      "icon/chevron-down": {
+        "key": "8506a90edf5fba0cc859b38ecd0319bbed818304"
+      },
+      "icon/chevron-down-accordion": {
+        "key": "297a32c2653697c73785928c548202fde8a6b21f"
+      },
+      "icon/chevron-right": {
+        "key": "dddf90a9fb6e456f79d53de0663789603d984356"
+      },
+      "icon/chevron-right-collapsible": {
+        "key": "e673b75274e9dda7f0071bd529cd1efd9b86c5e9"
+      },
+      "icon/close": {
+        "key": "0b206e39e25d8570afbe45399963fa9c98be33b2"
+      },
+      "icon/dash": {
+        "key": "625a02168ccd27c25dc15f3dfc7d8c290e496490"
+      },
+      "icon/edit": {
+        "key": "d8a12947d99e2412bcdbfd5f24e8bdc52fc68d30"
+      },
+      "icon/info-circle": {
+        "key": "587b53eec96c70251ecfedce27e172c4fc49f367"
+      },
+      "icon/italic": {
+        "key": "da6a3f903701ff8e5e9cfe07b9fb4c72f2f941d4"
+      },
+      "icon/minus": {
+        "key": "77a9f61c20cb1d784960cb51cbd842ece5cf4f96"
+      },
+      "icon/more-vertical": {
+        "key": "0bf56ab81b0bf900e1107bf22e2ba691f1d1689c"
+      },
+      "icon/person": {
+        "key": "84dfb4058d966e8ffdd47c3ee9f3fb76b1edf392"
+      },
+      "icon/plus": {
+        "key": "1d45c70b1096f731d3dc80ccfee635920819a5d4"
+      },
+      "icon/scrub-cursor": {
+        "key": "207579318f1ed576ba7b736f4ce12eccd598bca1"
+      },
+      "icon/star": {
+        "key": "6cfde9f2ca5c684cafaaba79391413e7c4cbb25d"
+      },
+      "icon/trash": {
+        "key": "f3bd306354598d5e3e65ca96213b806938bb53d5"
+      },
+      "icon/underline": {
+        "key": "a9d5a87b99305f11dc35e6187c786bb70af9ed3a"
+      }
+    },
+    "textStyles": {
+      "typography/body-md": "861ccc1eafdb2c95bb64f1d9c03dfe100a81d4e6",
+      "typography/body-sm": "e87d49774887ceedac6f4235de951b60c424aa5e",
+      "typography/caption": "0d0233e8f5788086828beab3d66513775024cf85",
+      "typography/code-sm": "6b2ac169d8fe7635a287a198e9bbafe238eff66a",
+      "typography/heading-lg": "c53e78baae4fefe3b00e59c7b47f368398cdb9ad",
+      "typography/heading-md": "0be111c3098c65fcc3252f6d2fbd64ad111aff96",
+      "typography/heading-xl": "29f012b7e0a0e12dbccc5137397d183c737e7e1b",
+      "typography/label-lg": "5cbc74b3eb8211bb317f14683adb813b16136fac",
+      "typography/label-md": "d9e243b6b15bd6f0e4cf4760574d0d272a77d1f4",
+      "typography/label-sm": "37475fdbbdb93f3cc21f0fe66162395fe1490c6c",
+      "typography/label-xl": "804f79843d5d062080f85f35cc1f6183dad23ade",
+      "typography/overline": "7a8fb5efe9399a3a75f50dbabd08f7bf64a1df5b",
+      "typography/title-md": "698e5fb31e3cf8741790b9676705c8ec97f3d4b8",
+      "typography/title-sm": "0483fa2d665c86479d73319186f68f0404494fca"
+    },
+    "effectStyles": {
+      "elevation/floating": "330956dab0ee22cc9f34a4a369c51a0ea10deee3",
+      "elevation/overlay": "623233992953f60e869a82354f32e785061483e9",
+      "elevation/raised": "9c461183e7621a11a667ca8a8291759c95747b00"
+    },
+    "variables": {
+      "breakpoint/lg": "61cd1290d3d4b0659effec046d506b6c1a2f7139",
+      "breakpoint/md": "216e13ac04c310790120d30aea133485aaf23292",
+      "breakpoint/sm": "1b1c274fb016bf8524eb3df5c0a57507fc16a634",
+      "breakpoint/xl": "f0927842afb2f6b2a639c2b0e69de5f8e3ae8dcd",
+      "color/background/accent": "c1b883ca190ef8a5f866637265cc7601c18b7e83",
+      "color/background/accent-active": "13a567336e7dc33e5725a11de1d10996d5b8de72",
+      "color/background/accent-hover": "4c008e917f00847e51476ad117507909f6e66add",
+      "color/background/accent-subtle": "08a72011da8216674890884842304c24be5ac39d",
+      "color/background/danger": "523271775d1ec375cffaa43f9f8797ac266433c1",
+      "color/background/danger-hover": "26d137320775409af0bf73b01d3acfc06eba8318",
+      "color/background/danger-subtle": "1222105efa704e4938935c009917d8bad295d82c",
+      "color/background/default": "43d904554470f1ef7c7529f1d958248ed19b0276",
+      "color/background/on-accent": "46b2a93e63975f2d97fc57f88cc6bf51a41dc890",
+      "color/background/overlay": "808c00a38891edf361f15832ca6adf95e8c834ca",
+      "color/background/success": "1501cc20de52ada1a9e538607d64da4eda304a63",
+      "color/background/success-subtle": "df7df8f5b3801e3517789b5349c6537ff9b61b98",
+      "color/background/sunken": "eaeb560df5561bef329cc0e42b4b71ae863324d6",
+      "color/background/surface": "8d863419536561292ed74160ece56edef1f88367",
+      "color/background/warning": "93e3f7f755946fed526257c1600b717e11350235",
+      "color/background/warning-subtle": "9d127366f06f676f6299b230bf623d8a660b6ea1",
+      "color/border/accent": "03e1fa627e78c382797abebd600082915d9f9e5f",
+      "color/border/accent-hover": "d99f7aaf8c12f0132678165260afd992d563fc51",
+      "color/border/danger": "9175119acad2cf2d494aad59148278ddcd655832",
+      "color/border/default": "d9b9b40519b3e64cdc48b7f021516beb5a5da088",
+      "color/border/focus": "4592a720fc533ed34d59fb67dbe8510b2713543d",
+      "color/border/strong": "d927ae02e29545c060c04016554f564cfa980121",
+      "color/border/success": "fc4224f8a602f5452a163031fb5dc47123857d77",
+      "color/border/warning": "39b9e8d0d687f7c06488dcb7ccb11ae6d7c463d4",
+      "color/brand/indigo/100": "023f3e50e4e237f8f9a55ead6e8b99aac11d4602",
+      "color/brand/indigo/200": "2fd59670d6407767df5236a67dee13b18c36d25f",
+      "color/brand/indigo/300": "a5e189be74d3ca2f26d9599d6e11922fb349cf37",
+      "color/brand/indigo/400": "36f56c7358048e609c1b39c7102e36546cfeb148",
+      "color/brand/indigo/50": "59f9640fa9f94c83463f0c259e0cc1a0d67475e7",
+      "color/brand/indigo/500": "f5eac7f3afe039f75bff4b1f497869596363b277",
+      "color/brand/indigo/600": "9668949efbcfac73692d7239f719d94bd606c620",
+      "color/brand/indigo/700": "e988eafe07344f93f50a64c472048cbf6211c6fb",
+      "color/brand/indigo/800": "c6164dd16cb00d23a5329fd633167458f33b4869",
+      "color/brand/indigo/900": "5a3015cab30b409ecca5fe3a13d61dbf0f17cae1",
+      "color/content/accent": "c40503a366fbc40514bec7228063946d5269e58b",
+      "color/content/danger": "920fd3709cba55bfb45cfa426266efa1978700b6",
+      "color/content/default": "6effb008487010f330643f3d8d1d9623010521c2",
+      "color/content/inverse": "0d5f20f9628c0577abc53639f851946c2a1b326f",
+      "color/content/muted": "d90eb67e4448fc066f8b2d0e227ee435430360b6",
+      "color/content/on-accent": "f81ec7dd9af1d8dabc34b639729c4482e0dbcf08",
+      "color/content/on-danger": "8b05fe96398af9d32d5af32e466e24594f058e76",
+      "color/content/on-success": "954167cb459abb346dd22290990a2f9c00a3710c",
+      "color/content/on-warning": "7e2cd28c186a8e21df2d09e3ddf291306394468b",
+      "color/content/success": "eb7b3590942a931904987324d64c26cb8726fa7f",
+      "color/content/warning": "7d83ba01cfc52f78008c92cdcf5ebfa3fc2899b4",
+      "color/neutral/100": "e04fda798a38793cf72492fad2d75e0ac40687e9",
+      "color/neutral/200": "c9fb1e92e9d36a9fc0aa63e2cf74c6add96b71a3",
+      "color/neutral/300": "2195da20aaaee2f25e26307565146471344c01de",
+      "color/neutral/400": "30da9f6ee6c27513302ab5c991da9561f046bfd4",
+      "color/neutral/50": "bc8b5cf6f0bdd9eb3458fd3bc0313c498e627c1e",
+      "color/neutral/500": "8f1b32588c0caa9580f38b281fa0c78b82d15bc2",
+      "color/neutral/600": "2cce5b7f38469396d6abab8668d29c4d658bdd81",
+      "color/neutral/700": "c5452f75977c13b55fa58b540719c959f256ad61",
+      "color/neutral/800": "ab63141d342211750b4e08061e48c92c3fb05299",
+      "color/neutral/900": "01548cfea1eb37b9180bedc48819da3c0ae1b69c",
+      "color/neutral/950": "356170f18587ad3b46883392659f62517566e6db",
+      "color/neutral/white": "a7e98c836cd3e39f7af034db7d504a0e9ae82810",
+      "color/utility/green/100": "d2600086dd26cea47243ddce96b207f9aea4dfb0",
+      "color/utility/green/300": "3a2fb628c08a261d20ba78dc040ff06464853e41",
+      "color/utility/green/500": "5ce3b095e40c3c64d5f82a6bb5654bc294bce69e",
+      "color/utility/green/600": "cdedacf9c3eaa1da53a61de72bbc83f961236af3",
+      "color/utility/green/700": "3919990da89345188876249557fb710366663c6b",
+      "color/utility/red/100": "0cec3b2b1ae2832b0fce1fec394303d8a35f2583",
+      "color/utility/red/300": "2b491f2780eee0a25de75da31c57cabcc1ea3394",
+      "color/utility/red/500": "504efd7922d449e256e0b5d938fa7fd3e7ad3535",
+      "color/utility/red/600": "30f68f19f9be9fc9dfcd0c21291b083a1d38becd",
+      "color/utility/red/700": "2e84e1be5a26986d436b147427294a72035d6df8",
+      "color/utility/yellow/100": "7a6bd33305990872fddec3b386a9e37e9cc18230",
+      "color/utility/yellow/300": "5f4c8940dd1c5ce5d927dcaa925107a6a8b91264",
+      "color/utility/yellow/500": "7d0d44b7564d39a2172ff90b1008e38c4fc220bf",
+      "color/utility/yellow/600": "708c66d21fc1f7351079d8c19a9f9688f780bea7",
+      "color/utility/yellow/700": "9825a076bd6f9aa6e82cb1f487811c41a441b04c",
+      "duration/fast": "eeb5f01658c860bcba78fa4ba96e24025c1a875d",
+      "duration/normal": "efccb7c7edc47243c866da9a5648627b347b1b9e",
+      "easing/standard": "137eb7ad95abe4943f4b66d724da99fc8f82aafe",
+      "elevation/floating/color": "beb9507999bf2cb12b12ef4d24259247e95cc6d0",
+      "elevation/overlay/color": "8cace81a74eb25ef459ff22cadb3839b7fd66aa4",
+      "elevation/raised/color": "80ef836bfc0f4b1d7d5b430407ff07293135620c",
+      "font/mono": "f5a287cf3bab5a5ac1ecb34f642ab91a250e6d3a",
+      "font/sans": "00ff484edadd9d7bb1547e8f4cfeed8f110f634d",
+      "font/size/lg": "c7e308f88c80295ba2f62dce53e803dd286022e7",
+      "font/size/md": "afe2485bc72d0d3df82922b7a255b262317b2c12",
+      "font/size/sm": "f88df6be43ce2b03547a395c6fc7ed93f7a0504c",
+      "font/size/xl": "d573422c0c5b97c8345679c68481522b71ceb29a",
+      "font/size/xs": "d2128312726b580d380a0cb90ea0e1218451fdbe",
+      "font/weight/bold": "69de7d42bca836929c47132a2362d4585212ed6b",
+      "font/weight/medium": "58bffbc95c5d692e4f557afac154dedd772dc36c",
+      "font/weight/regular": "587f0d4d8d80843bd7667809709843208ecc0465",
+      "radius/full": "5c6e668ca8df2e0f877031f12a6ed0969aa4e09c",
+      "radius/lg": "3379eb378bd6be01f5485b5e9829e4dc7dba88c0",
+      "radius/md": "3fdc740c4dd1189fff9f708f1af007ad71ec0753",
+      "radius/sm": "7cdf91ac99b2a401d72b9c6574479cf3314cb3eb",
+      "space/0": "32dec581ae655b79ae8cc72ed4de5e6307b7aa08",
+      "space/1": "5c682b693e0d14585bca8469967dc1b6fe9691b1",
+      "space/10": "2baf70618f348cf3bc42405fb1ef25deaf7f43f3",
+      "space/12": "9f3a42340c265bc6635001db4a5542b1801a858f",
+      "space/2": "6327492c4ea3fe6122a79dd6e872c5453d93c5ec",
+      "space/3": "f4a419c098eb7734abf14d8ecd5b3c12e47ea82e",
+      "space/4": "2901cbb379289dc829a54146eb5f24b53935e6db",
+      "space/5": "22736303f5cd9550fdc375ff4bf342d494892667",
+      "space/6": "a14619b358df00c7e4f8212cfb104304b6618f76",
+      "space/8": "5afa72cf82963dca643217337ebb838b86295ec2",
+      "typography/body-md/font-family": "3b400bb60c76025b1ac5b134e682544920bd7da9",
+      "typography/body-md/font-size": "4c42e747c1d2e0e1e797099d88281e15002c45b9",
+      "typography/body-md/font-weight": "993962c2da1c294459283190a3163078c4e07047",
+      "typography/body-md/letter-spacing": "d5a44f9c12f4010d97a8959817a04fe2483cb525",
+      "typography/body-md/line-height": "b603e308288f3d06b8b974ea124c646d440c9f91",
+      "typography/body-sm/font-family": "a8311dae0372bbc149329986dc8b6421a72f4d09",
+      "typography/body-sm/font-size": "16fd6b2af59ca6b5b03f1b735b9212ca53d14a43",
+      "typography/body-sm/font-weight": "a98ac29001b29393ac1c0033f0ad716c4671931e",
+      "typography/body-sm/letter-spacing": "7393ba6acf38d874ebb2d9df535ed36f6366309f",
+      "typography/body-sm/line-height": "fa115dca3b3cecc71b304c869ace219dfa477470",
+      "typography/caption/font-family": "19bc50385c12ffe1c08bea02e176516a7c0327af",
+      "typography/caption/font-size": "12b11e34d62d6f00091f26e19aa0d120f00d20f8",
+      "typography/caption/font-weight": "64457c5b74b7559405ac559be102545c04b558a6",
+      "typography/caption/letter-spacing": "1368aa17de0435bca5b9e72c838ff400f1ca817d",
+      "typography/caption/line-height": "6091b9d8f3cee3b9a81fb41fe2581a75278e0daa",
+      "typography/code-sm/font-family": "90d7f71f2ad26a5351caee8c72283c9024477756",
+      "typography/code-sm/font-size": "8ee795075e16be0600199aac2f026dbede243a20",
+      "typography/code-sm/font-weight": "14a4481ab5118d0261346c4cdf325bf762a75e4e",
+      "typography/code-sm/letter-spacing": "56af099e5db0694a3c5559bbbac44efc78057bcf",
+      "typography/code-sm/line-height": "7e030caae2c9616c62fc281304ee19a872d7116c",
+      "typography/heading-lg/font-family": "6e97b4b9270d7eb07f547cdc697ff9b9b5bcd997",
+      "typography/heading-lg/font-size": "36a6750c1927a613abf5d11e42fa4791da31dd60",
+      "typography/heading-lg/font-weight": "e0fe98ad9b051c29bc2218d8bef3d931e7233af0",
+      "typography/heading-lg/letter-spacing": "88fb13aa39a76d2429e84b33823a99790639dfd8",
+      "typography/heading-lg/line-height": "52c8c5eb096eef7bcecbe03033ca5cbb8e571d1e",
+      "typography/heading-md/font-family": "c19acbbbc7f74dc4400659c074ea72b8945bcb85",
+      "typography/heading-md/font-size": "b722feff646d3dbe303d23070c3e3e8f66d382aa",
+      "typography/heading-md/font-weight": "dcef15cb8c6bbef4b99b70d86eee9bb2ff8a42e7",
+      "typography/heading-md/letter-spacing": "1be581d7540d520db17db610069faffb6cc40ab3",
+      "typography/heading-md/line-height": "9b8b1277cc5a5a1bcad4ccf829a6c6d816365cc5",
+      "typography/heading-xl/font-family": "57a327c7bf2d2e19920e2d669563135f4aaaaa36",
+      "typography/heading-xl/font-size": "f1ff921d25bffe28ffac0be4f3cfe61f5411070e",
+      "typography/heading-xl/font-weight": "7a50f934f3a675b3e5122e0ba3358ee44e0539ea",
+      "typography/heading-xl/letter-spacing": "a7447a7734f976d431ddf08bf1896fb3e32f6a1b",
+      "typography/heading-xl/line-height": "edb537341e8552e2e31923f78bdaf7c5a9eee4ea",
+      "typography/label-lg/font-family": "2cdd8bd12d4ab399746a448f6c42420b46da8f6d",
+      "typography/label-lg/font-size": "985efd41ab69c62889592ce948f0d63a8c6b6848",
+      "typography/label-lg/font-weight": "f96bf593930490d22ccac9af1932320a3b05c29d",
+      "typography/label-lg/letter-spacing": "c41570ece310f39dfc0f62c2c1c58bd7e0e30515",
+      "typography/label-lg/line-height": "fb74cf707648a76dcb02a3889e0f46f2dd6dca12",
+      "typography/label-md/font-family": "25d046f52311714b4645418c769f826107796648",
+      "typography/label-md/font-size": "aea4f3b2d2bcd52f589f62dd892fa51fe0f537c1",
+      "typography/label-md/font-weight": "26aebeff251934601696b63fdc98db500cd3381a",
+      "typography/label-md/letter-spacing": "3654d0e5049fdb81fc34a0c44d897b38beef4e5a",
+      "typography/label-md/line-height": "f6c9f163083eb6af5f44faebb44c778d0c46572d",
+      "typography/label-sm/font-family": "b809598c4c4368d17b520a7b4772cedc69b62f29",
+      "typography/label-sm/font-size": "21abb9d973004787261c6086c77169bc0f2a545c",
+      "typography/label-sm/font-weight": "1dc5270cdd05bf4881bb4fe3d5066810c58b87a0",
+      "typography/label-sm/letter-spacing": "1efad7345df637f21e8a446423b89f51c05e80d0",
+      "typography/label-sm/line-height": "b9e80c058232817a581d6d9b372e6d018ace3ba8",
+      "typography/label-xl/font-family": "c53d09354c7f5bc29f442db2b4b1b8f0c8772403",
+      "typography/label-xl/font-size": "8862025c385f8660b6e3473ec0a2336ac32a3801",
+      "typography/label-xl/font-weight": "b7257a782164fb30fe4d7089f2b22ce7545ca48b",
+      "typography/label-xl/letter-spacing": "ca09e3c0e023745cfe03d3b59776f57625ebd8df",
+      "typography/label-xl/line-height": "c77a3227e94fcbc9a2c07a7455ab8fbfb6e31368",
+      "typography/overline/font-family": "797fa03997f3dc972651a8987f9dfca93ba1d1e6",
+      "typography/overline/font-size": "a931c7ccc042e7c85aa0c75a7d653976fb4e9336",
+      "typography/overline/font-weight": "8493cb26878a7a0a1fec9df1559c686d9e004c1c",
+      "typography/overline/letter-spacing": "8b9d156ecaa4a173c3d67c701885edbb221be617",
+      "typography/overline/line-height": "72cbfd5e982123c5d2b4712cb922ba5500db19d6",
+      "typography/title-md/font-family": "cbeb7a87e5895954270eeef5d162c20fa7999f85",
+      "typography/title-md/font-size": "3dbd3f8671fc45eccf240d49aa2b4cb94e35fccc",
+      "typography/title-md/font-weight": "149cd00cfbc7ffb93823862a01266e9fb51b3486",
+      "typography/title-md/letter-spacing": "9a32e25c8c614fe1d84171a627baa3962bff16d1",
+      "typography/title-md/line-height": "c753b868a1217858c59e3edb9374f4e1fcb55dbb",
+      "typography/title-sm/font-family": "7f75a7a98f9b0949663c1afd4f04372daeafa11b",
+      "typography/title-sm/font-size": "32055f9425fc9839c7d11b879aa7128ca1c624da",
+      "typography/title-sm/font-weight": "8347d4bfba0b1d2626bf55637030e235e30907fe",
+      "typography/title-sm/letter-spacing": "205f2d8305fcf7b14d6c9b884e75ef06a1fbb9ca",
+      "typography/title-sm/line-height": "cb061f16eb8d98adb4a92af74409190c6e4c2052"
+    }
+  }
+}

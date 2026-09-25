@@ -1,0 +1,17 @@
+/*
+ * The trigger is whatever area the reader right-clicks, so it stays visually
+ * neutral and only picks up an affordance while its menu is open.
+ */
+.trigger {
+  border-radius: var(--sds-radius-md);
+  transition: background-color var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.trigger[data-popup-open] {
+  background: var(--sds-color-background-sunken);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: 2px;
+}

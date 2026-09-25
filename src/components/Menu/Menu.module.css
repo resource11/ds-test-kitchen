@@ -1,0 +1,124 @@
+.positioner {
+  z-index: 1;
+  outline: none;
+}
+
+/* Same surface treatment as Dialog: surface, hairline border, md radius, overlay elevation. */
+.popup {
+  box-sizing: border-box;
+  min-width: 12rem;
+  max-width: min(20rem, var(--available-width));
+  max-height: var(--available-height);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--sds-space-1);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
+  border: 1px solid var(--sds-color-border-default);
+  border-radius: var(--sds-radius-md);
+  box-shadow: var(--sds-elevation-overlay);
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
+  transform-origin: var(--transform-origin);
+  transition:
+    opacity var(--sds-duration-normal) var(--sds-easing-standard),
+    transform var(--sds-duration-normal) var(--sds-easing-standard);
+}
+
+.popup:focus-visible {
+  outline: none;
+}
+
+.popup[data-starting-style],
+.popup[data-ending-style] {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+/*
+ * Hopping between menus in a Menubar, and re-opening a submenu, are instant.
+ * Base UI marks those with `data-instant`, so the popup must not replay its
+ * transition on every hop.
+ */
+.popup[data-instant] {
+  transition-duration: 0s;
+}
+
+.item {
+  /* validate-allow: type — open decision: menu rows are 14px with a tight line height, which no text style has; snapping to body-sm makes every row about 4px taller. */
+  display: flex;
+  align-items: center;
+  gap: var(--sds-space-2);
+  padding: var(--sds-space-2) var(--sds-space-3);
+  border-radius: var(--sds-radius-sm);
+  color: var(--sds-color-content-default);
+  line-height: var(--sds-line-height-tight);
+  cursor: default;
+  user-select: none;
+  outline: none;
+  transition: background-color var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.item[data-highlighted] {
+  background: var(--sds-color-background-accent-subtle);
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: -2px;
+}
+
+.item[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Pushes a trailing shortcut hint or chevron to the end of the row. */
+.itemShortcut {
+  margin-left: auto;
+  padding-left: var(--sds-space-4);
+  color: var(--sds-color-content-muted);
+  font-family: var(--sds-typography-caption-font-family);
+  font-size: var(--sds-typography-caption-font-size);
+  font-weight: var(--sds-typography-caption-font-weight);
+  line-height: var(--sds-typography-caption-line-height);
+  letter-spacing: var(--sds-typography-caption-letter-spacing);
+  text-transform: var(--sds-typography-caption-text-transform);
+}
+
+/* Applied alongside `.item`; only adds the open state. */
+.submenuTrigger[data-popup-open] {
+  background: var(--sds-color-background-accent-subtle);
+}
+
+.submenuIcon {
+  margin-left: auto;
+  flex: none;
+  color: var(--sds-color-content-muted);
+}
+
+.separator {
+  height: 1px;
+  margin: var(--sds-space-1) 0;
+  background: var(--sds-color-border-default);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+}
+
+.groupLabel {
+  padding: var(--sds-space-2) var(--sds-space-3) var(--sds-space-1);
+  color: var(--sds-color-content-muted);
+  font-family: var(--sds-typography-overline-font-family);
+  font-size: var(--sds-typography-overline-font-size);
+  font-weight: var(--sds-typography-overline-font-weight);
+  line-height: var(--sds-typography-overline-line-height);
+  letter-spacing: var(--sds-typography-overline-letter-spacing);
+  text-transform: var(--sds-typography-overline-text-transform);
+}

@@ -1,0 +1,85 @@
+/**
+ * GENERATED FILE — do not edit.
+ * Source: tokens/tier-1-definitions/
+ * Regenerate with: npm run build:tokens
+ */
+:root {
+  --sds-breakpoint-sm: 30rem;
+  --sds-breakpoint-md: 48rem;
+  --sds-breakpoint-lg: 64rem;
+  --sds-breakpoint-xl: 80rem;
+  --sds-color-neutral-50: #f8f9fa;
+  --sds-color-neutral-100: #f1f3f5;
+  --sds-color-neutral-200: #e9ecef;
+  --sds-color-neutral-300: #dee2e6;
+  --sds-color-neutral-400: #ced4da;
+  --sds-color-neutral-500: #adb5bd;
+  --sds-color-neutral-600: #868e96;
+  --sds-color-neutral-700: #495057;
+  --sds-color-neutral-800: #343a40;
+  --sds-color-neutral-900: #212529;
+  --sds-color-neutral-950: #121416;
+  --sds-color-neutral-white: #ffffff;
+  --sds-color-brand-indigo-50: #eef2ff;
+  --sds-color-brand-indigo-100: #e0e7ff;
+  --sds-color-brand-indigo-200: #c7d2fe;
+  --sds-color-brand-indigo-300: #a5b4fc;
+  --sds-color-brand-indigo-400: #818cf8;
+  --sds-color-brand-indigo-500: #6366f1;
+  --sds-color-brand-indigo-600: #4f46e5;
+  --sds-color-brand-indigo-700: #4338ca;
+  --sds-color-brand-indigo-800: #3730a3;
+  --sds-color-brand-indigo-900: #312e81;
+  --sds-color-utility-green-100: #dcfce7;
+  --sds-color-utility-green-300: #86efac;
+  --sds-color-utility-green-500: #22c55e;
+  --sds-color-utility-green-600: #16a34a;
+  --sds-color-utility-green-700: #15803d;
+  --sds-color-utility-yellow-100: #fef3c7;
+  --sds-color-utility-yellow-300: #fcd34d;
+  --sds-color-utility-yellow-500: #f59e0b;
+  --sds-color-utility-yellow-600: #d97706;
+  --sds-color-utility-yellow-700: #b45309;
+  --sds-color-utility-red-100: #fee2e2;
+  --sds-color-utility-red-300: #fca5a5;
+  --sds-color-utility-red-500: #ef4444;
+  --sds-color-utility-red-600: #dc2626;
+  --sds-color-utility-red-700: #b91c1c;
+  --sds-duration-fast: 120ms;
+  --sds-duration-normal: 200ms;
+  --sds-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --sds-radius-sm: 4px;
+  --sds-radius-md: 8px;
+  --sds-radius-lg: 12px;
+  --sds-radius-full: 9999px;
+  --sds-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.06);
+  --sds-shadow-md: 0 4px 12px rgb(0 0 0 / 0.1);
+  --sds-shadow-lg: 0 16px 40px rgb(0 0 0 / 0.16);
+  --sds-space-0: 0;
+  --sds-space-1: 0.25rem;
+  --sds-space-2: 0.5rem;
+  --sds-space-3: 0.75rem;
+  --sds-space-4: 1rem;
+  --sds-space-5: 1.25rem;
+  --sds-space-6: 1.5rem;
+  --sds-space-8: 2rem;
+  --sds-space-10: 2.5rem;
+  --sds-space-12: 3rem;
+  --sds-font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --sds-font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  --sds-font-size-xs: 0.75rem;
+  --sds-font-size-sm: 0.875rem;
+  --sds-font-size-md: 1rem;
+  --sds-font-size-lg: 1.125rem;
+  --sds-font-size-xl: 1.5rem;
+  --sds-font-weight-regular: 400;
+  --sds-font-weight-medium: 500;
+  --sds-font-weight-bold: 600;
+  --sds-line-height-tight: 1.2;
+  --sds-line-height-normal: 1.5;
+  --sds-letter-spacing-tight: -0.01em;
+  --sds-letter-spacing-normal: 0;
+  --sds-letter-spacing-wide: 0.02em;
+  --sds-text-transform-none: none;
+  --sds-text-transform-uppercase: uppercase;
+}

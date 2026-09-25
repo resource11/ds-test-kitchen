@@ -1,0 +1,24 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-4);
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.root[data-disabled] {
+  opacity: 0.5;
+}
+
+.legend {
+  margin-block-end: calc(var(--sds-space-1) * -1);
+  color: var(--sds-color-content-default);
+  font-family: var(--sds-typography-label-xl-font-family);
+  font-size: var(--sds-typography-label-xl-font-size);
+  font-weight: var(--sds-typography-label-xl-font-weight);
+  line-height: var(--sds-typography-label-xl-line-height);
+  letter-spacing: var(--sds-typography-label-xl-letter-spacing);
+  text-transform: var(--sds-typography-label-xl-text-transform);
+}

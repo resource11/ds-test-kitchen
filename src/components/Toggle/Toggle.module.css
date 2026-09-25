@@ -1,0 +1,105 @@
+/* Deliberately the same visual language as Button: same radius, sizes,
+   font and transitions, with a pressed state Button does not have. */
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sds-space-2);
+  border: 1px solid transparent;
+  border-radius: var(--sds-radius-md);
+  font-family: var(--sds-font-sans);
+  cursor: pointer;
+  transition:
+    background-color var(--sds-duration-fast) var(--sds-easing-standard),
+    border-color var(--sds-duration-fast) var(--sds-easing-standard),
+    color var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.root:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: 2px;
+}
+
+.root[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Sizes, matching Button exactly. */
+.sm {
+  padding: var(--sds-space-1) var(--sds-space-3);
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
+  min-height: 32px;
+}
+.md {
+  padding: var(--sds-space-2) var(--sds-space-4);
+  font-family: var(--sds-typography-label-lg-font-family);
+  font-size: var(--sds-typography-label-lg-font-size);
+  font-weight: var(--sds-typography-label-lg-font-weight);
+  line-height: var(--sds-typography-label-lg-line-height);
+  letter-spacing: var(--sds-typography-label-lg-letter-spacing);
+  text-transform: var(--sds-typography-label-lg-text-transform);
+  min-height: 40px;
+}
+.lg {
+  padding: var(--sds-space-3) var(--sds-space-5);
+  font-family: var(--sds-typography-label-xl-font-family);
+  font-size: var(--sds-typography-label-xl-font-size);
+  font-weight: var(--sds-typography-label-xl-font-weight);
+  line-height: var(--sds-typography-label-xl-line-height);
+  letter-spacing: var(--sds-typography-label-xl-letter-spacing);
+  text-transform: var(--sds-typography-label-xl-text-transform);
+  min-height: 48px;
+}
+
+.iconOnly.sm {
+  padding: var(--sds-space-1);
+  min-width: 32px;
+}
+.iconOnly.md {
+  padding: var(--sds-space-2);
+  min-width: 40px;
+}
+.iconOnly.lg {
+  padding: var(--sds-space-3);
+  min-width: 48px;
+}
+
+/* Variants: unpressed reads like the equivalent Button. */
+.secondary {
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
+  border-color: var(--sds-color-border-default);
+  box-shadow: var(--sds-elevation-raised);
+}
+.secondary:hover:not([data-disabled]) {
+  background: var(--sds-color-background-sunken);
+  border-color: var(--sds-color-border-strong);
+}
+.secondary[data-pressed] {
+  background: var(--sds-color-background-accent);
+  color: var(--sds-color-content-on-accent);
+  border-color: var(--sds-color-border-accent);
+}
+.secondary[data-pressed]:hover:not([data-disabled]) {
+  background: var(--sds-color-background-accent-hover);
+  border-color: var(--sds-color-border-accent-hover);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--sds-color-content-muted);
+}
+.ghost:hover:not([data-disabled]) {
+  background: var(--sds-color-background-accent-subtle);
+  color: var(--sds-color-content-accent);
+}
+.ghost[data-pressed] {
+  background: var(--sds-color-background-accent-subtle);
+  color: var(--sds-color-content-accent);
+}

@@ -1,0 +1,123 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-4);
+  font-family: var(--sds-font-sans);
+  color: var(--sds-color-content-default);
+}
+
+.root[data-orientation='vertical'] {
+  flex-direction: row;
+  gap: var(--sds-space-6);
+}
+
+.list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sds-space-1);
+  box-shadow: inset 0 -1px 0 0 var(--sds-color-border-default);
+}
+
+.list[data-orientation='vertical'] {
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 10rem;
+  box-shadow: inset -1px 0 0 0 var(--sds-color-border-default);
+}
+
+.tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sds-space-2);
+  padding: var(--sds-space-2) var(--sds-space-3);
+  min-height: 40px;
+  border: none;
+  border-radius: var(--sds-radius-sm) var(--sds-radius-sm) 0 0;
+  background: transparent;
+  color: var(--sds-color-content-muted);
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    color var(--sds-duration-fast) var(--sds-easing-standard),
+    background-color var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.list[data-orientation='vertical'] .tab {
+  justify-content: flex-start;
+  border-radius: var(--sds-radius-sm) 0 0 var(--sds-radius-sm);
+}
+
+.tab:hover:not([data-disabled]) {
+  color: var(--sds-color-content-default);
+  background: var(--sds-color-background-sunken);
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: 2px;
+}
+
+/*
+ * Base UI marks the active tab with `data-active`. `Tabs.Tab` has no
+ * `data-selected` (see tabs/tab/TabsTabDataAttributes.ts), so styling it would
+ * never match.
+ */
+.tab[data-active] {
+  color: var(--sds-color-content-accent);
+}
+
+.tab[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.indicator {
+  position: absolute;
+  z-index: 1;
+  background: var(--sds-color-background-accent);
+  border-radius: var(--sds-radius-full);
+  transition:
+    translate var(--sds-duration-normal) var(--sds-easing-standard),
+    width var(--sds-duration-normal) var(--sds-easing-standard),
+    height var(--sds-duration-normal) var(--sds-easing-standard);
+}
+
+.indicator[data-orientation='horizontal'] {
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: var(--active-tab-width);
+  translate: var(--active-tab-left) 0;
+}
+
+.indicator[data-orientation='vertical'] {
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: var(--active-tab-height);
+  translate: 0 var(--active-tab-top);
+}
+
+.panel {
+  color: var(--sds-color-content-default);
+  font-family: var(--sds-typography-body-md-font-family);
+  font-size: var(--sds-typography-body-md-font-size);
+  font-weight: var(--sds-typography-body-md-font-weight);
+  line-height: var(--sds-typography-body-md-line-height);
+  letter-spacing: var(--sds-typography-body-md-letter-spacing);
+  text-transform: var(--sds-typography-body-md-text-transform);
+}
+
+.panel:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: 2px;
+}

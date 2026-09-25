@@ -1,0 +1,261 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-1);
+}
+
+.label {
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
+  color: var(--sds-color-content-default);
+}
+
+.description {
+  font-family: var(--sds-typography-caption-font-family);
+  font-size: var(--sds-typography-caption-font-size);
+  font-weight: var(--sds-typography-caption-font-weight);
+  line-height: var(--sds-typography-caption-line-height);
+  letter-spacing: var(--sds-typography-caption-letter-spacing);
+  text-transform: var(--sds-typography-caption-text-transform);
+  color: var(--sds-color-content-muted);
+}
+
+.error {
+  font-family: var(--sds-typography-caption-font-family);
+  font-size: var(--sds-typography-caption-font-size);
+  font-weight: var(--sds-typography-caption-font-weight);
+  line-height: var(--sds-typography-caption-line-height);
+  letter-spacing: var(--sds-typography-caption-letter-spacing);
+  text-transform: var(--sds-typography-caption-text-transform);
+  color: var(--sds-color-content-danger);
+}
+
+/* Trigger */
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sds-space-2);
+  width: 100%;
+  min-height: 40px;
+  margin: 0;
+  padding: var(--sds-space-2) var(--sds-space-3);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
+  border: 1px solid var(--sds-color-border-default);
+  border-radius: var(--sds-radius-md);
+  font-family: var(--sds-typography-body-md-font-family);
+  font-size: var(--sds-typography-body-md-font-size);
+  font-weight: var(--sds-typography-body-md-font-weight);
+  line-height: var(--sds-typography-body-md-line-height);
+  letter-spacing: var(--sds-typography-body-md-letter-spacing);
+  text-transform: var(--sds-typography-body-md-text-transform);
+  text-align: start;
+  cursor: pointer;
+  transition: border-color var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.trigger:hover:not([data-disabled]) {
+  border-color: var(--sds-color-border-strong);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: 2px;
+  border-color: var(--sds-color-border-focus);
+}
+
+.trigger[data-popup-open] {
+  border-color: var(--sds-color-border-focus);
+}
+
+.trigger[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.trigger[data-invalid] {
+  border-color: var(--sds-color-border-danger);
+}
+
+.valueWrapper {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.value {
+  display: inline;
+}
+
+/* Base UI marks the value as a placeholder while nothing is selected. */
+.value[data-placeholder] {
+  color: var(--sds-color-content-muted);
+}
+
+.icon {
+  display: inline-flex;
+  flex: none;
+  color: var(--sds-color-content-muted);
+  transition: transform var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.trigger[data-popup-open] .icon {
+  transform: rotate(180deg);
+}
+
+/* Popup */
+
+.positioner {
+  z-index: 1;
+}
+
+.popup {
+  box-sizing: border-box;
+  /* Containing block for the absolutely positioned scroll arrows. */
+  position: relative;
+  min-width: var(--anchor-width);
+  max-width: var(--available-width);
+  padding: var(--sds-space-1);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
+  border: 1px solid var(--sds-color-border-default);
+  border-radius: var(--sds-radius-md);
+  box-shadow: var(--sds-elevation-overlay);
+  transform-origin: var(--transform-origin);
+  transition:
+    opacity var(--sds-duration-fast) var(--sds-easing-standard),
+    transform var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.popup[data-starting-style],
+.popup[data-ending-style] {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.popup:focus-visible {
+  outline: none;
+}
+
+/*
+ * `alignItemWithTrigger` overlays the popup on the trigger. Base UI reports
+ * `side="none"` for that mode and sizes and scrolls the popup itself, so the
+ * open animation must not run.
+ */
+.popup[data-side='none'] {
+  transition: none;
+  opacity: 1;
+  transform: none;
+}
+
+/*
+ * The list is the scroll container, not the popup. Base UI listens for `scroll`
+ * on `Select.List` to drive `alignItemWithTrigger` and the scroll arrows, and
+ * `SelectScrollArrow` reads the list element as the scroller.
+ */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-0);
+  max-height: calc(var(--available-height) - var(--sds-space-2));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-padding-block: var(--sds-space-5);
+}
+
+/*
+ * Shown only when the list overflows. Base UI positions these absolutely, so
+ * they sit over the top and bottom edges of the popup.
+ */
+.scrollArrow {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset-inline: 0;
+  height: var(--sds-space-5);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-muted);
+  cursor: default;
+}
+
+.scrollArrow[data-direction='up'] {
+  top: 0;
+}
+
+.scrollArrow[data-direction='down'] {
+  bottom: 0;
+}
+
+/* Items */
+
+.item {
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  align-items: center;
+  gap: var(--sds-space-2);
+  padding: var(--sds-space-2) var(--sds-space-3);
+  border-radius: var(--sds-radius-sm);
+  color: var(--sds-color-content-default);
+  font-family: var(--sds-typography-body-md-font-family);
+  font-size: var(--sds-typography-body-md-font-size);
+  font-weight: var(--sds-typography-body-md-font-weight);
+  line-height: var(--sds-typography-body-md-line-height);
+  letter-spacing: var(--sds-typography-body-md-letter-spacing);
+  text-transform: var(--sds-typography-body-md-text-transform);
+  cursor: pointer;
+  user-select: none;
+  scroll-margin: var(--sds-space-1);
+}
+
+.item[data-highlighted] {
+  background: var(--sds-color-background-accent);
+  color: var(--sds-color-content-on-accent);
+}
+
+.item[data-selected] {
+  font-weight: var(--sds-font-weight-medium);
+}
+
+.item[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: 2px;
+}
+
+.itemIndicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1;
+}
+
+.itemText {
+  grid-column: 2;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.groupLabel {
+  padding: var(--sds-space-2) var(--sds-space-3) var(--sds-space-1);
+  color: var(--sds-color-content-muted);
+  font-family: var(--sds-typography-overline-font-family);
+  font-size: var(--sds-typography-overline-font-size);
+  font-weight: var(--sds-typography-overline-font-weight);
+  line-height: var(--sds-typography-overline-line-height);
+  letter-spacing: var(--sds-typography-overline-letter-spacing);
+  text-transform: var(--sds-typography-overline-text-transform);
+}

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "01-base-ui storybook",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "storybook", "--", "--no-open"],
+      "port": 6001
+    }
+  ]
+}

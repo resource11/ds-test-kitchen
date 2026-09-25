@@ -1,0 +1,23 @@
+@import "../fonts/inter.css";
+@import "../fonts/roboto-mono.css";
+@import "./primitives.css";
+@import "./semantic.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--sds-color-background-default);
+  color: var(--sds-color-content-default);
+  font-family: var(--sds-typography-body-md-font-family);
+  font-size: var(--sds-typography-body-md-font-size);
+  font-weight: var(--sds-typography-body-md-font-weight);
+  line-height: var(--sds-typography-body-md-line-height);
+  letter-spacing: var(--sds-typography-body-md-letter-spacing);
+  text-transform: var(--sds-typography-body-md-text-transform);
+  -webkit-font-smoothing: antialiased;
+}

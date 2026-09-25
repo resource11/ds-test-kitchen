@@ -1,0 +1,18 @@
+/* Layout only: the Table and Badges bring their own look. */
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sds-space-2);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-2);
+  padding-inline-start: var(--sds-space-5);
+}
+
+.note {
+  margin: 0;
+}

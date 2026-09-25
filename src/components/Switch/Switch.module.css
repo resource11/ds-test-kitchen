@@ -1,0 +1,81 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sds-space-3);
+}
+
+/* With helper text the control lines up with the first line of the label
+   instead of the middle of the two-line text block. */
+.wrapper:has(.description) {
+  align-items: flex-start;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-1);
+}
+
+.root {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 44px;
+  height: 24px;
+  padding: 2px;
+  background: var(--sds-color-border-strong);
+  border: none;
+  border-radius: var(--sds-radius-full);
+  cursor: pointer;
+  transition: background-color var(--sds-duration-normal) var(--sds-easing-standard);
+}
+
+.root[data-checked] {
+  background: var(--sds-color-background-accent);
+}
+
+.root:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: 2px;
+}
+
+.root[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.thumb {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: var(--sds-color-background-on-accent);
+  border-radius: var(--sds-radius-full);
+  box-shadow: var(--sds-elevation-raised);
+  transition: transform var(--sds-duration-normal) var(--sds-easing-standard);
+}
+
+.thumb[data-checked] {
+  transform: translateX(20px);
+}
+
+.label {
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
+  color: var(--sds-color-content-default);
+  cursor: pointer;
+}
+
+.description {
+  margin: 0;
+  font-family: var(--sds-typography-caption-font-family);
+  font-size: var(--sds-typography-caption-font-size);
+  font-weight: var(--sds-typography-caption-font-weight);
+  line-height: var(--sds-typography-caption-line-height);
+  letter-spacing: var(--sds-typography-caption-letter-spacing);
+  text-transform: var(--sds-typography-caption-text-transform);
+  color: var(--sds-color-content-muted);
+}

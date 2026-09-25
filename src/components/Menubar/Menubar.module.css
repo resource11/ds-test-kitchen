@@ -1,0 +1,61 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: var(--sds-space-1);
+  padding: var(--sds-space-1);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
+  border: 1px solid var(--sds-color-border-default);
+  border-radius: var(--sds-radius-md);
+  box-shadow: var(--sds-elevation-raised);
+  font-family: var(--sds-font-sans);
+}
+
+.root[data-orientation='vertical'] {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sds-space-2);
+  padding: var(--sds-space-1) var(--sds-space-3);
+  min-height: 32px;
+  border: 1px solid transparent;
+  border-radius: var(--sds-radius-sm);
+  background: transparent;
+  color: var(--sds-color-content-default);
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.root[data-orientation='vertical'] .trigger {
+  justify-content: flex-start;
+}
+
+.trigger:hover:not([data-disabled]) {
+  background: var(--sds-color-background-sunken);
+}
+
+.trigger[data-popup-open] {
+  background: var(--sds-color-background-accent-subtle);
+  color: var(--sds-color-content-accent);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: 2px;
+}
+
+.trigger[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

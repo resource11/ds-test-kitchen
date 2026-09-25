@@ -1,0 +1,99 @@
+.container {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--sds-color-border-default);
+  border-radius: var(--sds-radius-md);
+  background: var(--sds-color-background-surface);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
+  color: var(--sds-color-content-default);
+}
+
+.caption {
+  caption-side: top;
+  text-align: left;
+  padding: var(--sds-space-3) var(--sds-space-4);
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
+  color: var(--sds-color-content-muted);
+  border-bottom: 1px solid var(--sds-color-border-default);
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.head {
+  background: var(--sds-color-background-sunken);
+}
+
+/* Default alignment for both kinds of cell, declared on the elements themselves
+   because a `th` carries its own centring rule in the UA stylesheet and an
+   inherited value never outranks a declaration on the element. `:where()` holds
+   this at zero specificity, which is the whole point: any author declaration
+   beats the UA origin no matter how weak, while this rule loses to every other
+   author declaration - the `.numeric` class below, or a consumer's own class
+   from another CSS module - whichever stylesheet happens to load last.
+   Alignment is therefore driven by the `numeric` prop, not by load order. */
+:where(.headerCell, .cell) {
+  text-align: left;
+}
+
+.headerCell {
+  padding: var(--sds-space-3) var(--sds-space-4);
+  font-weight: var(--sds-font-weight-bold);
+  color: var(--sds-color-content-default);
+  white-space: nowrap;
+  border-bottom: 1px solid var(--sds-color-border-strong);
+}
+
+.cell {
+  padding: var(--sds-space-3) var(--sds-space-4);
+  vertical-align: middle;
+  border-bottom: 1px solid var(--sds-color-border-default);
+}
+
+/* Applied by the `numeric` prop on both `Table.Cell` and `Table.HeaderCell`,
+   so an amount column and its header line up on the same edge. */
+.numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* A row header (`scope="row"`) inside the body reads as a cell, not as a column head. */
+.body .headerCell {
+  font-weight: var(--sds-font-weight-medium);
+  border-bottom: 1px solid var(--sds-color-border-default);
+}
+
+/* Last row keeps the container's own border instead of doubling up. */
+.body .row:last-child .cell,
+.body .row:last-child .headerCell {
+  border-bottom: none;
+}
+
+.striped .body .row:nth-of-type(even) .cell,
+.striped .body .row:nth-of-type(even) .headerCell {
+  background: var(--sds-color-background-sunken);
+}

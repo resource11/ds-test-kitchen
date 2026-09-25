@@ -1,0 +1,404 @@
+/*
+ * Shared layout for the Patterns screens.
+ *
+ * These stories compose components that already own their own internals, so
+ * everything here is page-level scaffolding: page width, section rhythm, the
+ * grids the components sit in. Semantic tokens only — no primitive, no hex,
+ * no magic pixel value where a token exists.
+ */
+
+/* ---------------------------------------------------------------- Page frame */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-6);
+  width: 100%;
+  max-width: 62rem;
+  margin: 0 auto;
+  font-family: var(--sds-font-sans);
+  color: var(--sds-color-content-default);
+}
+
+.pageHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-2);
+}
+
+.pageTitle {
+  margin: 0;
+  font-size: var(--sds-font-size-xl);
+  font-weight: var(--sds-font-weight-bold);
+  line-height: var(--sds-line-height-tight);
+  color: var(--sds-color-content-default);
+}
+
+.pageLead {
+  margin: 0;
+  max-width: 46rem;
+  font-size: var(--sds-font-size-sm);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-content-muted);
+}
+
+/*
+ * Section heading between the page `h1` and a `Card.Title` (which is an `h3`).
+ * Without it the document would jump h1 -> h3 and fail the a11y panel.
+ */
+.sectionTitle {
+  margin: 0 0 var(--sds-space-4);
+  font-size: var(--sds-font-size-lg);
+  font-weight: var(--sds-font-weight-bold);
+  line-height: var(--sds-line-height-tight);
+  color: var(--sds-color-content-default);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-4);
+}
+
+.stackTight {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-2);
+}
+
+/* --------------------------------------------------------------- Form layout */
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--sds-space-4);
+}
+
+.fieldGridWide {
+  grid-column: 1 / -1;
+}
+
+/* ------------------------------------------------------------- Setting rows */
+
+.settingRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sds-space-6);
+  padding-block: var(--sds-space-4);
+}
+
+.settingText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-1);
+}
+
+.settingLabel {
+  font-size: var(--sds-font-size-sm);
+  font-weight: var(--sds-font-weight-medium);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-content-default);
+  cursor: pointer;
+}
+
+.settingDescription {
+  margin: 0;
+  max-width: 36rem;
+  font-size: var(--sds-font-size-xs);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-content-muted);
+}
+
+.settingControl {
+  flex: none;
+  padding-block-start: var(--sds-space-1);
+}
+
+/* Pushes the save/cancel pair to the right and keeps the hint on the left. */
+.footerNote {
+  margin: 0 auto 0 0;
+  font-size: var(--sds-font-size-xs);
+  color: var(--sds-color-content-muted);
+}
+
+/* --------------------------------------------------------------- List views */
+
+.toolbarRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--sds-space-3);
+}
+
+.toolbarSearch {
+  flex: 1 1 18rem;
+  min-width: 12rem;
+}
+
+.toolbarFilter {
+  flex: 0 1 13rem;
+  min-width: 11rem;
+}
+
+.personCell {
+  display: flex;
+  align-items: center;
+  gap: var(--sds-space-3);
+}
+
+.personName {
+  display: block;
+  font-weight: var(--sds-font-weight-medium);
+  color: var(--sds-color-content-default);
+}
+
+.personEmail {
+  display: block;
+  font-size: var(--sds-font-size-xs);
+  color: var(--sds-color-content-muted);
+}
+
+.rowActions {
+  width: var(--sds-space-12);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.tableFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sds-space-4);
+  padding: var(--sds-space-3) var(--sds-space-1) 0;
+  font-size: var(--sds-font-size-sm);
+  color: var(--sds-color-content-muted);
+}
+
+.emptyCell {
+  padding-block: var(--sds-space-10);
+  text-align: center;
+  color: var(--sds-color-content-muted);
+}
+
+.mono {
+  font-family: var(--sds-font-mono);
+  font-size: var(--sds-font-size-xs);
+  color: var(--sds-color-content-muted);
+}
+
+/* ------------------------------------------------------------ Auth / centred */
+
+.authPage {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--sds-space-8);
+  font-family: var(--sds-font-sans);
+}
+
+.authCard {
+  width: 100%;
+  max-width: 26rem;
+}
+
+.authTitle {
+  margin: 0;
+  font-size: var(--sds-font-size-xl);
+  font-weight: var(--sds-font-weight-bold);
+  line-height: var(--sds-line-height-tight);
+  color: var(--sds-color-content-default);
+}
+
+.authFooter {
+  margin: 0;
+  font-size: var(--sds-font-size-sm);
+  color: var(--sds-color-content-muted);
+  text-align: center;
+}
+
+.link {
+  color: var(--sds-color-content-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.link:focus-visible {
+  /* validate-allow: surface — focus ring for a plain text link; there is no Link component. */
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: 2px;
+  border-radius: var(--sds-radius-sm);
+}
+
+.successNote {
+  margin: 0;
+  font-size: var(--sds-font-size-sm);
+  color: var(--sds-color-content-muted);
+}
+
+/* --------------------------------------------------------------- App shell */
+
+.shell {
+  /* validate-allow: surface — the page itself: the one background every screen needs. */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--sds-color-background-default);
+  color: var(--sds-color-content-default);
+  font-family: var(--sds-font-sans);
+}
+
+.topBar {
+  /* validate-allow: surface — gap: there is no top bar component, so the shell draws its own bar. */
+  display: flex;
+  align-items: center;
+  gap: var(--sds-space-5);
+  padding: var(--sds-space-3) var(--sds-space-6);
+  background: var(--sds-color-background-surface);
+  border-bottom: 1px solid var(--sds-color-border-default);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sds-space-2);
+  font-size: var(--sds-font-size-md);
+  font-weight: var(--sds-font-weight-bold);
+  line-height: var(--sds-line-height-tight);
+  color: var(--sds-color-content-default);
+  white-space: nowrap;
+}
+
+.wordmarkGlyph {
+  /* validate-allow: surface — gap: a brand mark, which no component covers. */
+  display: inline-grid;
+  place-items: center;
+  width: var(--sds-space-6);
+  height: var(--sds-space-6);
+  border-radius: var(--sds-radius-sm);
+  background: var(--sds-color-background-accent);
+  color: var(--sds-color-content-on-accent);
+}
+
+.topBarSpacer {
+  flex: 1 1 auto;
+}
+
+.topBarActions {
+  display: flex;
+  align-items: center;
+  gap: var(--sds-space-2);
+}
+
+/*
+ * `Menu.Trigger` renders a bare button, so the avatar needs its own hit area
+ * and focus ring here rather than inheriting one from a styled component.
+ */
+.avatarTrigger {
+  /* validate-allow: surface — Menu.Trigger renders a bare button; see the note above. */
+  display: inline-flex;
+  align-items: center;
+  padding: var(--sds-space-1);
+  border: none;
+  border-radius: var(--sds-radius-full);
+  background: transparent;
+  cursor: pointer;
+}
+
+.avatarTrigger:hover {
+  /* validate-allow: surface — hover state for the same bare trigger. */
+  background: var(--sds-color-background-sunken);
+}
+
+.avatarTrigger:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: 2px;
+}
+
+.main {
+  flex: 1 1 auto;
+  padding: var(--sds-space-8) var(--sds-space-6);
+}
+
+.mainInner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-6);
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: var(--sds-space-4);
+  align-items: start;
+}
+
+.metricValue {
+  display: block;
+  font-size: var(--sds-font-size-xl);
+  font-weight: var(--sds-font-weight-bold);
+  line-height: var(--sds-line-height-tight);
+  color: var(--sds-color-content-default);
+}
+
+.metricCaption {
+  margin: var(--sds-space-1) 0 0;
+  font-size: var(--sds-font-size-xs);
+  color: var(--sds-color-content-muted);
+}
+
+.navPanelList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 13rem));
+  gap: var(--sds-space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navLinkDescription {
+  display: block;
+  font-size: var(--sds-font-size-xs);
+  font-weight: var(--sds-font-weight-regular);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-content-muted);
+}
+
+.menuAccount {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-1);
+  padding: var(--sds-space-2) var(--sds-space-3);
+}
+
+.menuAccountName {
+  font-size: var(--sds-font-size-sm);
+  font-weight: var(--sds-font-weight-medium);
+  color: var(--sds-color-content-default);
+}
+
+.menuAccountEmail {
+  font-size: var(--sds-font-size-xs);
+  color: var(--sds-color-content-muted);
+}
+
+.activityRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sds-space-3);
+  padding-block: var(--sds-space-2);
+  font-size: var(--sds-font-size-sm);
+}
+
+.activityText {
+  flex: 1 1 auto;
+  color: var(--sds-color-content-default);
+}
+
+.activityTime {
+  flex: none;
+  font-size: var(--sds-font-size-xs);
+  color: var(--sds-color-content-muted);
+}

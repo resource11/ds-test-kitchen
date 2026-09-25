@@ -1,0 +1,42 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Checks, Commands, Mcps, Skills } from './toolkit/ToolkitTables';
+
+<Meta title="Toolkit" />
+
+# Toolkit: checks, commands, skills
+
+Everything that keeps Figma and code together, in one place: what to run,
+what to say to Claude, and what each tool needs. The same list is in the
+README under *The toolkit*.
+
+## Checks
+
+<Checks />
+
+## Commands
+
+Run them in the project folder.
+
+<Commands />
+
+## Skills
+
+A skill is a written procedure Claude follows for one kind of job. Call it by
+name (`/figma-library-from-code`) or just describe the job. `figma-library-from-code` keeps the
+library right; `storybook-figma-sync` builds screens from it.
+
+<Skills />
+
+## MCPs
+
+An MCP is a plug that lets Claude look things up in a tool and work in it.
+
+<Mcps />
+
+## A five-minute demo
+
+1. `npm run storybook`: the system, live.
+2. Open **Sync status** in this sidebar: every component, code and Figma side by side.
+3. Start a Claude session: its first line is the same check, unprompted.
+4. Open `figma/manifest.json` and search for `"keys"`: the handles that let Claude place real library components in any file.
+5. Ask Claude to put a prototype into Figma, or bring a Figma screen back: made of library instances, with a notes overview of what is real, what was built by hand and what is missing.

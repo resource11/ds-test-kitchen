@@ -1,0 +1,137 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-1);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-1);
+}
+
+.scrubArea {
+  align-self: flex-start;
+  cursor: ew-resize;
+  user-select: none;
+}
+
+/*
+ * Scrubbing takes a pointer lock, so the OS cursor is hidden for its duration.
+ * Base UI renders and positions this element in its place; without it the
+ * pointer simply disappears while the value is being dragged.
+ */
+.scrubAreaCursor svg {
+  display: block;
+  fill: currentcolor;
+  stroke: var(--sds-color-background-surface);
+}
+
+.label {
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
+  color: var(--sds-color-content-default);
+}
+
+.group {
+  display: inline-flex;
+  align-items: stretch;
+  align-self: flex-start;
+  background: var(--sds-color-background-surface);
+  border: 1px solid var(--sds-color-border-default);
+  border-radius: var(--sds-radius-md);
+  overflow: hidden;
+  transition: border-color var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.group:hover:not([data-disabled]) {
+  border-color: var(--sds-color-border-strong);
+}
+
+.group[data-invalid] {
+  border-color: var(--sds-color-border-danger);
+}
+
+.group[data-disabled] {
+  opacity: 0.5;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--sds-space-8);
+  height: var(--sds-space-10);
+  padding: 0;
+  background: var(--sds-color-background-sunken);
+  color: var(--sds-color-content-default);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.button:hover:not([data-disabled]) {
+  background: var(--sds-color-background-accent-subtle);
+  color: var(--sds-color-content-accent);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: -2px;
+}
+
+.button[data-disabled] {
+  cursor: not-allowed;
+}
+
+.input {
+  width: var(--sds-space-12);
+  min-width: 0;
+  flex: 1;
+  height: var(--sds-space-10);
+  padding: 0 var(--sds-space-3);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
+  border: none;
+  border-inline: 1px solid var(--sds-color-border-default);
+  font-family: var(--sds-typography-body-md-font-family);
+  font-size: var(--sds-typography-body-md-font-size);
+  font-weight: var(--sds-typography-body-md-font-weight);
+  line-height: var(--sds-typography-body-md-line-height);
+  letter-spacing: var(--sds-typography-body-md-letter-spacing);
+  text-transform: var(--sds-typography-body-md-text-transform);
+  text-align: center;
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: -2px;
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+.description {
+  font-family: var(--sds-typography-caption-font-family);
+  font-size: var(--sds-typography-caption-font-size);
+  font-weight: var(--sds-typography-caption-font-weight);
+  line-height: var(--sds-typography-caption-line-height);
+  letter-spacing: var(--sds-typography-caption-letter-spacing);
+  text-transform: var(--sds-typography-caption-text-transform);
+  color: var(--sds-color-content-muted);
+}
+
+.error {
+  font-family: var(--sds-typography-caption-font-family);
+  font-size: var(--sds-typography-caption-font-size);
+  font-weight: var(--sds-typography-caption-font-weight);
+  line-height: var(--sds-typography-caption-line-height);
+  letter-spacing: var(--sds-typography-caption-letter-spacing);
+  text-transform: var(--sds-typography-caption-text-transform);
+  color: var(--sds-color-content-danger);
+}

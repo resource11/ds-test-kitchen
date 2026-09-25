@@ -1,0 +1,96 @@
+/*
+ * Layout for the workshop sign-up prototype. Components own their insides;
+ * each class here is one named auto-layout frame in the Figma version
+ * (docs/layout.md: layout words and page anatomy). Semantic tokens only, and
+ * type is always a whole text style.
+ */
+
+/* Figma "GAP: Top bar — Split · space/4": the shell's bar, ends pushed apart. */
+.topBar {
+  justify-content: space-between;
+}
+
+.wordmark {
+  font-family: var(--sds-typography-heading-md-font-family);
+  font-size: var(--sds-typography-heading-md-font-size);
+  font-weight: var(--sds-typography-heading-md-font-weight);
+  line-height: var(--sds-typography-heading-md-line-height);
+  letter-spacing: var(--sds-typography-heading-md-letter-spacing);
+  text-transform: var(--sds-typography-heading-md-text-transform);
+  color: var(--sds-color-content-default);
+  white-space: nowrap;
+}
+
+/* Figma "Stack · space/2 — Page header". */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-2);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--sds-typography-heading-xl-font-family);
+  font-size: var(--sds-typography-heading-xl-font-size);
+  font-weight: var(--sds-typography-heading-xl-font-weight);
+  line-height: var(--sds-typography-heading-xl-line-height);
+  letter-spacing: var(--sds-typography-heading-xl-letter-spacing);
+  text-transform: var(--sds-typography-heading-xl-text-transform);
+  color: var(--sds-color-content-default);
+}
+
+.lead {
+  margin: 0;
+  font-family: var(--sds-typography-body-md-font-family);
+  font-size: var(--sds-typography-body-md-font-size);
+  font-weight: var(--sds-typography-body-md-font-weight);
+  line-height: var(--sds-typography-body-md-line-height);
+  letter-spacing: var(--sds-typography-body-md-letter-spacing);
+  text-transform: var(--sds-typography-body-md-text-transform);
+  color: var(--sds-color-content-muted);
+}
+
+/* Figma "Cluster · space/2 — Badges". */
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sds-space-2);
+}
+
+/* Figma "Columns · space/8": the form grows, the aside is 320px. */
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20rem;
+  gap: var(--sds-space-8);
+  align-items: start;
+}
+
+/* Figma "Cluster · space/3 — Host": avatar, then name and role. */
+.host {
+  display: flex;
+  align-items: center;
+  gap: var(--sds-space-3);
+}
+
+.hostName {
+  margin: 0;
+  font-family: var(--sds-typography-title-sm-font-family);
+  font-size: var(--sds-typography-title-sm-font-size);
+  font-weight: var(--sds-typography-title-sm-font-weight);
+  line-height: var(--sds-typography-title-sm-line-height);
+  letter-spacing: var(--sds-typography-title-sm-letter-spacing);
+  text-transform: var(--sds-typography-title-sm-text-transform);
+  color: var(--sds-color-content-default);
+}
+
+.hostRole {
+  margin: 0;
+  font-family: var(--sds-typography-caption-font-family);
+  font-size: var(--sds-typography-caption-font-size);
+  font-weight: var(--sds-typography-caption-font-weight);
+  line-height: var(--sds-typography-caption-line-height);
+  letter-spacing: var(--sds-typography-caption-letter-spacing);
+  text-transform: var(--sds-typography-caption-text-transform);
+  color: var(--sds-color-content-muted);
+}

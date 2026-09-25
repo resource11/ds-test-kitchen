@@ -1,0 +1,128 @@
+/*
+ * Layout for the booking prototype. Components own their insides; this file
+ * only places them — each class is one auto-layout frame in the Figma version,
+ * named after it. Semantic tokens only, and type is always a whole text style.
+ */
+
+/* The shell's bar, pushed apart by space-between rather than an empty spacer. */
+.topBar {
+  justify-content: space-between;
+}
+
+.wordmark {
+  font-family: var(--sds-typography-heading-md-font-family);
+  font-size: var(--sds-typography-heading-md-font-size);
+  font-weight: var(--sds-typography-heading-md-font-weight);
+  line-height: var(--sds-typography-heading-md-line-height);
+  letter-spacing: var(--sds-typography-heading-md-letter-spacing);
+  text-transform: var(--sds-typography-heading-md-text-transform);
+  color: var(--sds-color-content-default);
+  white-space: nowrap;
+}
+
+/* Figma "Page header": badges, title, lead. */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-2);
+}
+
+/* Figma "Badges": a wrapping row. Layout, not a component. */
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sds-space-2);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--sds-typography-heading-xl-font-family);
+  font-size: var(--sds-typography-heading-xl-font-size);
+  font-weight: var(--sds-typography-heading-xl-font-weight);
+  line-height: var(--sds-typography-heading-xl-line-height);
+  letter-spacing: var(--sds-typography-heading-xl-letter-spacing);
+  text-transform: var(--sds-typography-heading-xl-text-transform);
+  color: var(--sds-color-content-default);
+}
+
+.lead {
+  margin: 0;
+  font-family: var(--sds-typography-body-md-font-family);
+  font-size: var(--sds-typography-body-md-font-size);
+  font-weight: var(--sds-typography-body-md-font-weight);
+  line-height: var(--sds-typography-body-md-line-height);
+  letter-spacing: var(--sds-typography-body-md-letter-spacing);
+  text-transform: var(--sds-typography-body-md-text-transform);
+  color: var(--sds-color-content-muted);
+}
+
+/* Figma "Columns": a growing main column and a fixed aside. */
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20rem;
+  gap: var(--sds-space-8);
+  align-items: start;
+}
+
+/* Figma "Main column". */
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-6);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-family: var(--sds-typography-heading-lg-font-family);
+  font-size: var(--sds-typography-heading-lg-font-size);
+  font-weight: var(--sds-typography-heading-lg-font-weight);
+  line-height: var(--sds-typography-heading-lg-line-height);
+  letter-spacing: var(--sds-typography-heading-lg-letter-spacing);
+  text-transform: var(--sds-typography-heading-lg-text-transform);
+  color: var(--sds-color-content-default);
+}
+
+/* Tabs.Panel brings its text style but no spacing from the list. */
+.tabPanel {
+  padding-block-start: var(--sds-space-4);
+}
+
+/* Figma "Guide": avatar and name side by side. */
+.guide {
+  display: flex;
+  align-items: center;
+  gap: var(--sds-space-3);
+}
+
+.guideName {
+  margin: 0;
+  font-family: var(--sds-typography-title-sm-font-family);
+  font-size: var(--sds-typography-title-sm-font-size);
+  font-weight: var(--sds-typography-title-sm-font-weight);
+  line-height: var(--sds-typography-title-sm-line-height);
+  letter-spacing: var(--sds-typography-title-sm-letter-spacing);
+  text-transform: var(--sds-typography-title-sm-text-transform);
+  color: var(--sds-color-content-default);
+}
+
+.guideRole {
+  margin: 0;
+  font-family: var(--sds-typography-caption-font-family);
+  font-size: var(--sds-typography-caption-font-size);
+  font-weight: var(--sds-typography-caption-font-weight);
+  line-height: var(--sds-typography-caption-line-height);
+  letter-spacing: var(--sds-typography-caption-letter-spacing);
+  text-transform: var(--sds-typography-caption-text-transform);
+  color: var(--sds-color-content-muted);
+}
+
+/* Figma "Actions": Back and Continue. */
+.actions {
+  display: flex;
+  gap: var(--sds-space-3);
+}
+
+.progress {
+  max-width: 20rem;
+}

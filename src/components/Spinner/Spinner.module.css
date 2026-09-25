@@ -1,0 +1,55 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sds-color-content-accent);
+  flex: none;
+}
+
+/* Sizes */
+.sm {
+  width: 16px;
+  height: 16px;
+}
+
+.md {
+  width: 24px;
+  height: 24px;
+}
+
+.lg {
+  width: 40px;
+  height: 40px;
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  animation: spin 900ms linear infinite;
+}
+
+.track {
+  opacity: 0.2;
+}
+
+.indicator {
+  /* Circumference of r=6.5 is ~40.8; a quarter arc reads as motion. */
+  stroke-dasharray: 10 31;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Slowed rather than stopped: still visibly busy, far less motion. */
+@media (prefers-reduced-motion: reduce) {
+  .svg {
+    animation-duration: 3000ms;
+  }
+
+  .indicator {
+    stroke-dasharray: 20 21;
+  }
+}

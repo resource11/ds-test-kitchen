@@ -1,0 +1,137 @@
+/*
+ * Layout for the blog prototypes only (Prototypes/Blog index, Prototypes/Article
+ * detail). Kept out of Patterns.module.css so the design system's own pattern
+ * CSS carries nothing a prototype needed. Semantic tokens only; page layout,
+ * no surfaces.
+ */
+
+/* --------------------------------------------------------------- Blog index */
+
+/* Title block on the left, topic legend pushed right when there is room. */
+.blogHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sds-space-4);
+}
+
+.topicList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sds-space-2);
+}
+
+.topicLabel {
+  font-size: var(--sds-font-size-xs);
+  font-weight: var(--sds-font-weight-medium);
+  color: var(--sds-color-content-muted);
+}
+
+/* Badge above its card. `flex-start` keeps the Badge at its own width. */
+.article {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sds-space-3);
+}
+
+/*
+ * The card fills its column and the row height. Card's own
+ * `.footer { margin-top: auto }` then pins the actions to the bottom.
+ */
+.articleCard {
+  flex: 1 1 auto;
+  align-self: stretch;
+}
+
+/* Rows stretch so every card in a row is the same height. */
+.articleGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: var(--sds-space-6);
+}
+
+.loadMore {
+  display: flex;
+  justify-content: center;
+}
+
+/* ----------------------------------------------------------- Article detail */
+
+.articlePage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-6);
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+/* `flex-start` keeps the topic Badge at its own width. */
+.articleHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sds-space-3);
+}
+
+.byline {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  gap: var(--sds-space-3);
+}
+
+.bylineText {
+  display: flex;
+  flex-direction: column;
+}
+
+.bylineName {
+  font-size: var(--sds-font-size-sm);
+  font-weight: var(--sds-font-weight-medium);
+  color: var(--sds-color-content-default);
+}
+
+.bylineMeta {
+  font-size: var(--sds-font-size-xs);
+  color: var(--sds-color-content-muted);
+}
+
+/*
+ * GAP: long-form text. There is no prose component, so the article body is
+ * plain HTML styled here from the type tokens.
+ */
+.prose {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-4);
+  font-size: var(--sds-font-size-md);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-content-default);
+}
+
+.prose p,
+.prose ol {
+  margin: 0;
+}
+
+.prose ol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-2);
+  padding-left: var(--sds-space-6);
+}
+
+.prose h2 {
+  margin: var(--sds-space-4) 0 0;
+  font-size: var(--sds-font-size-lg);
+  font-weight: var(--sds-font-weight-bold);
+  line-height: var(--sds-line-height-tight);
+}
+
+.prose code {
+  font-family: var(--sds-font-mono);
+  font-size: var(--sds-font-size-sm);
+}

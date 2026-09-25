@@ -1,0 +1,54 @@
+import { Meta, Unstyled } from '@storybook/addon-docs/blocks';
+import { Home } from './getting-started/Home';
+
+<Meta title="Getting started" />
+
+{/* The top is built from the system's own components (src/getting-started/Home.tsx). */}
+<Unstyled>
+  <Home />
+</Unstyled>
+
+## Read it in this order
+
+**Foundations** first. Colour, Typography, Space and shape, Motion. These are the decisions everything else inherits. Flip the theme toggle in the toolbar while you read: token names stay fixed, values change. That is the whole idea.
+
+**Components** second. Each has a Default story, then a story per meaningful state, disabled included. Open the Controls panel and change props. Open the Accessibility panel and check it stays clean.
+
+**Patterns** last. Real screens assembled from the library: a settings page, a sign-up form, a data table and an application shell. This is where you find out whether the system holds together, because a component library can look immaculate in isolation and still be painful to build a page with.
+
+## The two token tiers
+
+Tokens are written as JSON in [`tokens/`](https://github.com/christinevall/ds-base-ui/tree/main/tokens), and the CSS is generated from it by `npm run build:tokens`. Edit the JSON, never the CSS. That one source is also what maps to Figma variables.
+
+`tokens/tier-1-definitions/` holds raw material: colour ramps, the spacing scale, the type scale. The colour ramps are off-limits to components.
+
+`tokens/tier-2-usage/` holds roles: `--sds-color-content-accent`, `--sds-color-content-muted`, `--sds-color-background-danger-subtle`. Colour is split into three categories — `background`, `content`, `border` — so the name says what the colour is *for*. Components use these and only these for colour. Theming means redefining one tier, split here into a light and a dark file.
+
+Why two tiers? Because `--sds-color-brand-indigo-600` tells you what a colour *is*, and `--sds-color-content-accent` tells you what it is *for*. Only the second survives a rebrand, and only the second maps cleanly onto a Figma variable.
+
+Tier 2 also holds **text styles** — `--sds-typography-heading-lg-*` and friends, bundling family, size, weight, line height and letter spacing. That bundle is the unit that maps to a Figma text style.
+
+**Breakpoints** sit in tier 1 but are emitted to TypeScript as well as CSS, because a CSS custom property cannot be used inside a media query. The viewport sizes in the toolbar above are generated from them.
+
+## What Base UI gives us, and what it does not
+
+Base UI ships around 40 unstyled primitives: behaviour, keyboard handling and ARIA, with no opinion about appearance. Dialog, Select, Menu, Tabs, Tooltip and the rest come from there. We wrap them and style from tokens.
+
+It deliberately ships nothing for Card, Badge, Alert, Table, Spinner, Breadcrumb or IconButton, because those have no interaction logic worth abstracting. We wrote those ourselves. They are the easy ones.
+
+The rule that follows: **if Base UI has a primitive, wrap it.** Never reimplement focus trapping, roving tabindex or `aria-expanded` by hand. That is where accessibility bugs come from, and it is the highest-value rule in [`docs/conventions.md`](https://github.com/christinevall/ds-base-ui/blob/main/docs/conventions.md).
+
+## A worked example of why that rule exists
+
+Every wrapper here was audited against Base UI's own reference implementations. That pass found six real bugs that typechecked perfectly and looked fine in a simple story:
+
+- The Slider thumb had no keyboard focus ring, because the primitive puts focus on a visually hidden `input` inside the thumb, not on the thumb itself.
+- Select's scroll container was on the wrong part, which silently disabled a documented public prop.
+- Toasts beyond the queue limit stay mounted and marked `data-limited`, expecting CSS to hide them. Nothing did, so a fourth toast rendered as an undismissable card.
+- Popups sized themselves with `100vw` instead of the `--available-width` the primitive publishes, so they could overflow near a viewport edge.
+
+None of these were visible without comparing against the source. That is the difference between wrapping a primitive and wrapping it correctly.
+
+## Branching
+
+[`docs/branching.md`](https://github.com/christinevall/ds-base-ui/blob/main/docs/branching.md) has the model. `main` is the design system, and changes land on it through `feature/*` pull requests. Prototype on `design`, the long-lived branch for exploring in real code; accepted prototypes come back through a normal feature branch rather than merging `design` directly.

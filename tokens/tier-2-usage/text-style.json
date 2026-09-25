@@ -1,0 +1,130 @@
+{
+  "typography": {
+    "heading-xl": {
+      "$description": "The page title. One per screen.",
+      "font-family": { "$value": "{font.sans}", "$type": "fontFamily" },
+      "font-size": { "$value": "{font.size.xl}", "$type": "dimension" },
+      "font-weight": { "$value": "{font.weight.bold}", "$type": "fontWeight" },
+      "line-height": { "$value": "{line.height.tight}", "$type": "number" },
+      "letter-spacing": { "$value": "{letter.spacing.tight}", "$type": "dimension" },
+      "text-transform": { "$value": "{text.transform.none}" }
+    },
+    "heading-lg": {
+      "$description": "Section headings, and card titles that head a section.",
+      "font-family": { "$value": "{font.sans}", "$type": "fontFamily" },
+      "font-size": { "$value": "{font.size.lg}", "$type": "dimension" },
+      "font-weight": { "$value": "{font.weight.bold}", "$type": "fontWeight" },
+      "line-height": { "$value": "{line.height.tight}", "$type": "number" },
+      "letter-spacing": { "$value": "{letter.spacing.normal}", "$type": "dimension" },
+      "text-transform": { "$value": "{text.transform.none}" }
+    },
+    "heading-md": {
+      "$description": "Sub-section headings inside a section.",
+      "font-family": { "$value": "{font.sans}", "$type": "fontFamily" },
+      "font-size": { "$value": "{font.size.md}", "$type": "dimension" },
+      "font-weight": { "$value": "{font.weight.medium}", "$type": "fontWeight" },
+      "line-height": { "$value": "{line.height.tight}", "$type": "number" },
+      "letter-spacing": { "$value": "{letter.spacing.normal}", "$type": "dimension" },
+      "text-transform": { "$value": "{text.transform.none}" }
+    },
+    "title-md": {
+      "$description": "Titles of overlays — popover, toast. Bolder than a label, smaller than a heading.",
+      "font-family": { "$value": "{font.sans}", "$type": "fontFamily" },
+      "font-size": { "$value": "{font.size.md}", "$type": "dimension" },
+      "font-weight": { "$value": "{font.weight.bold}", "$type": "fontWeight" },
+      "line-height": { "$value": "{line.height.tight}", "$type": "number" },
+      "letter-spacing": { "$value": "{letter.spacing.normal}", "$type": "dimension" },
+      "text-transform": { "$value": "{text.transform.none}" }
+    },
+    "title-sm": {
+      "$description": "Titles inside compact surfaces, such as an alert.",
+      "font-family": { "$value": "{font.sans}", "$type": "fontFamily" },
+      "font-size": { "$value": "{font.size.sm}", "$type": "dimension" },
+      "font-weight": { "$value": "{font.weight.bold}", "$type": "fontWeight" },
+      "line-height": { "$value": "{line.height.tight}", "$type": "number" },
+      "letter-spacing": { "$value": "{letter.spacing.normal}", "$type": "dimension" },
+      "text-transform": { "$value": "{text.transform.none}" }
+    },
+    "body-md": {
+      "$description": "Default reading text, input values and list items.",
+      "font-family": { "$value": "{font.sans}", "$type": "fontFamily" },
+      "font-size": { "$value": "{font.size.md}", "$type": "dimension" },
+      "font-weight": { "$value": "{font.weight.regular}", "$type": "fontWeight" },
+      "line-height": { "$value": "{line.height.normal}", "$type": "number" },
+      "letter-spacing": { "$value": "{letter.spacing.normal}", "$type": "dimension" },
+      "text-transform": { "$value": "{text.transform.none}" }
+    },
+    "body-sm": {
+      "$description": "Secondary reading text: descriptions, table cells, popup content.",
+      "font-family": { "$value": "{font.sans}", "$type": "fontFamily" },
+      "font-size": { "$value": "{font.size.sm}", "$type": "dimension" },
+      "font-weight": { "$value": "{font.weight.regular}", "$type": "fontWeight" },
+      "line-height": { "$value": "{line.height.normal}", "$type": "number" },
+      "letter-spacing": { "$value": "{letter.spacing.normal}", "$type": "dimension" },
+      "text-transform": { "$value": "{text.transform.none}" }
+    },
+    "label-xl": {
+      "$description": "Large control labels: lg buttons and toggles, fieldset legends.",
+      "font-family": { "$value": "{font.sans}", "$type": "fontFamily" },
+      "font-size": { "$value": "{font.size.lg}", "$type": "dimension" },
+      "font-weight": { "$value": "{font.weight.medium}", "$type": "fontWeight" },
+      "line-height": { "$value": "{line.height.tight}", "$type": "number" },
+      "letter-spacing": { "$value": "{letter.spacing.normal}", "$type": "dimension" },
+      "text-transform": { "$value": "{text.transform.none}" }
+    },
+    "label-lg": {
+      "$description": "Default button and toggle labels, and large avatars.",
+      "font-family": { "$value": "{font.sans}", "$type": "fontFamily" },
+      "font-size": { "$value": "{font.size.md}", "$type": "dimension" },
+      "font-weight": { "$value": "{font.weight.medium}", "$type": "fontWeight" },
+      "line-height": { "$value": "{line.height.tight}", "$type": "number" },
+      "letter-spacing": { "$value": "{letter.spacing.normal}", "$type": "dimension" },
+      "text-transform": { "$value": "{text.transform.none}" }
+    },
+    "label-md": {
+      "$description": "Form field labels, small button labels, tabs and navigation.",
+      "font-family": { "$value": "{font.sans}", "$type": "fontFamily" },
+      "font-size": { "$value": "{font.size.sm}", "$type": "dimension" },
+      "font-weight": { "$value": "{font.weight.medium}", "$type": "fontWeight" },
+      "line-height": { "$value": "{line.height.tight}", "$type": "number" },
+      "letter-spacing": { "$value": "{letter.spacing.normal}", "$type": "dimension" },
+      "text-transform": { "$value": "{text.transform.none}" }
+    },
+    "label-sm": {
+      "$description": "Badges and small avatars — the smallest label that stays readable.",
+      "font-family": { "$value": "{font.sans}", "$type": "fontFamily" },
+      "font-size": { "$value": "{font.size.xs}", "$type": "dimension" },
+      "font-weight": { "$value": "{font.weight.medium}", "$type": "fontWeight" },
+      "line-height": { "$value": "{line.height.tight}", "$type": "number" },
+      "letter-spacing": { "$value": "{letter.spacing.wide}", "$type": "dimension" },
+      "text-transform": { "$value": "{text.transform.none}" }
+    },
+    "overline": {
+      "$description": "Uppercase group labels in menus and select lists. label-sm, in capitals.",
+      "font-family": { "$value": "{font.sans}", "$type": "fontFamily" },
+      "font-size": { "$value": "{font.size.xs}", "$type": "dimension" },
+      "font-weight": { "$value": "{font.weight.medium}", "$type": "fontWeight" },
+      "line-height": { "$value": "{line.height.tight}", "$type": "number" },
+      "letter-spacing": { "$value": "{letter.spacing.wide}", "$type": "dimension" },
+      "text-transform": { "$value": "{text.transform.uppercase}" }
+    },
+    "caption": {
+      "$description": "Hints, helper text and error messages under fields.",
+      "font-family": { "$value": "{font.sans}", "$type": "fontFamily" },
+      "font-size": { "$value": "{font.size.xs}", "$type": "dimension" },
+      "font-weight": { "$value": "{font.weight.regular}", "$type": "fontWeight" },
+      "line-height": { "$value": "{line.height.normal}", "$type": "number" },
+      "letter-spacing": { "$value": "{letter.spacing.normal}", "$type": "dimension" },
+      "text-transform": { "$value": "{text.transform.none}" }
+    },
+    "code-sm": {
+      "$description": "Inline code and technical values.",
+      "font-family": { "$value": "{font.mono}", "$type": "fontFamily" },
+      "font-size": { "$value": "{font.size.xs}", "$type": "dimension" },
+      "font-weight": { "$value": "{font.weight.regular}", "$type": "fontWeight" },
+      "line-height": { "$value": "{line.height.normal}", "$type": "number" },
+      "letter-spacing": { "$value": "{letter.spacing.normal}", "$type": "dimension" },
+      "text-transform": { "$value": "{text.transform.none}" }
+    }
+  }
+}

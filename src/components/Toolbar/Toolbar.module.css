@@ -1,0 +1,151 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: var(--sds-space-1);
+  padding: var(--sds-space-1);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
+  border: 1px solid var(--sds-color-border-default);
+  border-radius: var(--sds-radius-md);
+  box-shadow: var(--sds-elevation-raised);
+  font-family: var(--sds-font-sans);
+}
+
+.root[data-orientation='vertical'] {
+  flex-direction: column;
+  align-items: stretch;
+  width: max-content;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  gap: var(--sds-space-1);
+}
+
+.root[data-orientation='vertical'] .group {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sds-space-2);
+  padding: var(--sds-space-1) var(--sds-space-2);
+  min-width: 32px;
+  min-height: 32px;
+  border: 1px solid transparent;
+  border-radius: var(--sds-radius-sm);
+  background: transparent;
+  color: var(--sds-color-content-default);
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
+  cursor: pointer;
+  transition:
+    background-color var(--sds-duration-fast) var(--sds-easing-standard),
+    color var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.button:hover:not([data-disabled]) {
+  background: var(--sds-color-background-sunken);
+}
+
+.button[data-pressed],
+.button[data-popup-open] {
+  background: var(--sds-color-background-accent-subtle);
+  color: var(--sds-color-content-accent);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: 2px;
+}
+
+.button[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sds-space-2);
+  padding: var(--sds-space-1) var(--sds-space-2);
+  min-height: 32px;
+  border-radius: var(--sds-radius-sm);
+  color: var(--sds-color-content-accent);
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
+  text-decoration: none;
+}
+
+.link:hover {
+  background: var(--sds-color-background-accent-subtle);
+  text-decoration: underline;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: 2px;
+}
+
+.input {
+  box-sizing: border-box;
+  min-width: 8rem;
+  padding: var(--sds-space-1) var(--sds-space-2);
+  min-height: 32px;
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
+  border: 1px solid var(--sds-color-border-default);
+  border-radius: var(--sds-radius-sm);
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
+}
+
+.input::placeholder {
+  color: var(--sds-color-content-muted);
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: 2px;
+}
+
+.input[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/*
+ * The separator flips orientation against the toolbar, so a horizontal
+ * toolbar gets a vertical rule and vice versa.
+ */
+.separator {
+  flex: none;
+  background: var(--sds-color-border-default);
+}
+
+.separator[data-orientation='vertical'] {
+  width: 1px;
+  align-self: stretch;
+  margin: var(--sds-space-1) var(--sds-space-1);
+}
+
+.separator[data-orientation='horizontal'] {
+  height: 1px;
+  margin: var(--sds-space-1) var(--sds-space-1);
+}

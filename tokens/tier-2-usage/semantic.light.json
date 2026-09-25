@@ -1,0 +1,131 @@
+{
+  "color": {
+    "$type": "color",
+    "background": {
+      "default": {
+        "$value": "{color.neutral.50}"
+      },
+      "surface": {
+        "$value": "{color.neutral.white}"
+      },
+      "sunken": {
+        "$value": "{color.neutral.100}"
+      },
+      "overlay": {
+        "$value": "rgb(0 0 0 / 0.4)"
+      },
+      "on-accent": {
+        "$value": "{color.neutral.white}",
+        "$description": "A surface sitting on an accent fill, e.g. a switch thumb or radio dot."
+      },
+      "accent": {
+        "$value": "{color.brand.indigo.600}"
+      },
+      "accent-hover": {
+        "$value": "{color.brand.indigo.700}"
+      },
+      "accent-active": {
+        "$value": "{color.brand.indigo.800}"
+      },
+      "accent-subtle": {
+        "$value": "{color.brand.indigo.50}"
+      },
+      "danger": {
+        "$value": "{color.utility.red.600}"
+      },
+      "danger-hover": {
+        "$value": "{color.utility.red.700}"
+      },
+      "danger-subtle": {
+        "$value": "{color.utility.red.100}"
+      },
+      "success": {
+        "$value": "{color.utility.green.600}"
+      },
+      "success-subtle": {
+        "$value": "{color.utility.green.100}"
+      },
+      "warning": {
+        "$value": "{color.utility.yellow.600}"
+      },
+      "warning-subtle": {
+        "$value": "{color.utility.yellow.100}"
+      }
+    },
+    "content": {
+      "default": {
+        "$value": "{color.neutral.900}"
+      },
+      "muted": {
+        "$value": "{color.neutral.700}"
+      },
+      "inverse": {
+        "$value": "{color.neutral.white}"
+      },
+      "accent": {
+        "$value": "{color.brand.indigo.600}"
+      },
+      "danger": {
+        "$value": "{color.utility.red.600}"
+      },
+      "success": {
+        "$value": "{color.utility.green.600}"
+      },
+      "warning": {
+        "$value": "{color.utility.yellow.600}"
+      },
+      "on-accent": {
+        "$value": "{color.neutral.white}",
+        "$description": "Content placed ON an accent background. Contrast-paired, not the accent colour itself."
+      },
+      "on-danger": {
+        "$value": "{color.neutral.white}"
+      },
+      "on-success": {
+        "$value": "{color.neutral.white}"
+      },
+      "on-warning": {
+        "$value": "{color.neutral.950}"
+      }
+    },
+    "border": {
+      "default": {
+        "$value": "{color.neutral.300}"
+      },
+      "strong": {
+        "$value": "{color.neutral.400}"
+      },
+      "focus": {
+        "$value": "{color.brand.indigo.500}"
+      },
+      "accent": {
+        "$value": "{color.brand.indigo.600}"
+      },
+      "accent-hover": {
+        "$value": "{color.brand.indigo.700}"
+      },
+      "danger": {
+        "$value": "{color.utility.red.600}"
+      },
+      "success": {
+        "$value": "{color.utility.green.600}"
+      },
+      "warning": {
+        "$value": "{color.utility.yellow.600}"
+      }
+    }
+  },
+  "elevation": {
+    "$type": "shadow",
+    "raised": {
+      "$value": "{shadow.sm}"
+    },
+    "floating": {
+      "$value": "{shadow.md}",
+      "$description": "A control lifted while being interacted with, e.g. a slider thumb mid-drag. Between raised and overlay."
+    },
+    "overlay": {
+      "$value": "{shadow.lg}"
+    }
+  }
+}

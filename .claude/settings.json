@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npm run --silent sync-status -- --summary 2>/dev/null || echo 'Sync check could not run (is Node installed? see CLAUDE.md).'"
+          }
+        ]
+      }
+    ]
+  }
+}

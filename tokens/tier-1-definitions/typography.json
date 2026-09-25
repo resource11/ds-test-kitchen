@@ -1,0 +1,50 @@
+{
+  "font": {
+    "sans": {
+      "$value": "Inter, ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+      "$description": "Inter, self-hosted in src/fonts/. The system stack behind it only shows while Inter loads or if it fails.",
+      "$type": "fontFamily"
+    },
+    "mono": {
+      "$value": "\"Roboto Mono\", ui-monospace, SFMono-Regular, \"SF Mono\", Menlo, monospace",
+      "$description": "Roboto Mono, self-hosted in src/fonts/. The system stack behind it only shows while Roboto Mono loads or if it fails.",
+      "$type": "fontFamily"
+    },
+    "size": {
+      "$type": "dimension",
+      "xs": { "$value": "0.75rem" },
+      "sm": { "$value": "0.875rem" },
+      "md": { "$value": "1rem" },
+      "lg": { "$value": "1.125rem" },
+      "xl": { "$value": "1.5rem" }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "regular": { "$value": "400" },
+      "medium":  { "$value": "500" },
+      "bold":    { "$value": "600" }
+    }
+  },
+  "line": {
+    "height": {
+      "$type": "number",
+      "tight":  { "$value": "1.2" },
+      "normal": { "$value": "1.5" }
+    }
+  },
+  "letter": {
+    "spacing": {
+      "$type": "dimension",
+      "tight":  { "$value": "-0.01em" },
+      "normal": { "$value": "0" },
+      "wide":   { "$value": "0.02em" }
+    }
+  },
+  "text": {
+    "transform": {
+      "$description": "Letter case, the sixth property of a text style. Maps to Case on a Figma text style.",
+      "none":      { "$value": "none" },
+      "uppercase": { "$value": "uppercase" }
+    }
+  }
+}

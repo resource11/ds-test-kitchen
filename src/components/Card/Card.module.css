@@ -1,0 +1,72 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
+  font-family: var(--sds-font-sans);
+  border: 1px solid transparent;
+  border-radius: var(--sds-radius-lg);
+  overflow: hidden;
+}
+
+/* Variants */
+.outlined {
+  border-color: var(--sds-color-border-default);
+}
+
+.elevated {
+  box-shadow: var(--sds-elevation-raised);
+}
+
+/* Slots */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-1);
+  padding: var(--sds-space-5) var(--sds-space-5) var(--sds-space-3);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--sds-typography-heading-lg-font-family);
+  font-size: var(--sds-typography-heading-lg-font-size);
+  font-weight: var(--sds-typography-heading-lg-font-weight);
+  line-height: var(--sds-typography-heading-lg-line-height);
+  letter-spacing: var(--sds-typography-heading-lg-letter-spacing);
+  text-transform: var(--sds-typography-heading-lg-text-transform);
+  color: var(--sds-color-content-default);
+}
+
+.description {
+  margin: 0;
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
+  color: var(--sds-color-content-muted);
+}
+
+.body {
+  padding: var(--sds-space-3) var(--sds-space-5);
+  font-family: var(--sds-typography-body-md-font-family);
+  font-size: var(--sds-typography-body-md-font-size);
+  font-weight: var(--sds-typography-body-md-font-weight);
+  line-height: var(--sds-typography-body-md-line-height);
+  letter-spacing: var(--sds-typography-body-md-letter-spacing);
+  text-transform: var(--sds-typography-body-md-text-transform);
+}
+
+/* The header sits directly on the body when no title block is used. */
+.header + .body {
+  padding-top: var(--sds-space-2);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: var(--sds-space-3);
+  padding: var(--sds-space-4) var(--sds-space-5) var(--sds-space-5);
+  margin-top: auto;
+}
